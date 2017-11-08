@@ -27,34 +27,34 @@ class App extends React.Component {
                 <b>Nossas Rotas Blog</b>
               </h1>
               <p>
-                Welcome to the blog of <span class="tag">Ivo & Mari</span>
+                Welcome to the blog of <span className="tag">Ivo & Mari</span>
               </p>
             </header>
 
             <div className="row">
 
-            <div class="col l8 s12">
+            <div className="col l8 s12">
                 {this.state.posts.map(post => (
-                  <div class="card-4 margin white">
+                  <div className="card-4 margin white">
                     <Post key={post.id} post={post} />
                   </div>
                 ))}
               </div>
 
-              <div class="col l4">
-                <div class="card margin margin-top">
+              <div className="col l4">
+                <div className="card margin margin-top">
                   <About />
                 </div>
 
-                <div class="card margin">
-                  <div class="container padding">
+                <div className="card margin">
+                  <div className="container padding">
                     <h4>Popular Posts</h4>
                   </div>
                   <PopularPosts />
                 </div>
 
-                <div class="card margin">
-                  <div class="container padding">
+                <div className="card margin">
+                  <div className="container padding">
                     <h4>Category</h4>
                   </div>
                   <Category />

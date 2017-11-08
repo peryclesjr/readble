@@ -11,22 +11,22 @@ class Post extends React.Component {
         </h3>
         <h5>
           {post.author},{' '}
-          <span class="opacity">{utils.formattedDate(post.timestamp)}</span>
+          <span className="opacity">{utils.formattedDate(post.timestamp)}</span>
         </h5>
-        <div class="container">
+        <div className="container">
           <p>{post.body.substr(0, 100).trim()}{'...'}</p>
-          <div class="row">
-            <div class="col m8 s12">
+          <div className="row">
+            <div className="col m8 s12">
               <p>
-                <button class="button padding-large white border">
+                <button className="button padding-large white border">
                   <b>READ MORE »</b>
                 </button>
               </p>
             </div>
-            <div class="col m4 hide-small">
+            <div className="col m4 hide-small">
               <p>
-                <span class="padding-large right">
-                  <b>Comments </b> <span class="badge">0</span>
+                <span className="padding-large right">
+                  <b>Comments </b> <span className="badge">0</span>
                 </span>
               </p>
             </div>

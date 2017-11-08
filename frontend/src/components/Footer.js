@@ -1,11 +1,7 @@
 import React from 'react'
 
 const Footer = () => (
-  <footer class="container dark-grey padding-32 margin-top">
-    <button class="button black disabled padding-large margin-bottom">
-      Previous
-    </button>
-    <button class="button black padding-large margin-bottom">Next »</button>
+  <footer className="container dark-grey padding-32 margin-top">
     <p>
       Powered by{' '}
       <a

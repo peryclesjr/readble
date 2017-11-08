@@ -20,7 +20,7 @@ const PopularPosts = () => (
         className="left margin-right"
         style={{ width: 50 }}
       />
-      <span class="large">Ipsum</span>
+      <span className="large">Ipsum</span>
       <br />
       <span>Praes tinci sed</span>
     </li>
