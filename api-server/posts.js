@@ -10,7 +10,7 @@ const defaultData = {
     body: 'Hello, in this post we will tell you everything you need to know to go to one of the most spectacular places on the planet.',
     author: 'Ivo',
     category: 'travel',
-    voteScore: 6,
+    voteScore: 1,
     deleted: false,
     commentCount: 0
   },
@@ -21,7 +21,7 @@ const defaultData = {
     body: 'Without a doubt, Machu Picchu is one of the wonders of the world. Follow how our trip was in this post.',
     author: 'Mari',
     category: 'roadtrip',
-    voteScore: 5,
+    voteScore: 2,
     deleted: false,
     commentCount: 0
   }
