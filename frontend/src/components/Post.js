@@ -10,7 +10,7 @@ class Post extends React.Component {
           <b>{post.title}</b>
         </h3>
         <h5>
-          {post.author},{' '}
+          {post.author}{' '}
           <span className="opacity">{utils.formattedDate(post.timestamp)}</span>
         </h5>
         <div className="container">

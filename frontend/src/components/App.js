@@ -22,7 +22,7 @@ class App extends React.Component {
       <div>
         <div className="light-grey">
           <div className="content" style={{ maxWidth: 1400 }}>
-            <header class="container center padding-32">
+            <header className="container center padding-32">
               <h1>
                 <b>Nossas Rotas Blog</b>
               </h1>
@@ -32,10 +32,9 @@ class App extends React.Component {
             </header>
 
             <div className="row">
-
-            <div className="col l8 s12">
+              <div className="col l8 s12">
                 {this.state.posts.map(post => (
-                  <div className="card-4 margin white">
+                  <div key={post.id} className="card-4 margin white">
                     <Post key={post.id} post={post} />
                   </div>
                 ))}
@@ -50,7 +49,7 @@ class App extends React.Component {
                   <div className="container padding">
                     <h4>Popular Posts</h4>
                   </div>
-                  <PopularPosts />
+                  <PopularPosts posts={this.state.posts} />
                 </div>
 
                 <div className="card margin">
@@ -60,7 +59,6 @@ class App extends React.Component {
                   <Category />
                 </div>
               </div>
-
             </div>
           </div>
         </div>

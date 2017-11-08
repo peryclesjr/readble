@@ -4,7 +4,7 @@ import about from '../images/nossasrotas.jpg'
 const About = () => (
   <div>
     <img src={about} alt='Nossas Rotas - Aurora Boreal' style={{ "width" : "100%" }} />
-    <div class="container white">
+    <div className="container white">
       <h4>
         <b>Ivo & Mari</b>
       </h4>
