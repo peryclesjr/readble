@@ -1,47 +1,27 @@
 import React from 'react'
-import Comment from './Comment'
+import * as utils from '../utils/helpers'
 
 class Post extends React.Component {
-  state = {
-    comments: []
-  }
-
-  getComments = id => {
-    fetch(`http://localhost:3001/posts/${id}/comments`, {
-      headers: { Authorization: 'whatever-I-want' }
-    })
-      .then(res => res.json())
-      .then(comments => this.setState({ comments }))
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.getComments(nextProps.id)
-  }
-
   render() {
     const { post } = this.props
-    const { comments } = this.state
     return (
       <li key={post.id}>
-        {post.id}
+        Id: {post.id}
         <br />
-        {post.timestamp}
+        Time: {utils.formattedTime(post.timestamp)}
         <br />
-        {post.title}
+        Title: {post.title}
         <br />
-        {post.body}
+        Body: {post.body}
         <br />
-        {post.author}
+        Author: {post.author}
         <br />
-        {post.category}
+        Category: {post.category}
         <br />
-        {post.voteScore}
+        Votes: {post.voteScore}
         <br />
         {post.deleted}
         <br />
-        <ol>
-          {comments.map(c => <Comment comment={c} />)}
-        </ol>
       </li>
     )
   }
