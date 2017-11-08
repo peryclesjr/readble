@@ -1,5 +1,5 @@
 import React from 'react'
-import about from '../images/about.svg'
+import about from '../images/nossasrotas.svg'
 
 const About = () => (
   <div>
