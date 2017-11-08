@@ -1,14 +1,14 @@
 import React from 'react'
-import about from '../images/nossasrotas.svg'
+import about from '../images/nossasrotas.jpg'
 
 const About = () => (
   <div>
-    <img src={about} style={{ "width" : "100%" }} />
+    <img src={about} alt='Nossas Rotas - Aurora Boreal' style={{ "width" : "100%" }} />
     <div class="container white">
       <h4>
         <b>Ivo & Mari</b>
       </h4>
-      <p>Um nerd e uma contabilista que adora viajar o mundo e conhecer novas culturas.</p>
+      <p>A nerd and an accountant who loves to travel the world and get to know new cultures.</p>
     </div>
   </div>
 )

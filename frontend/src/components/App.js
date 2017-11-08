@@ -32,13 +32,15 @@ class App extends React.Component {
             </header>
 
             <div className="row">
-              <div class="col l8 s12">
+
+            <div class="col l8 s12">
                 {this.state.posts.map(post => (
                   <div class="card-4 margin white">
                     <Post key={post.id} post={post} />
                   </div>
                 ))}
               </div>
+
               <div class="col l4">
                 <div class="card margin margin-top">
                   <About />
@@ -58,6 +60,7 @@ class App extends React.Component {
                   <Category />
                 </div>
               </div>
+
             </div>
           </div>
         </div>
