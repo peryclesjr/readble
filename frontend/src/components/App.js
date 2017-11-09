@@ -7,17 +7,23 @@ import Footer from './Footer'
 import * as api from '../API/ServerAPI'
 
 class App extends React.Component {
-  state = { posts: [] }
+  state = { posts: [], categories: [] }
 
   getAllPosts = () => {
     api.getAllPosts().then(posts => this.setState({ posts }))
   }
 
+  getAllCategories = () => {
+    api.getAllCategories().then(categories => this.setState({ categories }))
+  }
+
   componentDidMount() {
+    this.getAllCategories()
     this.getAllPosts()
   }
 
   render() {
+    const { posts, categories } = this.state
     return (
       <div>
         <div className="light-grey">
@@ -49,14 +55,16 @@ class App extends React.Component {
                   <div className="container padding">
                     <h4>Popular Posts</h4>
                   </div>
-                  <PopularPosts posts={this.state.posts} />
+                  <PopularPosts posts={posts} />
                 </div>
 
                 <div className="card margin">
                   <div className="container padding">
                     <h4>Category</h4>
                   </div>
-                  <Category />
+                  {
+                    (categories.size > 0) && <Category categories={categories} />
+                  }
                 </div>
               </div>
             </div>

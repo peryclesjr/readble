@@ -5,18 +5,26 @@ let db = {}
 
 const defaultData = {
   categories: [
-      {
-        name: 'travel',
-        path: 'travel'
-      },
-      {
-        name: 'roadtrip',
-        path: 'roadtrip'
-      },
-      {
-        name: 'eurotrip',
-        path: 'eurotrip'
-      }
+    {
+      name: 'travel',
+      path: 'travel'
+    },
+    {
+      name: 'roadtrip',
+      path: 'roadtrip'
+    },
+    {
+      name: 'eurotrip',
+      path: 'eurotrip'
+    },
+    {
+      name: 'beach',
+      path: 'beach'
+    },
+    {
+      name: 'mountain',
+      path: 'mountain'
+    }
   ]
 }
 
