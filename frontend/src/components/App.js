@@ -14,7 +14,7 @@ class App extends React.Component {
   }
 
   getAllCategories = () => {
-    api.getAllCategories().then(categories => this.setState({ categories }))
+    api.getAllCategories().then(data => this.setState({ categories : data.categories }))
   }
 
   componentDidMount() {
@@ -62,9 +62,7 @@ class App extends React.Component {
                   <div className="container padding">
                     <h4>Category</h4>
                   </div>
-                  {
-                    (categories.size > 0) && <Category categories={categories} />
-                  }
+                    <Category categories={categories} />
                 </div>
               </div>
             </div>
