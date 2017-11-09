@@ -15,7 +15,7 @@ const defaultData = {
     body: mussumIpsum,
     author: 'Ivo',
     category: 'travel',
-    voteScore: 1,
+    voteScore: 3,
     deleted: false,
     commentCount: 1
   },
@@ -28,7 +28,7 @@ const defaultData = {
     category: 'roadtrip',
     voteScore: 2,
     deleted: false,
-    commentCount: 2
+    commentCount: 4
   }
 }
 

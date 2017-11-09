@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
+import comments from './comments'
 
-const readable = combineReducers({
-
+const nrBlog = combineReducers({
+  comments
 })
 
-export default readable
+export default nrBlog
