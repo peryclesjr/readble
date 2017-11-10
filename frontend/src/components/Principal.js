@@ -5,14 +5,12 @@ import PopularPosts from './PopularPosts'
 import Category from './Category'
 
 class Principal extends React.Component {
-
   render() {
     const { posts, categories } = this.props
     return (
       <div className="row">
-
         <div className="col l8 s12">
-          {this.state.posts.map(post => (
+          {posts.map(post => (
             <div key={post.id} className="card-4 margin white">
               <Post key={post.id} post={post} />
             </div>
@@ -20,7 +18,6 @@ class Principal extends React.Component {
         </div>
 
         <div className="col l4">
-
           <div className="card margin margin-top">
             <About />
           </div>
@@ -38,13 +35,10 @@ class Principal extends React.Component {
             </div>
             <Category categories={categories} />
           </div>
-
         </div>
-
       </div>
     )
   }
-
 }
 
 export default Principal

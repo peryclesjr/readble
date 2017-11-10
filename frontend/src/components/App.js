@@ -12,9 +12,7 @@ class App extends React.Component {
   }
 
   getAllCategories = () => {
-    api
-      .getAllCategories()
-      .then(categories => this.setState({ categories }))
+    api.getAllCategories().then(categories => this.setState({ categories }))
   }
 
   componentDidMount() {
@@ -36,10 +34,11 @@ class App extends React.Component {
                 Welcome to the blog of <span className="tag">Ivo & Mari</span>
               </p>
             </header>
-            <Route exact path="/"
-              render={() => (
-                <Principal posts={posts} categories={categories} />
-              )} />
+            <Route
+              exact
+              path="/"
+              render={() => <Principal posts={posts} categories={categories} />}
+            />
           </div>
         </div>
         <Footer />
