@@ -17,3 +17,4 @@ export const getAllPosts = () =>
 export const getAllCategories = () =>
   fetch(`${URL_API}/categories`, { headers })
     .then(res => res.json())
+    .then(data => data.categories)

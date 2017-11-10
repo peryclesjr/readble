@@ -1,8 +1,6 @@
 import React from 'react'
-import Post from './Post'
-import About from './About'
-import PopularPosts from './PopularPosts'
-import Category from './Category'
+import { Route } from 'react-router-dom'
+import Principal from './Principal'
 import Footer from './Footer'
 import * as api from '../API/ServerAPI'
 
@@ -16,7 +14,7 @@ class App extends React.Component {
   getAllCategories = () => {
     api
       .getAllCategories()
-      .then(data => this.setState({ categories: data.categories }))
+      .then(categories => this.setState({ categories }))
   }
 
   componentDidMount() {
@@ -38,36 +36,10 @@ class App extends React.Component {
                 Welcome to the blog of <span className="tag">Ivo & Mari</span>
               </p>
             </header>
-
-            <div className="row">
-              <div className="col l8 s12">
-                {this.state.posts.map(post => (
-                  <div key={post.id} className="card-4 margin white">
-                    <Post key={post.id} post={post} />
-                  </div>
-                ))}
-              </div>
-
-              <div className="col l4">
-                <div className="card margin margin-top">
-                  <About />
-                </div>
-
-                <div className="card margin">
-                  <div className="container padding">
-                    <h4>Popular Posts</h4>
-                  </div>
-                  <PopularPosts posts={posts} />
-                </div>
-
-                <div className="card margin">
-                  <div className="container padding">
-                    <h4>Category</h4>
-                  </div>
-                  <Category categories={categories} />
-                </div>
-              </div>
-            </div>
+            <Route exact path="/"
+              render={() => (
+                <Principal posts={posts} categories={categories} />
+              )} />
           </div>
         </div>
         <Footer />

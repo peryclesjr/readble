@@ -1,7 +1,5 @@
 import React from 'react'
 import * as utils from '../utils/helpers'
-import comment from '../images/comment.svg'
-import like from '../images/like.svg'
 
 class Post extends React.Component {
   render() {
@@ -20,8 +18,8 @@ class Post extends React.Component {
             {post.body.substr(0, 100).trim()}
             {'...'}
           </p>
-          <div className="row">
-            <div className="col m8 s12">
+          <div className="row cell-middle">
+            <div className="col m6 s12">
               <p>
                 <button className="button padding-large white border">
                   <b>READ MORE »</b>
@@ -29,16 +27,10 @@ class Post extends React.Component {
               </p>
             </div>
             <div className="col m4 hide-small">
-              <p>
-                <span className="padding-8 margin right">
-                  <img src={comment} alt="logo" />
-                  <span className="badge">{post.commentCount}</span>
-                </span>
-                <span className="padding-8 margin right">
-                  <img src={like} alt="logo" />
-                  <span className="badge">{post.voteScore}</span>
-                </span>
-              </p>
+              <span className="padding-large right"><b>Comments  </b> <span className="badge">{post.commentCount}</span></span>
+            </div>
+            <div className="col m2 hide-small">
+              <span className="padding-large right cell-middle"><b>Likes  </b> <span className="badge">{post.voteScore}</span></span>
             </div>
           </div>
         </div>
