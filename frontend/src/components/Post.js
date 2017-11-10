@@ -1,10 +1,9 @@
 import React from 'react'
-//import * as utils from '../utils/helpers'
+import * as api from '../utils/api'
 
-const Post = ({ match, post }) => (
+const Post = ({ match }) => (
   <div className="container">
     <h1>{match.params.id}</h1>
-    
   </div>
 )
 

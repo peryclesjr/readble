@@ -1,9 +1,11 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import Header from './Header'
 import Principal from './Principal'
 import Post from './Post'
 import Footer from './Footer'
-import * as api from '../API/ServerAPI'
+import NotFound from './NotFound'
+import * as api from '../utils/api'
 
 class App extends React.Component {
   state = { posts: [], categories: [] }
@@ -27,20 +29,14 @@ class App extends React.Component {
       <div>
         <div className="light-grey">
           <div className="content" style={{ maxWidth: 1400 }}>
-            <header className="container center padding-32">
-              <h1>
-                <b>Nossas Rotas Blog</b>
-              </h1>
-              <p>
-                Welcome to the blog of <span className="tag">Ivo & Mari</span>
-              </p>
-            </header>
-            <Route
-              exact
-              path="/"
-              render={() => <Principal posts={posts} categories={categories} />}
-            />
-            <Route exact path="/post/:id" component={Post} />
+            <Header />
+            <Switch>
+              <Route exact path="/"
+                render={() => <Principal posts={posts} categories={categories} />}
+              />
+              <Route exact path="/post/:id" component={Post} />
+              <Route component={NotFound} />
+            </Switch>
           </div>
         </div>
         <Footer />
