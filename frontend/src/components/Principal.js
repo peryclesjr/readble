@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from './Post'
+import Posts from './Posts'
 import About from './About'
 import PopularPosts from './PopularPosts'
 import Category from './Category'
@@ -12,7 +12,7 @@ class Principal extends React.Component {
         <div className="col l8 s12">
           {posts.map(post => (
             <div key={post.id} className="card-4 margin white">
-              <Post key={post.id} post={post} />
+              <Posts key={post.id} post={post} />
             </div>
           ))}
         </div>

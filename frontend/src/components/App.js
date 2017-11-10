@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import Principal from './Principal'
+import Post from './Post'
 import Footer from './Footer'
 import * as api from '../API/ServerAPI'
 
@@ -39,6 +40,7 @@ class App extends React.Component {
               path="/"
               render={() => <Principal posts={posts} categories={categories} />}
             />
+            <Route exact path="/post/:id" component={Post} />
           </div>
         </div>
         <Footer />
