@@ -10,31 +10,12 @@ class Principal extends React.Component {
     return (
       <div className="row">
         <div className="col l8 s12">
-          {posts.map(post => (
-            <div key={post.id} className="card-4 margin white">
-              <Posts key={post.id} post={post} />
-            </div>
-          ))}
+          <Posts posts={posts} />
         </div>
-
         <div className="col l4">
-          <div className="card margin margin-top">
-            <About />
-          </div>
-
-          <div className="card margin">
-            <div className="container padding">
-              <h4>Popular Posts</h4>
-            </div>
-            <PopularPosts posts={posts} />
-          </div>
-
-          <div className="card margin">
-            <div className="container padding">
-              <h4>Category</h4>
-            </div>
-            <Category categories={categories} />
-          </div>
+          <About />
+          <PopularPosts posts={posts} />
+          <Category categories={categories} />
         </div>
       </div>
     )

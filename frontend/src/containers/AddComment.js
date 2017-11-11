@@ -17,23 +17,9 @@ let AddComment = ({ dispatch }) => {
           postId.value = ''
           author.value = ''
         }}>
-        <input
-          ref={node => {
-            postId = node
-          }}
-        />
-        <input
-          ref={node => {
-            author = node
-          }}
-        />
-        <textarea
-          rows="4"
-          cols="50"
-          ref={node => {
-            text = node
-          }}
-        />
+        <input ref={node => { postId = node }} />
+        <input ref={node => { author = node }} />
+        <textarea rows="4" cols="50" ref={node => { text = node }} />
         <button type="submit">Add Comment</button>
       </form>
     </div>

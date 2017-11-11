@@ -4,17 +4,11 @@ const Footer = () => (
   <footer className="container dark-grey padding-32 margin-top">
     <p>
       Powered by{' '}
-      <a
-        href="https://www.instagram.com/nossasrotas/"
-        target="_blank"
-        rel="noopener noreferrer">
+      <a href="https://www.instagram.com/nossasrotas/" target="_blank" rel="noopener noreferrer">
         Ivo & Mari
       </a>
       {' with help of '}
-      <a
-        href="https://br.udacity.com/"
-        target="_blank"
-        rel="noopener noreferrer">
+      <a href="https://br.udacity.com/" target="_blank" rel="noopener noreferrer">
         Udacity
       </a>
     </p>

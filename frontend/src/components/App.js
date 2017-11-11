@@ -31,10 +31,8 @@ class App extends React.Component {
           <div className="content" style={{ maxWidth: 1400 }}>
             <Header />
             <Switch>
-              <Route exact path="/"
-                render={() => <Principal posts={posts} categories={categories} />}
-              />
-              <Route exact path="/post/:id" component={Post} />
+              <Route exact path="/" render={() => <Principal posts={posts} categories={categories} />} />
+              <Route path="/post/:id" component={Post} />
               <Route component={NotFound} />
             </Switch>
           </div>

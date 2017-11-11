@@ -2,7 +2,7 @@ import React from 'react'
 import about from '../images/nossasrotas.jpg'
 
 const About = () => (
-  <div>
+  <div className="card margin margin-top">
     <img
       src={about}
       alt="Nossas Rotas - Aurora Boreal"
