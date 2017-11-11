@@ -2,10 +2,10 @@ const clone = require('clone')
 
 let db = {}
 
-const mussumIpsum = `Mussum Ipsum, cacilds vidis litro abertis. Si num tem leite então bota uma pinga aí cumpadi! Não sou faixa preta cumpadi, sou preto inteiris, inteiris. In elementis mé pra quem é amistosis quis leo. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.
+const mussumIpsum = `Mussum Ipsum, cacilds vidis litro abertis. Quem manda na minha terra sou euzis! Não sou faixa preta cumpadi, sou preto inteiris, inteiris. In elementis mé pra quem é amistosis quis leo. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.
 Pra lá , depois divoltis porris, paradis. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Sapien in monti palavris qui num significa nadis i pareci latim. Mé faiz elementum girarzis, nisi eros vermeio.
 Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis. Copo furadis é disculpa de bebadis, arcu quam euismod magna. Diuretics paradis num copo é motivis de denguis. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
-Detraxit consequat et quo num tendi nada. Quem manda na minha terra sou euzis! Aenean aliquam molestie leo, vitae iaculis nisl. Per aumento de cachacis, eu reclamis. `
+Detraxit consequat et quo num tendi nada. Si num tem leite então bota uma pinga aí cumpadi! Aenean aliquam molestie leo, vitae iaculis nisl. Per aumento de cachacis, eu reclamis. `
 
 const defaultData = {
   "8xf0y6ziyjabvozdd253nd": {
@@ -27,6 +27,17 @@ const defaultData = {
     author: 'Mari',
     category: 'roadtrip',
     voteScore: 2,
+    deleted: false,
+    commentCount: 4
+  },
+  "7fr4ok5ym8mk1p45lbah": {
+    id: '7fr4ok5ym8mk1p45lbah',
+    timestamp: 1478571769199,
+    title: 'Aurora Boreal',
+    body: mussumIpsum,
+    author: 'Ivo',
+    category: 'eurotrip',
+    voteScore: 5,
     deleted: false,
     commentCount: 4
   }
