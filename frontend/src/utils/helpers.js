@@ -8,8 +8,8 @@ export const formattedTime = (timestamp) => {
 
 export const formattedDate = (timestamp) => {
   const date = new Date(timestamp)
-  const day = date.getDay()
   const month = date.getMonth()
+  const day = date.getDay()
   const year = date.getFullYear()
   return month + '/' + day + '/' + year
 }
