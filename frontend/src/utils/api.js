@@ -20,6 +20,4 @@ export const getAllCategories = () =>
     .then(data => data.categories)
 
 export const getPostById = (postId) =>
-  fetch(`${URL_API}/bookPostByIds/${postId}`, { headers })
-    .then(res => res.json())
-    .then(data => data.post)
+  fetch(`${URL_API}/post/${postId}`, { headers, method: 'GET' })

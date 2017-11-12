@@ -1,5 +1,5 @@
 import React from 'react'
-import Posts from './Posts'
+//import Posts from './Posts'
 import PostsList from '../containers/PostsList'
 import About from './About'
 import PopularPosts from './PopularPosts'
@@ -19,8 +19,8 @@ class Principal extends React.Component {
   }
 
   componentDidMount() {
-    this.getAllCategories()
     this.getAllPosts()
+    this.getAllCategories()
   }
 
   render() {
@@ -28,7 +28,7 @@ class Principal extends React.Component {
     return (
       <div className="row">
         <div className="col l8 s12">
-          <Posts posts={posts} />
+          <PostsList posts={posts} />
         </div>
         <div className="col l4">
           <About />

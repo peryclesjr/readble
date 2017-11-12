@@ -1,11 +1,14 @@
 import { connect } from 'react-redux'
 import Posts from '../components/Posts'
-import * as api from '../utils/api'
+import {viewAllPosts} from '../actions'
 
 const mapStateToProps = (state, props) => ({
-  posts: state.posts
-});
+})
 
-const PostsList = connect(mapStateToProps)(Posts)
+const mapDispatchToProps = dispatch => ({
+  listPosts: () => { dispatch(viewAllPosts()) }
+})
+
+const PostsList = connect(mapStateToProps, mapDispatchToProps)(Posts)
 
 export default PostsList

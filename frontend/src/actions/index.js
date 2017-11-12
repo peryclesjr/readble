@@ -11,6 +11,7 @@ export const addComment = (text, postId, author)  => {
 }
 
 export const viewAllPosts = () => {
+  console.log('CHAMOU O VIEW POSTS')
   return {
     type: VIEW_ALL_POSTS,
   }
