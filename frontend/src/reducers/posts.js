@@ -1,21 +1,29 @@
-import { VIEW_ALL_POSTS } from '../actions'
+import {
+  REQUEST_POSTS,
+  RECEIVE_POSTS
+} from '../actions'
 
-const posts = (state = [], action) => {
-  console.log('ENTORU NA ACTION DE POSTS: ', action)
+function posts(
+  state = {
+    isFetching: false,
+    didInvalidate: false,
+    items: []
+  },
+  action
+) {
   switch (action.type) {
-    case VIEW_ALL_POSTS:
-      console.log('Action: VIEW ALL POSTS: ', action)
-      return [
-        ...state,
-        {
-          timestamp: action.timestamp,
-          title: action.title,
-          body: action.text,
-          author: action.author,
-          commentCount: action.commentCount,
-          voteScore: action.voteScore,
-        }
-      ]
+    case REQUEST_POSTS:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      })
+    case RECEIVE_POSTS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
+        items: action.posts,
+        lastUpdated: action.receivedAt
+      })
     default:
       return state
   }

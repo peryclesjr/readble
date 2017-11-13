@@ -1,5 +1,8 @@
+import * as api from '../utils/api'
+
+export const REQUEST_POSTS = 'REQUEST_POSTS'
+export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const ADD_COMMENT = 'ADD_COMMENT'
-export const VIEW_ALL_POSTS = 'VIEW_ALL_POSTS'
 
 export const addComment = (text, postId, author)  => {
   return {
@@ -10,9 +13,24 @@ export const addComment = (text, postId, author)  => {
   }
 }
 
-export const viewAllPosts = () => {
-  console.log('CHAMOU O VIEW POSTS')
+export const requestPosts = () => {
   return {
-    type: VIEW_ALL_POSTS,
+    type: REQUEST_POSTS
+  }
+}
+
+export const receivePosts = (json) => {
+  return {
+    type: RECEIVE_POSTS,
+    posts: json.data.children.map(child => child.data),
+    receivedAt: Date.now()
+  }
+}
+
+export const fetchPosts = () => {
+  return dispatch => {
+    dispatch(requestPosts())
+    return api.getAllPosts()
+      .then(json => dispatch(receivePosts(json)))
   }
 }

@@ -1,43 +1,36 @@
 import React from 'react'
-//import Posts from './Posts'
-import PostsList from '../containers/PostsList'
+import { connect } from 'react-redux';
 import About from './About'
+import Posts from './Posts'
 import PopularPosts from './PopularPosts'
 import Category from './Category'
-import sortBy from 'sort-by'
-import * as api from '../utils/api'
+//import sortBy from 'sort-by'
+import { fetchPosts } from '../actions'
 
 class Principal extends React.Component {
-  state = { posts: [], categories: [] }
-
-  getAllPosts = () => {
-    api.getAllPosts().then(posts => this.setState({ posts }))
-  }
-
-  getAllCategories = () => {
-    api.getAllCategories().then(categories => this.setState({ categories }))
-  }
-
   componentDidMount() {
-    this.getAllPosts()
-    this.getAllCategories()
+    const { dispatch } = this.props
+    dispatch(fetchPosts())
   }
-
   render() {
-    const { posts, categories } = this.state
+    const { posts } = this.props
     return (
       <div className="row">
         <div className="col l8 s12">
-          <PostsList posts={posts} />
+          <Posts posts={posts} />
         </div>
         <div className="col l4">
           <About />
-          <PopularPosts posts={posts.sort(sortBy('-voteScore')).slice(0,5)} />
-          <Category categories={categories} />
+          <PopularPosts /*posts={posts.sort(sortBy('-voteScore')).slice(0,5)}*/ />
+          <Category /*categories={categories}*/ />
         </div>
       </div>
     )
   }
 }
 
-export default Principal
+const mapStateToProps = (state, props) => ({
+  posts: state.posts
+})
+
+export default connect(mapStateToProps)(Principal)
