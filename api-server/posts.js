@@ -11,7 +11,7 @@ const defaultData = {
   "8xf0y6ziyjabvozdd253nd": {
     id: '8xf0y6ziyjabvozdd253nd',
     timestamp: 1467166872634,
-    title: 'Everything you need to know about the Atacama Desert',
+    title: 'Atacama Desert',
     body: mussumIpsum,
     author: 'Ivo',
     category: 'travel',

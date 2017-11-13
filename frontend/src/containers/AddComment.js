@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addComment } from '../actions'
+import { addComment } from '../actions/posts'
 
 let AddComment = ({ dispatch }) => {
   let text, author, postId

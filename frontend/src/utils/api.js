@@ -1,23 +1,29 @@
-const URL_API = "http://localhost:3001"
+import fetch from 'isomorphic-fetch'
 
-// Generate a unique token for storing your bookshelf data on the backend server.
+const URL_API = 'http://localhost:3001'
+
 let token = localStorage.token
-if (!token)
-  token = localStorage.token = Math.random().toString(36).substr(-8)
+if (!token) {
+  token = localStorage.token = Math.random()
+    .toString(36)
+    .substr(-8)
+}
 
 const headers = {
-  'Accept': 'application/json',
-  'Authorization': token
+  Accept: 'application/json',
+  Authorization: token
 }
 
 export const getAllPosts = () =>
-  fetch(`${URL_API}/posts`, { headers })
-    .then(res => res.json())
+  fetch(`${URL_API}/posts`, { headers }).then(res => res.json())
 
 export const getAllCategories = () =>
   fetch(`${URL_API}/categories`, { headers })
     .then(res => res.json())
     .then(data => data.categories)
 
-export const getPostById = (postId) =>
+export const getPostById = postId =>
   fetch(`${URL_API}/post/${postId}`, { headers, method: 'GET' })
+
+export const getCommentsByPost = postId =>
+  fetch(`${URL_API}/posts/${postId}/comments`, { headers, method: 'GET' })

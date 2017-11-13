@@ -1,19 +1,22 @@
 import React from 'react'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import About from './About'
 import Posts from './Posts'
 import PopularPosts from './PopularPosts'
 import Category from './Category'
-//import sortBy from 'sort-by'
-import { fetchPosts } from '../actions'
+import sortBy from 'sort-by'
+import { fetchPosts } from '../actions/posts'
+import { fetchCategories } from '../actions/categories'
 
 class Principal extends React.Component {
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(fetchPosts())
+    dispatch(fetchCategories())
   }
   render() {
-    const { posts } = this.props
+    const { posts, categories } = this.props
     return (
       <div className="row">
         <div className="col l8 s12">
@@ -21,16 +24,23 @@ class Principal extends React.Component {
         </div>
         <div className="col l4">
           <About />
-          <PopularPosts /*posts={posts.sort(sortBy('-voteScore')).slice(0,5)}*/ />
-          <Category /*categories={categories}*/ />
+          <PopularPosts posts={posts.sort(sortBy('-voteScore')).slice(0, 5)} />
+          <Category categories={categories} />
         </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state, props) => ({
-  posts: state.posts
+Principal.propTypes = {
+  posts: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+  posts: state.posts.items || [],
+  categories: state.categories.items || []
 })
 
 export default connect(mapStateToProps)(Principal)

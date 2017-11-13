@@ -1,28 +1,10 @@
-import {
-  REQUEST_POSTS,
-  RECEIVE_POSTS
-} from '../actions'
+import { RECEIVE_POSTS } from '../actions/posts'
 
-function posts(
-  state = {
-    isFetching: false,
-    didInvalidate: false,
-    items: []
-  },
-  action
-) {
+function posts(state = { items: [] }, action) {
   switch (action.type) {
-    case REQUEST_POSTS:
-      return Object.assign({}, state, {
-        isFetching: true,
-        didInvalidate: false
-      })
     case RECEIVE_POSTS:
       return Object.assign({}, state, {
-        isFetching: false,
-        didInvalidate: false,
-        items: action.posts,
-        lastUpdated: action.receivedAt
+        items: action.posts
       })
     default:
       return state

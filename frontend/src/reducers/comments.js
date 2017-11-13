@@ -1,4 +1,4 @@
-import { ADD_COMMENT } from '../actions'
+import { ADD_COMMENT } from '../actions/posts'
 
 const comments = (state = [], action) => {
   switch (action.type) {
@@ -6,7 +6,9 @@ const comments = (state = [], action) => {
       return [
         ...state,
         {
-          id: Math.random().toString(36).substr(-8),
+          id: Math.random()
+            .toString(36)
+            .substr(-8),
           parentId: action.postId,
           timestamp: Date.now(),
           body: action.text,
