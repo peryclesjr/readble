@@ -1,11 +1,28 @@
 import React from 'react'
-import * as api from '../utils/api'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { fetchPost } from '../actions/posts'
 
+class Post extends React.Component {
+  componentDidMount() {
+    const { dispatch, match } = this.props
+    dispatch(fetchPost(match.params.id))
+  }
+  render() {
+    return (
+      <div className="container">
+        
+      </div>
+    )
+  }
+}
 
-const Post = ({ match }) => (
-  <div className="container">
-    {console.log(api.getPostById(match.params.id))}
-  </div>
-)
+Post.propTypes = {
+  dispatch: PropTypes.func.isRequired
+}
 
-export default Post
+const mapStateToProps = state => ({
+  post: state.posts.item || []
+})
+
+export default connect(mapStateToProps)(Post)

@@ -1,4 +1,4 @@
-import { ADD_COMMENT } from '../actions/posts'
+import { ADD_COMMENT } from '../actions/comments'
 
 const comments = (state = [], action) => {
   switch (action.type) {
