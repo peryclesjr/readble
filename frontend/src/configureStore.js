@@ -5,10 +5,9 @@ import nrBlog from './reducers'
 
 const loggerMiddleware = createLogger()
 
-export default function configureStore(preloadedState) {
+export default function configureStore() {
   return createStore(
     nrBlog,
-    preloadedState,
     applyMiddleware(thunkMiddleware, loggerMiddleware)
   )
 }
