@@ -1,14 +1,14 @@
-import { RECEIVE_POSTS, GET_POST } from '../actions/posts'
+import { GET_ALL_POSTS, GET_POST } from '../actions/posts'
 
-export const posts = (state = { items: [] }, action) => {
+export const posts = (state = { data: [] }, action) => {
   switch (action.type) {
-    case RECEIVE_POSTS:
+    case GET_ALL_POSTS:
       return Object.assign({}, state, {
-        items: action.posts
+        data: action.posts
       })
     case GET_POST:
       return Object.assign({}, state, {
-        item: action.post
+        data: action.post
       })
     default:
       return state

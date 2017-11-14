@@ -11,7 +11,7 @@ class Post extends React.Component {
   render() {
     return (
       <div className="container">
-        
+        {this.props.post}
       </div>
     )
   }
@@ -22,7 +22,7 @@ Post.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  post: state.posts.item || []
+  post: state.posts.data
 })
 
 export default connect(mapStateToProps)(Post)

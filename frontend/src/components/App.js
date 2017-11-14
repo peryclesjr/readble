@@ -10,7 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="light-grey">
+        <div className="light-gray">
           <div className="content" style={{ maxWidth: 1400 }}>
             <Header />
             <Switch>

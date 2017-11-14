@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Footer = () => (
-  <footer className="container dark-grey padding-32 margin-top">
+  <footer className="container dark-gray padding-32 margin-top">
     <p>
       Powered by{' '}
       <a

@@ -1,11 +1,11 @@
 import * as api from '../utils/api'
 
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const GET_ALL_POSTS = 'GET_ALL_POSTS'
 export const GET_POST = 'GET_POST'
 
-const receivePosts = posts => {
+const getAllPosts = posts => {
   return {
-    type: RECEIVE_POSTS,
+    type: GET_ALL_POSTS,
     posts: posts
   }
 }
@@ -19,7 +19,7 @@ const getPost = post => {
 
 export const fetchPosts = () => {
   return dispatch => {
-    return api.getAllPosts().then(posts => dispatch(receivePosts(posts)))
+    return api.getAllPosts().then(posts => dispatch(getAllPosts(posts)))
   }
 }
 

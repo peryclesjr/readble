@@ -39,8 +39,8 @@ Principal.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  posts: state.posts.items || [],
-  categories: state.categories.items || []
+  posts: state.posts.data || [],
+  categories: state.categories.data || []
 })
 
 export default connect(mapStateToProps)(Principal)
