@@ -22,7 +22,7 @@ Post.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  post: state.posts.data
+  post: state.posts.item || 'indefinido'
 })
 
 export default connect(mapStateToProps)(Post)
