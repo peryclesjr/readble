@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addComment } from '../actions/posts'
+import { addComment } from '../actions/comments'
 
-let AddComment = ({ dispatch }) => {
-  let text, author, postId
+let AddComment = ({ dispatch, postId }) => {
+  let text, author
   return (
     <div>
       <form
@@ -12,19 +12,37 @@ let AddComment = ({ dispatch }) => {
           if (!text.value.trim()) {
             return
           }
-          dispatch(addComment(text.value, postId.value, author.value))
+          dispatch(addComment(text.value, author.value, postId))
           text.value = ''
-          postId.value = ''
           author.value = ''
         }}>
-        <input ref={node => { postId = node }} />
-        <input ref={node => { author = node }} />
-        <textarea rows="4" cols="50" ref={node => { text = node }} />
-        <button type="submit">Add Comment</button>
+        <div className="row">
+          <div className="col l12">
+            <input
+              placeholder="Anonymous"
+              ref={node => {
+                author = node
+              }}
+            />
+            <div className="row">
+              <div className="col l12">
+                <textarea
+                  rows="4"
+                  cols="50"
+                  ref={node => {
+                    text = node
+                  }}
+                />
+              </div>
+            </div>
+            <button type="submit">Add Comment</button>
+          </div>
+        </div>
       </form>
     </div>
   )
 }
+
 AddComment = connect()(AddComment)
 
 export default AddComment
