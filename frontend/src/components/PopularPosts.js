@@ -1,9 +1,10 @@
 import React from 'react'
+import FaHeart from 'react-icons/lib/fa/heart'
 
 const PopularPosts = ({ posts }) => (
   <div className="card margin">
     <div className="container padding">
-      <h4>Popular Posts</h4>
+      <h4><FaHeart /> Popular Posts</h4>
     </div>
     <ul className="ul hoverable white">
       {posts.map(p => (

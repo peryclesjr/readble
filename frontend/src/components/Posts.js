@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import * as utils from '../utils/helpers'
 import sortBy from 'sort-by'
+import Authorship from './Authorship'
+import FaTag from 'react-icons/lib/fa/tag'
 
 class Posts extends React.Component {
   render() {
@@ -10,15 +11,15 @@ class Posts extends React.Component {
         {this.props.posts.sort(sortBy('-timestamp')).map(post => (
           <div key={post.id} className="card-4 margin white">
             <div className="container">
-              <h3>
-                <b>{post.title}</b>
-              </h3>
-              <h5>
-                {post.author}{' '}
-                <span className="opacity">
-                  {utils.formattedDate(post.timestamp)}
-                </span>
-              </h5>
+              <div className="row">
+                <div className="col l10 m10 s10">
+                  <h3><b>{post.title}</b></h3>
+                </div>
+                <div className="col l2 m2 s2">
+                  <span className="tag light-gray small right"><FaTag /> {post.category}</span>
+                </div>
+              </div>
+              <Authorship author={post.author} timestamp={post.timestamp} />
               <div className="container">
                 <p>
                   {post.body.substr(0, 100).trim()}

@@ -22,7 +22,7 @@ let AddComment = ({ dispatch, postId }) => {
               placeholder="Anonymous"
               ref={node => { author = node }}
             />
-            <div className="row">
+            <div className="row margin-top-bottom">
               <div className="col l12">
                 <textarea
                   placeholder="Comment"
@@ -31,7 +31,7 @@ let AddComment = ({ dispatch, postId }) => {
                 />
               </div>
             </div>
-            <button type="submit">Add Comment</button>
+            <button className="button margin-bottom border" type="submit">Add Comment</button>
           </div>
         </div>
       </form>

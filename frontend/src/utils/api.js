@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-const URL_API = 'http://localhost:3001'
+const URL_API = 'http://192.168.50.170:3001'
 
 let token = localStorage.token
 if (!token) {

@@ -8,17 +8,16 @@ import AddComment from '../containers/AddComment'
 class Comment extends React.Component {
   componentDidMount() {
     const { dispatch, postId } = this.props
-    console.log('POST_ID:::', postId)
     dispatch(fetchCommentsByPost(postId))
   }
   render() {
     const { comments, postId } = this.props
     return (
-      <div className="col l12 padding-large">
+      <div className="col l12">
         {comments.map(comment => (
           <div key={comment.id}>
             <Authorship author={comment.author} timestamp={comment.timestamp} />
-            <div className="padding-large">{comment.body}</div>
+            <div className="margin">{comment.body}</div>
           </div>
         ))}
         <AddComment postId={postId} />

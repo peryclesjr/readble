@@ -7,6 +7,7 @@ import dislike from '../images/dislike.png'
 import Comment from '../containers/Comment'
 import NotFound from '../components/NotFound'
 import Authorship from '../components/Authorship'
+import FaTag from 'react-icons/lib/fa/tag'
 
 class Post extends React.Component {
   componentDidMount() {
@@ -16,27 +17,42 @@ class Post extends React.Component {
   render() {
     const { post, match } = this.props
     return (
-      <div className="container">
+      <div>
         {post.title ? (
           <div>
-            <h3><b>{post.title}</b></h3>
-            <Authorship author={post.author} timestamp={post.timestamp} />
-            <p>{post.body}</p>
-            <div className="row">
-              <div className="col l12">
-                <span className="padding right">
-                  <b>Comments</b>{' '}
-                  <span className="badge">{post.commentCount}</span>
-                </span>
-                <span className="padding left">
-                  <span className="badge">{post.voteScore}</span>{' '}
-                  <img src={like} alt="Like" style={{ width: '8%' }} />{' '}
-                  <img src={dislike} alt="Dislike" style={{ width: '8%' }} />
-                </span>
+            <div className='card-4 margin white'>
+              <div className="container">
+              <div className="row">
+                <div className="col l10 m10 s10">
+                  <h3><b>{post.title}</b></h3>
+                </div>
+                <div className="col l2 m2 s2">
+                  <span className="tag light-gray small right"><FaTag /> {post.category}</span>
+                </div>
+              </div>
+                <Authorship author={post.author} timestamp={post.timestamp} />
+                <div className="container">
+                  <p>{post.body}</p>
+                </div>
+                <div className="row">
+                  <div className="col l12">
+                    <span className="padding right">
+                      <b>Comments</b>{' '}
+                      <span className="badge">{post.commentCount}</span>
+                    </span>
+                    <span className="padding left">
+                      <span className="badge">{post.voteScore}</span>{' '}
+                      <img src={like} alt="Like" style={{ width: '8%' }} />{' '}
+                      <img src={dislike} alt="Dislike" style={{ width: '8%' }} />
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="row">
-              <Comment postId={match.params.id} />
+              <div className="container">
+                <Comment postId={match.params.id} />
+              </div>
             </div>
           </div>
         ) : (
