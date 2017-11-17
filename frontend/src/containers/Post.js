@@ -2,11 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { fetchPost } from '../actions/posts'
-import * as utils from '../utils/helpers'
 import like from '../images/like.png'
 import dislike from '../images/dislike.png'
-import AddComment from '../containers/AddComment'
+import Comment from '../containers/Comment'
 import NotFound from '../components/NotFound'
+import Authorship from '../components/Authorship'
 
 class Post extends React.Component {
   componentDidMount() {
@@ -14,20 +14,13 @@ class Post extends React.Component {
     dispatch(fetchPost(match.params.id))
   }
   render() {
-    const { post } = this.props
+    const { post, match } = this.props
     return (
       <div className="container">
         {post.title ? (
           <div>
-            <h3>
-              <b>{post.title}</b>
-            </h3>
-            <h5>
-              {post.author}{' '}
-              <span className="opacity">
-                {utils.formattedDate(post.timestamp)}
-              </span>
-            </h5>
+            <h3><b>{post.title}</b></h3>
+            <Authorship author={post.author} timestamp={post.timestamp} />
             <p>{post.body}</p>
             <div className="row">
               <div className="col l12">
@@ -43,7 +36,7 @@ class Post extends React.Component {
               </div>
             </div>
             <div className="row">
-              <AddComment postId={post.id} />
+              <Comment postId={match.params.id} />
             </div>
           </div>
         ) : (
@@ -56,11 +49,11 @@ class Post extends React.Component {
 
 Post.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired
+  post: PropTypes.any.isRequired /* review this type any */
 }
 
 const mapStateToProps = state => ({
-  post: state.posts.item || 'indefinido'
+  post: state.posts.item || 'indefinido' /* review this default value */
 })
 
 export default connect(mapStateToProps)(Post)
