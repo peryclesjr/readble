@@ -28,3 +28,4 @@ export const getPostById = postId =>
 
 export const getCommentsByPost = postId =>
   fetch(`${URL_API}/posts/${postId}/comments`, { headers })
+    .then(res => res.json())
