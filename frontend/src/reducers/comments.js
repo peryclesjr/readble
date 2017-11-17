@@ -1,4 +1,4 @@
-import { ADD_COMMENT } from '../actions/comments'
+import { ADD_COMMENT, GET_COMMENTS } from '../actions/comments'
 
 const comments = (state = [], action) => {
   switch (action.type) {
@@ -18,6 +18,10 @@ const comments = (state = [], action) => {
           parentDeleted: false
         }
       ]
+    case GET_COMMENTS:
+      return Object.assign({}, state, {
+        items: action.comments
+      })
     default:
       return state
   }
