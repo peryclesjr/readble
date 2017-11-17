@@ -23,16 +23,8 @@ export const getAllCategories = () =>
     .then(data => data.categories)
 
 export const getPostById = postId =>
-  fetch(`${URL_API}/posts`, { headers })
+  fetch(`${URL_API}/posts/${postId}`, { headers })
     .then(res => res.json())
-    .then(data => data.forEach(function(val, index) {
-      if (val.id === postId) {
-        console.log('aeeee', val)
-        return val
-      } else {
-        console.log('puxa vida', index)
-      }
-    }))
 
 export const getCommentsByPost = postId =>
   fetch(`${URL_API}/posts/${postId}/comments`, { headers })
