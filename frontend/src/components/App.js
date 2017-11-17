@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Header from './Header'
-import Principal from './Principal'
-import Post from './Post'
+import Principal from '../containers/Principal'
+import Post from '../containers/Post'
 import Footer from './Footer'
 import NotFound from './NotFound'
 
