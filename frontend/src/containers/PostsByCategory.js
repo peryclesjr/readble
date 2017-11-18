@@ -15,7 +15,7 @@ class PostsByCategory extends React.Component {
       <div>
         {
           posts.length > 0
-            ? <Posts posts={this.props.posts} />
+            ? <Posts posts={posts} />
             : <h3 className="padding-large">
                 Sorry! There aren't posts in this category.
               </h3>
