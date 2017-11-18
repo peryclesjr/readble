@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import sortBy from 'sort-by'
 import Authorship from './Authorship'
 import FaTag from 'react-icons/lib/fa/tag'
+import FaThumbsUp from 'react-icons/lib/fa/thumbs-up'
+import FaThumbsDown from 'react-icons/lib/fa/thumbs-down'
+import FaComment from 'react-icons/lib/fa/comment'
 
 class Posts extends React.Component {
   render() {
@@ -37,13 +40,16 @@ class Posts extends React.Component {
                   </div>
                   <div className="col m3 hide-small">
                     <span className="padding-large right">
-                      <b>Comments</b>{' '}
+                      <FaComment size={25} />{' '}
                       <span className="badge">{post.commentCount}</span>
                     </span>
                   </div>
                   <div className="col m3 hide-small">
                     <span className="padding-large right">
-                      <b>Vote Score</b>{' '}
+                      {post.voteScore > 0
+                        ? <FaThumbsUp size={25} />
+                        : <FaThumbsDown size={25} />
+                      }{' '}
                       <span className="badge">{post.voteScore}</span>
                     </span>
                   </div>
