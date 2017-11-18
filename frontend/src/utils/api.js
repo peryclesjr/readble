@@ -33,3 +33,7 @@ export const getAllCategories = () =>
   fetch(`${URL_API}/categories`, { headers })
     .then(res => res.json())
     .then(data => data.categories)
+
+export const addCommentPost = (cId, body, author, postId) =>
+  fetch(`${URL_API}/comments?id=${cId}&timestamp=${Date.now}&body=${body}&author=${author}&parentId=${postId}`)
+    .then(res => res.json())
