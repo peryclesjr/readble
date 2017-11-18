@@ -27,7 +27,7 @@ export const fetchCommentsByPost = (postId) => {
 
 export const fetchAddComment = (body, author, postId) => {
   return dispatch => {
-    cId = Math.random()
+    let cId = Math.random()
     return api.addCommentPost(cId, body, author, postId).then(data => dispatch(addComment(body, author, postId)))
   }
 }
