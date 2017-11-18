@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import AddPost from '../components/AddPost'
 import Posts from '../components/Posts'
 import About from '../components/About'
 import PopularPosts from '../components/PopularPosts'
@@ -23,6 +24,7 @@ class Principal extends React.Component {
           <Posts posts={posts} />
         </div>
         <div className="col l4">
+          <AddPost />
           <About />
           <PopularPosts posts={posts.sort(sortBy('-voteScore')).slice(0, 5)} />
           <Category categories={categories} />
