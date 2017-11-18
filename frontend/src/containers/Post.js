@@ -2,12 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { fetchPost } from '../actions/posts'
-import like from '../images/like.png'
-import dislike from '../images/dislike.png'
 import Comment from '../containers/Comment'
 import NotFound from '../components/NotFound'
 import Authorship from '../components/Authorship'
 import FaTag from 'react-icons/lib/fa/tag'
+import FaThumbsUp from 'react-icons/lib/fa/thumbs-up'
+import FaThumbsDown from 'react-icons/lib/fa/thumbs-down'
+import FaComment from 'react-icons/lib/fa/comment'
 
 class Post extends React.Component {
   componentDidMount() {
@@ -37,13 +38,13 @@ class Post extends React.Component {
                 <div className="row">
                   <div className="col l12">
                     <span className="padding right">
-                      <b>Comments</b>{' '}
+                      <FaComment size={25} />{' '}
                       <span className="badge">{post.commentCount}</span>
                     </span>
                     <span className="padding left">
                       <span className="badge">{post.voteScore}</span>{' '}
-                      <img src={like} alt="Like" style={{ width: '8%' }} />{' '}
-                      <img src={dislike} alt="Dislike" style={{ width: '8%' }} />
+                      <FaThumbsUp size={25} />{' '}
+                      <FaThumbsDown size={25} />
                     </span>
                   </div>
                 </div>
