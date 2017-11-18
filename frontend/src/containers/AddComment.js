@@ -17,16 +17,16 @@ let AddComment = ({ dispatch, postId }) => {
           author.value = ''
         }}>
         <div className="row">
-          <div className="col l12">
+          <div className="col l12 m12 s12">
             <input
               placeholder="Anonymous"
               ref={node => { author = node }}
             />
             <div className="row margin-top-bottom">
-              <div className="col l12">
+              <div className="col l12 m12 s12">
                 <textarea
                   placeholder="Comment"
-                  rows="4" cols="50"
+                  rows="2"
                   ref={node => { text = node }}
                 />
               </div>
