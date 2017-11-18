@@ -5,10 +5,7 @@ import { fetchPost } from '../actions/posts'
 import Comment from '../containers/Comment'
 import NotFound from '../components/NotFound'
 import Authorship from '../components/Authorship'
-import FaTag from 'react-icons/lib/fa/tag'
-import FaThumbsUp from 'react-icons/lib/fa/thumbs-up'
-import FaThumbsDown from 'react-icons/lib/fa/thumbs-down'
-import FaComment from 'react-icons/lib/fa/comment'
+import { FaTag, FaThumbsUp, FaThumbsDown, FaComment } from 'react-icons/lib/fa'
 
 class Post extends React.Component {
   componentDidMount() {

@@ -2,10 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import sortBy from 'sort-by'
 import Authorship from './Authorship'
-import FaTag from 'react-icons/lib/fa/tag'
-import FaThumbsUp from 'react-icons/lib/fa/thumbs-up'
-import FaThumbsDown from 'react-icons/lib/fa/thumbs-down'
-import FaComment from 'react-icons/lib/fa/comment'
+import { FaTag, FaThumbsUp, FaThumbsDown, FaComment } from 'react-icons/lib/fa'
 
 class Posts extends React.Component {
   render() {
