@@ -48,21 +48,12 @@ summary {
   display: block;
 }
 
-.responsive {
-  display: block;
-  overflow-x: auto;
-}
-
 button,
 input,
 select,
 textarea {
   font: inherit;
   margin: 0;
-}
-
-optgroup {
-  font-weight: bold;
 }
 
 button,

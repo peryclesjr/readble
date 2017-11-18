@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Header from './Header'
 import Principal from '../containers/Principal'
 import Post from '../containers/Post'
+import PostsByCategory from '../containers/PostsByCategory'
 import Footer from './Footer'
 import NotFound from './NotFound'
 
@@ -16,6 +17,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Principal} />
               <Route path="/post/:id" component={Post} />
+              <Route path="/:categoryPath/posts" component={PostsByCategory} />
               <Route component={NotFound} />
             </Switch>
           </div>

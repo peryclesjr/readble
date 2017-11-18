@@ -17,11 +17,6 @@ const headers = {
 export const getAllPosts = () =>
   fetch(`${URL_API}/posts`, { headers }).then(res => res.json())
 
-export const getAllCategories = () =>
-  fetch(`${URL_API}/categories`, { headers })
-    .then(res => res.json())
-    .then(data => data.categories)
-
 export const getPostById = postId =>
   fetch(`${URL_API}/posts/${postId}`, { headers })
     .then(res => res.json())
@@ -29,3 +24,12 @@ export const getPostById = postId =>
 export const getCommentsByPost = postId =>
   fetch(`${URL_API}/posts/${postId}/comments`, { headers })
     .then(res => res.json())
+
+export const getPostsByCategory = categoryPath =>
+  fetch(`${URL_API}/${categoryPath}/posts`, { headers })
+    .then(res => res.json())
+
+export const getAllCategories = () =>
+  fetch(`${URL_API}/categories`, { headers })
+    .then(res => res.json())
+    .then(data => data.categories)
