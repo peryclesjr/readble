@@ -18,7 +18,7 @@ let AddComment = ({ dispatch, postId }) => {
         }}>
         <div className="row">
           <div className="col l12 m12 s12">
-            <input
+            <input className="input"
               placeholder="Anonymous"
               ref={node => { author = node }}
             />
