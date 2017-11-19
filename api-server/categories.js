@@ -16,14 +16,6 @@ const defaultData = {
     {
       name: 'eurotrip',
       path: 'eurotrip'
-    },
-    {
-      name: 'beach',
-      path: 'beach'
-    },
-    {
-      name: 'mountain',
-      path: 'mountain'
     }
   ]
 }
