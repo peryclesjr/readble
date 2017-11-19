@@ -12,6 +12,12 @@ class Post extends React.Component {
     const { dispatch, match } = this.props
     dispatch(fetchPost(match.params.id))
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.id !== nextProps.post.id) {
+      const { dispatch, match } = this.props
+      dispatch(fetchPost(match.params.id))
+    }
+  }
   render() {
     const { post, match } = this.props
     return (

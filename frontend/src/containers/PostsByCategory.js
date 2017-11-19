@@ -9,6 +9,12 @@ class PostsByCategory extends React.Component {
     const { dispatch, match } = this.props
     dispatch(fetchPostsByCategory(match.params.categoryPath))
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.categoryPath !== nextProps.posts[0].category) {
+      const { dispatch, match } = this.props
+      dispatch(fetchPostsByCategory(match.params.categoryPath))
+    }
+  }
   render() {
     const { posts } = this.props
     return (
