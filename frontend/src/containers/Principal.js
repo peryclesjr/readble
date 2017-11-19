@@ -1,33 +1,38 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import AddPost from '../components/AddPost'
 import Posts from '../components/Posts'
-import About from '../components/About'
-import PopularPosts from '../components/PopularPosts'
-import Category from '../components/Category'
-import sortBy from 'sort-by'
 import { fetchPosts } from '../actions/posts'
-import { fetchCategories } from '../actions/categories'
+import { Route, Switch, withRouter } from 'react-router-dom'
+import Post from '../containers/Post'
+import PostsByCategory from '../containers/PostsByCategory'
+import NotFound from '../components/NotFound'
+import Menu from '../components/Menu'
 
 class Principal extends React.Component {
   componentDidMount() {
-    const { dispatch } = this.props
-    dispatch(fetchPosts())
-    dispatch(fetchCategories())
+    this.props.dispatch(fetchPosts())
+  }
+  componentWillReceiveProps(nextProps) {
+    const { location, dispatch } = this.props
+    if (location.pathname !== nextProps.location.pathname) {
+      dispatch(fetchPosts())
+    }
   }
   render() {
-    const { posts, categories } = this.props
+    const { posts } = this.props
     return (
       <div className="row">
         <div className="col l8 s12">
-          <Posts posts={posts} />
+          <Switch>
+            <Route exact path="/" render={() => (<Posts posts={posts} />)} />
+            <Route path="/post/:id" component={Post} />
+            <Route path="/:categoryPath/posts" component={PostsByCategory} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
         <div className="col l4">
-          <AddPost />
-          <About />
-          <PopularPosts posts={posts.sort(sortBy('-voteScore')).slice(0, 5)} />
-          <Category categories={categories} />
+          <Menu posts={posts} />
         </div>
       </div>
     )
@@ -36,13 +41,11 @@ class Principal extends React.Component {
 
 Principal.propTypes = {
   posts: PropTypes.array.isRequired,
-  categories: PropTypes.array.isRequired,
   dispatch: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
   posts: state.posts.items || [],
-  categories: state.categories.data || []
 })
 
-export default connect(mapStateToProps)(Principal)
+export default withRouter(connect(mapStateToProps)(Principal))
