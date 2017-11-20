@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import FaHeart from 'react-icons/lib/fa/heart'
 import sortBy from 'sort-by'
 
@@ -21,4 +22,8 @@ const PopularPosts = ({ posts }) => (
   </div>
 )
 
-export default PopularPosts
+const mapStateToProps = state => ({
+  posts: state.posts.items || [],
+})
+
+export default connect(mapStateToProps)(PopularPosts)

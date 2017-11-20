@@ -4,11 +4,11 @@ import PopularPosts from './PopularPosts'
 import Category from './Category'
 import AddPost from './AddPost'
 
-const Menu = ({ posts }) => (
+const Menu = () => (
   <div>
     <AddPost />
     <About />
-    <PopularPosts posts={posts} />
+    <PopularPosts />
     <Category />
   </div>
 )

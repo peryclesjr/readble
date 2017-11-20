@@ -32,7 +32,7 @@ class Principal extends React.Component {
           </Switch>
         </div>
         <div className="col l4">
-          <Menu posts={posts} />
+          <Menu />
         </div>
       </div>
     )
