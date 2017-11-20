@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { fetchPost } from '../actions/posts'
+import { fetchCommentsByPost } from '../actions/comments'
 import Comment from '../containers/Comment'
 import NotFound from '../components/NotFound'
 import Authorship from '../components/Authorship'
@@ -11,15 +12,17 @@ class Post extends React.Component {
   componentDidMount() {
     const { dispatch, match } = this.props
     dispatch(fetchPost(match.params.id))
+    dispatch(fetchCommentsByPost(match.params.id))
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.id !== nextProps.post.id) {
       const { dispatch, match } = this.props
       dispatch(fetchPost(match.params.id))
+      dispatch(fetchCommentsByPost(match.params.id))
     }
   }
   render() {
-    const { post, match } = this.props
+    const { post } = this.props
     return (
       <div>
         {post.title ? (
@@ -55,7 +58,7 @@ class Post extends React.Component {
             </div>
             <div className="row">
               <div className="container">
-                <Comment postId={match.params.id} />
+                <Comment />
               </div>
             </div>
           </div>
@@ -73,7 +76,8 @@ Post.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  post: state.posts.item || 'indefinido' /* review this default value */
+  post: state.posts.item || 'indefinido', /* review this default value */
+  comments: state.comments.items || []
 })
 
 export default connect(mapStateToProps)(Post)

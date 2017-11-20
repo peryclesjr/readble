@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import sortBy from 'sort-by'
 
 const URL_API = 'http://localhost:3001'
 
@@ -15,7 +16,13 @@ const headers = {
 }
 
 export const getAllPosts = () =>
-  fetch(`${URL_API}/posts`, { headers }).then(res => res.json())
+  fetch(`${URL_API}/posts`, { headers })
+    .then(res => res.json())
+
+export const getPopularPosts = (qty) =>
+  fetch(`${URL_API}/posts`, { headers })
+    .then(res => res.json())
+    .then(data => data.sort(sortBy('-voteScore')).slice(0, qty ? qty : 5))
 
 export const getPostById = postId =>
   fetch(`${URL_API}/posts/${postId}`, { headers })

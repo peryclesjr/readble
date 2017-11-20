@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Posts from '../components/Posts'
-import { fetchPosts } from '../actions/posts'
+import { fetchPosts, fetchPopularPosts } from '../actions/posts'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Post from '../containers/Post'
 import PostsByCategory from '../containers/PostsByCategory'
@@ -12,6 +12,7 @@ import Menu from '../components/Menu'
 class Principal extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchPosts())
+    this.props.dispatch(fetchPopularPosts())
   }
   componentWillReceiveProps(nextProps) {
     const { location, dispatch } = this.props
@@ -46,6 +47,7 @@ Principal.propTypes = {
 
 const mapStateToProps = state => ({
   posts: state.posts.items || [],
+  popPosts: state.posts.items || []
 })
 
 export default withRouter(connect(mapStateToProps)(Principal))
