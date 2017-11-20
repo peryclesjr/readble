@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import FaHeart from 'react-icons/lib/fa/heart'
-import sortBy from 'sort-by'
 
 const PopularPosts = ({ popPosts }) => (
   <div className="card margin">
@@ -10,7 +9,7 @@ const PopularPosts = ({ popPosts }) => (
       <h4><FaHeart /> Popular Posts</h4>
     </div>
     <ul className="ul hoverable white">
-      {popPosts.sort(sortBy('-voteScore')).slice(0, 5).map(post => (
+      {popPosts.map(post => (
         <li key={post.id} className="padding-16">
           <Link
             to={`/post/${post.id}`}>

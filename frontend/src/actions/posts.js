@@ -33,7 +33,7 @@ const getPost = post => {
   }
 }
 
-export const fetchPost = (id) => {
+export const fetchPost = id => {
   return dispatch => {
     return api.getPostById(id).then(post => dispatch(getPost(post)))
   }
@@ -45,14 +45,18 @@ export const fetchPosts = () => {
   }
 }
 
-export const fetchPopularPosts = (qty) => {
+export const fetchPopularPosts = qty => {
   return dispatch => {
-    return api.getPopularPosts(qty).then(posts => dispatch(getPopularPosts(posts)))
+    return api
+      .getPopularPosts(qty)
+      .then(posts => dispatch(getPopularPosts(posts)))
   }
 }
 
-export const fetchPostsByCategory = (categoryPath) => {
+export const fetchPostsByCategory = categoryPath => {
   return dispatch => {
-    return api.getPostsByCategory(categoryPath).then(posts => dispatch(getPostsByCategory(posts)))
+    return api
+      .getPostsByCategory(categoryPath)
+      .then(posts => dispatch(getPostsByCategory(posts)))
   }
 }
