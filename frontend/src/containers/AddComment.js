@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { addComment } from '../actions/comments'
+import { fetchAddComment } from '../actions/comments'
 
 const AddComment = ({ dispatch, post }) => {
   let text, author
@@ -13,7 +13,7 @@ const AddComment = ({ dispatch, post }) => {
           if (!text.value.trim()) {
             return
           }
-          dispatch(addComment(text.value, author.value, post.id))
+          dispatch(fetchAddComment(text.value, author.value, post.id))
           text.value = ''
           author.value = ''
         }}>

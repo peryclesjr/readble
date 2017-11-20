@@ -1,21 +1,16 @@
 import { ADD_COMMENT, GET_COMMENTS } from '../actions/comments'
 
-const comments = (state = [], action) => {
+export const comments = (state = [], action) => {
   switch (action.type) {
     case ADD_COMMENT:
       return [
         ...state,
         {
-          id: Math.random()
-            .toString(36)
-            .substr(-8),
+          id: Math.random(),
           parentId: action.postId,
           timestamp: Date.now(),
           body: action.text,
-          author: action.author,
-          voteScore: 0,
-          deleted: false,
-          parentDeleted: false
+          author: action.author
         }
       ]
     case GET_COMMENTS:
@@ -26,5 +21,3 @@ const comments = (state = [], action) => {
       return state
   }
 }
-
-export default comments
