@@ -8,7 +8,6 @@ class Comment extends React.Component {
 
   render() {
     const { comments } = this.props
-    console.log('************************',this.props)
     return (
       <div className="col l12">
         {comments.map(comment => (

@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { addComment } from '../actions/comments'
 
-let AddComment = ({ dispatch, postId }) => {
+const AddComment = ({ dispatch, post }) => {
   let text, author
   return (
     <div>
@@ -12,7 +13,7 @@ let AddComment = ({ dispatch, postId }) => {
           if (!text.value.trim()) {
             return
           }
-          dispatch(addComment(text.value, author.value, postId))
+          dispatch(addComment(text.value, author.value, post.id))
           text.value = ''
           author.value = ''
         }}>
@@ -39,6 +40,13 @@ let AddComment = ({ dispatch, postId }) => {
   )
 }
 
-AddComment = connect()(AddComment)
+AddComment.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  post: PropTypes.any.isRequired /* review this type any */
+}
 
-export default AddComment
+const mapStateToProps = state => ({
+  post: state.posts.item || '', /* review this default value */
+})
+
+export default connect(mapStateToProps)(AddComment)
