@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const AddPost = () => (
+const AddPostButton = () => (
   <div className="container">
     <Link to='/posts' className="addPost">
       <b>Add a Post</b>
@@ -9,4 +9,4 @@ const AddPost = () => (
   </div>
 )
 
-export default AddPost
+export default AddPostButton

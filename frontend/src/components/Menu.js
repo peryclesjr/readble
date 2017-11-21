@@ -1,12 +1,12 @@
 import React from 'react'
 import About from './About'
-import PopularPosts from './PopularPosts'
-import Category from './Category'
-import AddPost from './AddPost'
+import PopularPosts from '../containers/post/PopularPosts'
+import Category from '../containers/Category'
+import AddPostButton from './AddPostButton'
 
 const Menu = () => (
   <div>
-    <AddPost />
+    <AddPostButton />
     <About />
     <PopularPosts />
     <Category />

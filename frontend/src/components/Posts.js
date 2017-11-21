@@ -11,10 +11,14 @@ const Posts = ({ posts }) => (
         <div className="container">
           <div className="row">
             <div className="col l10 m10 s10">
-              <h3><b>{post.title}</b></h3>
+              <h3>
+                <b>{post.title}</b>
+              </h3>
             </div>
             <div className="col l2 m2 s2">
-              <span className="tag light-gray small right"><FaTag /> {post.category}</span>
+              <span className="tag light-gray small right">
+                <FaTag /> {post.category}
+              </span>
             </div>
           </div>
           <Authorship author={post.author} timestamp={post.timestamp} />
@@ -41,10 +45,11 @@ const Posts = ({ posts }) => (
               </div>
               <div className="col m3 hide-small">
                 <span className="padding-large right">
-                  {post.voteScore > 0
-                    ? <FaThumbsUp size={25} />
-                    : <FaThumbsDown size={25} />
-                  }{' '}
+                  {post.voteScore > 0 ? (
+                    <FaThumbsUp size={25} />
+                  ) : (
+                    <FaThumbsDown size={25} />
+                  )}{' '}
                   <span className="badge">{post.voteScore}</span>
                 </span>
               </div>

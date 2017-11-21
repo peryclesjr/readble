@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { fetchPost } from '../actions/posts'
-import { fetchCommentsByPost } from '../actions/comments'
-import Comment from '../containers/Comment'
-import NotFound from '../components/NotFound'
-import Authorship from '../components/Authorship'
+import Comment from '../../components/Comment'
+import NotFound from '../../components/NotFound'
+import Authorship from '../../components/Authorship'
+import { fetchPost } from '../../actions/posts'
+import { fetchCommentsByPost } from '../../actions/comments'
 import { FaTag, FaThumbsUp, FaThumbsDown, FaComment } from 'react-icons/lib/fa'
 
 class Post extends React.Component {
@@ -18,6 +18,7 @@ class Post extends React.Component {
     if (nextProps.match.params.id !== nextProps.post.id) {
       const { dispatch, match } = this.props
       dispatch(fetchPost(match.params.id))
+      dispatch(fetchCommentsByPost(match.params.id))
     }
   }
   render() {

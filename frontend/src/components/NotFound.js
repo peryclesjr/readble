@@ -4,6 +4,7 @@ const NotFound = () => (
   <div>
     <h3>404 page not found</h3>
     <p>We are sorry but the page you are looking for does not exist.</p>
+    <p>Since you're here, please, feel free to read our popular posts.</p>
   </div>
 )
 

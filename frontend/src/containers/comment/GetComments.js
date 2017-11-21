@@ -1,11 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import Authorship from '../components/Authorship'
-import AddComment from '../containers/AddComment'
+import Authorship from '../../components/Authorship'
 
 class Comment extends React.Component {
-
   render() {
     const { comments } = this.props
     return (
@@ -16,7 +14,6 @@ class Comment extends React.Component {
             <div className="margin">{comment.body}</div>
           </div>
         ))}
-        <AddComment />
       </div>
     )
   }
@@ -24,11 +21,11 @@ class Comment extends React.Component {
 
 Comment.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  comments: PropTypes.array.isRequired,
+  comments: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({
-  comments: state.comments.items || [],
+  comments: state.comments.items || []
 })
 
 export default connect(mapStateToProps)(Comment)

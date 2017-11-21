@@ -4,7 +4,7 @@ import * as utils from '../utils/helpers'
 const Authorship = ({ author, timestamp }) => (
   <h5>
     <b>{author}{' '}</b>
-    <span className="opacity">{utils.formattedDate(timestamp)}</span>
+    <span className="opacity small">{utils.formattedDate(timestamp)}</span>
   </h5>
 )
 
