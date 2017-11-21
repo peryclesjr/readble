@@ -34,7 +34,7 @@ const getPost = post => {
   }
 }
 
-const addPost = (post) => {
+const addPost = post => {
   return {
     type: ADD_POST
   }
