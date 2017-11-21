@@ -18,7 +18,6 @@ class Post extends React.Component {
     if (nextProps.match.params.id !== nextProps.post.id) {
       const { dispatch, match } = this.props
       dispatch(fetchPost(match.params.id))
-      dispatch(fetchCommentsByPost(match.params.id))
     }
   }
   render() {

@@ -28,9 +28,9 @@ export const getPostById = postId =>
   fetch(`${URL_API}/posts/${postId}`, { headers }).then(res => res.json())
 
 export const getCommentsByPost = postId =>
-  fetch(`${URL_API}/posts/${postId}/comments`, { headers }).then(res =>
-    res.json()
-  )
+  fetch(`${URL_API}/posts/${postId}/comments`, { headers })
+    .then(res => res.json())
+    .then(data => data.sort(sortBy('-timestamp')))
 
 export const getPostsByCategory = category =>
   fetch(`${URL_API}/${category}/posts`, { headers }).then(res => res.json())
@@ -48,7 +48,6 @@ export const addCommentPost = (body, author, parentId) => {
     author,
     parentId,
   }
-
   return fetch(`${URL_API}/comments`, {
     headers,
     method: 'POST',

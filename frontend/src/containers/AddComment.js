@@ -13,7 +13,8 @@ const AddComment = ({ dispatch, post }) => {
           if (!body.value.trim()) {
             return
           }
-          dispatch(fetchAddComment(body.value, author.value, post.id))
+          let commentOwner = author.value ? author.value : 'Anonymous'
+          dispatch(fetchAddComment(body.value, commentOwner, post.id))
           body.value = ''
           author.value = ''
         }}>
