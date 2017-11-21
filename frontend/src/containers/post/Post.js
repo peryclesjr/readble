@@ -29,14 +29,14 @@ class Post extends React.Component {
           <div>
             <div className='card-4 margin white'>
               <div className="container">
-              <div className="row">
-                <div className="col l10 m10 s10">
-                  <h3><b>{post.title}</b></h3>
+                <div className="row">
+                  <div className="col l10 m10 s10">
+                    <h3><b>{post.title}</b></h3>
+                  </div>
+                  <div className="col l2 m2 s2">
+                    <span className="tag light-gray small right"><FaTag /> {post.category}</span>
+                  </div>
                 </div>
-                <div className="col l2 m2 s2">
-                  <span className="tag light-gray small right"><FaTag /> {post.category}</span>
-                </div>
-              </div>
                 <Authorship author={post.author} timestamp={post.timestamp} />
                 <div className="container">
                   <p>{post.body}</p>
