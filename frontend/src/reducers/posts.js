@@ -19,7 +19,7 @@ export const posts = (state = { items: [], item: '' }, action) => {
   }
 }
 
-export const popularPosts = (state = { items: []}, action) => {
+export const popularPosts = (state = { items: [] }, action) => {
   switch (action.type) {
     case GET_POPULAR_POSTS:
       return Object.assign({}, state, {
