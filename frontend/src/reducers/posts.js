@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, GET_POST, GET_POSTS_BY_CATEGORY, GET_POPULAR_POSTS } from '../actions/posts'
+import { GET_ALL_POSTS, GET_POST, GET_POSTS_BY_CATEGORY, GET_POPULAR_POSTS, ADD_POST } from '../actions/posts'
 
 export const posts = (state = { items: [], item: '' }, action) => {
   switch (action.type) {
@@ -14,6 +14,20 @@ export const posts = (state = { items: [], item: '' }, action) => {
       return Object.assign({}, state, {
         items: action.posts
       })
+    case ADD_POST:
+      const newItems = state.items.slice()
+      newItems.unshift({
+        id: action.id,
+        timestamp: action.timestamp,
+        title: action.title,
+        body: action.body,
+        author: action.author,
+        category: action.category,
+      })
+      return {
+        ...state,
+        items: newItems
+      }
     default:
       return state
   }

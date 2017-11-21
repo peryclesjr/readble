@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { fetchAddPost } from '../../actions/posts'
 
 const AddPost = ({ dispatch }) => {
   let title, body, author, category
@@ -9,13 +10,13 @@ const AddPost = ({ dispatch }) => {
       <form
         onSubmit={e => {
           e.preventDefault()
-          if (!body.value.trim() || !title.value.trim()) {
+          if (!body.value.trim()) {
             return
           }
           dispatch(
-            fetchAddPost(title.value, body.value, author.value, category.value)
+            fetchAddPost("Primeiro Post", body.value, author.value, "roadtrip")
           )
-          title.value = ''
+          //title.value = ''
           body.value = ''
           author.value = ''
         }}>
@@ -23,39 +24,35 @@ const AddPost = ({ dispatch }) => {
           <div className="col l12 m12 s12">
             <input
               className="input"
-              placeholder="Title"
+              placeholder="Anonymous"
               ref={node => {
-                title = node
+                author = node
               }}
             />
           </div>
-          <div className="row margin-top-bottom">
-            <div className="col l12 m12 s12">
-              <textarea
-                rows="2"
-                placeholder="Comment"
-                ref={node => {
-                  body = node
-                }}
-              />
-            </div>
-          </div>
-          <button className="button margin-bottom border" type="submit">
-            Add Comment
-          </button>
         </div>
+        <div className="row">
+          <div className="col l12 m12 s12">
+            <textarea
+              className="margin-top"
+              placeholder="Post"
+              rows="9"
+              ref={node => {
+                body = node
+              }}
+            />
+          </div>
+        </div>
+        <button className="button margin-top border right" type="submit">
+          Add Post
+        </button>
       </form>
     </div>
   )
 }
 
-AddComment.propTypes = {
+AddPost.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  post: PropTypes.any.isRequired /* review this type any */
 }
 
-const mapStateToProps = state => ({
-  post: state.posts.item || '' /* review this default value */
-})
-
-export default connect(mapStateToProps)(AddComment)
+export default connect()(AddPost)

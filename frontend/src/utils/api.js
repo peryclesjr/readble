@@ -54,3 +54,19 @@ export const addCommentPost = (body, author, parentId) => {
     body: JSON.stringify(payload)
   }).then(res => res.json())
 }
+
+export const addPost = (title, body, author, category) => {
+  let payload = {
+    id: Math.random(),
+    timestamp: Date.now(),
+    title,
+    body,
+    author,
+    category,
+  }
+  return fetch(`${URL_API}/posts`, {
+    headers,
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }).then(res => res.json())
+}

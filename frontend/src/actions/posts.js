@@ -34,9 +34,15 @@ const getPost = post => {
   }
 }
 
-const addPost = post => {
+const addPost = (post) => {
   return {
-    type: ADD_POST
+    type: ADD_POST,
+    id: post.id,
+    timestamp: post.timestamp,
+    title: post.title,
+    body: post.body,
+    author: post.author,
+    category: post.category
   }
 }
 
@@ -65,5 +71,13 @@ export const fetchPostsByCategory = categoryPath => {
     return api
       .getPostsByCategory(categoryPath)
       .then(posts => dispatch(getPostsByCategory(posts)))
+  }
+}
+
+export const fetchAddPost = (title, body, author, category) => {
+  return dispatch => {
+    return api
+      .addPost(title, body, author, category)
+      .then(data => dispatch(addPost(data)))
   }
 }
