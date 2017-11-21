@@ -1,18 +1,20 @@
 import { ADD_COMMENT, GET_COMMENTS } from '../actions/comments'
 
-export const comments = (state = [], action) => {
+export const comments = (state = { items: [] }, action) => {
   switch (action.type) {
     case ADD_COMMENT:
-      return [
+      const newItems = state.items.slice()
+      newItems.unshift({
+        id: action.id,
+        parentId: action.parentId,
+        timestamp: action.timestamp,
+        body: action.body,
+        author: action.author
+      })
+      return {
         ...state,
-        {
-          id: Math.random(),
-          parentId: action.postId,
-          timestamp: Date.now(),
-          body: action.text,
-          author: action.author
-        }
-      ]
+        items: newItems
+      }
     case GET_COMMENTS:
       return Object.assign({}, state, {
         items: action.comments

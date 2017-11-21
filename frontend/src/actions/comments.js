@@ -3,12 +3,14 @@ import * as api from '../utils/api'
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const GET_COMMENTS = 'GET_COMMENTS'
 
-const addComment = (body, author, postId) => {
+const addComment = (id, timestamp,  body, author, parentId) => {
   return {
     type: ADD_COMMENT,
+    id,
+    timestamp,
     body,
-    postId,
-    author
+    author,
+    parentId,
   }
 }
 
@@ -27,10 +29,10 @@ export const fetchCommentsByPost = postId => {
   }
 }
 
-export const fetchAddComment = (body, author, postId) => {
+export const fetchAddComment = (body, author, parentId) => {
   return dispatch => {
     return api
-      .addCommentPost(body, author, postId)
-      .then(data => dispatch(addComment(body, author, postId)))
+      .addCommentPost(body, author, parentId)
+      .then(data => dispatch(addComment(data.id, data.timestamp, body, author, parentId)))
   }
 }

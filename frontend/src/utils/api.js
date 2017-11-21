@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch'
 import sortBy from 'sort-by'
 
 const URL_API = 'http://localhost:3001'
@@ -10,8 +11,9 @@ if (!token) {
 }
 
 const headers = {
-  Accept: 'application/json',
-  Authorization: token
+  'Accept': 'application/json',
+  Authorization: token,
+  'Content-Type': 'application/json',
 }
 
 export const getAllPosts = () =>
@@ -47,12 +49,9 @@ export const addCommentPost = (body, author, parentId) => {
     parentId,
   }
 
-  let data = new FormData()
-  data.append('json', JSON.stringify(payload))
-
-  fetch(`${URL_API}/comments`, {
+  return fetch(`${URL_API}/comments`, {
     headers,
     method: 'POST',
-    body: data
+    body: JSON.stringify(payload)
   }).then(res => res.json())
 }

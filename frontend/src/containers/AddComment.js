@@ -4,17 +4,17 @@ import PropTypes from 'prop-types'
 import { fetchAddComment } from '../actions/comments'
 
 const AddComment = ({ dispatch, post }) => {
-  let text, author
+  let body, author
   return (
     <div>
       <form
         onSubmit={e => {
           e.preventDefault()
-          if (!text.value.trim()) {
+          if (!body.value.trim()) {
             return
           }
-          dispatch(fetchAddComment(text.value, author.value, post.id))
-          text.value = ''
+          dispatch(fetchAddComment(body.value, author.value, post.id))
+          body.value = ''
           author.value = ''
         }}>
         <div className="row">
@@ -28,7 +28,7 @@ const AddComment = ({ dispatch, post }) => {
                 <textarea
                   placeholder="Comment"
                   rows="2"
-                  ref={node => { text = node }}
+                  ref={node => { body = node }}
                 />
               </div>
             </div>
