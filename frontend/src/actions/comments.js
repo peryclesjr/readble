@@ -3,14 +3,14 @@ import * as api from '../utils/api'
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const GET_COMMENTS = 'GET_COMMENTS'
 
-const addComment = (data) => {
+const addComment = (comment) => {
   return {
     type: ADD_COMMENT,
-    id: data.id,
-    timestamp: data.timestamp,
-    body: data.body,
-    author: data.author,
-    parentId: data.parentId,
+    id: comment.id,
+    timestamp: comment.timestamp,
+    body: comment.body,
+    author: comment.author,
+    parentId: comment.parentId,
   }
 }
 
