@@ -1,13 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import Post from './post/Post'
+import Posts from './post/Posts'
 import PostsByCategory from './post/PostsByCategory'
 
 import Menu from '../components/Menu'
-import Posts from '../components/Posts'
 import NotFound from '../components/NotFound'
 
 import { fetchPosts } from '../actions/posts'
@@ -24,13 +23,12 @@ class Principal extends React.Component {
     }
   }
   render() {
-    const { posts } = this.props
     return (
       <div>
         <div className="row">
-          <div className="col l8 s12">
+          <div className="col l8">
             <Switch>
-              <Route exact path="/" render={() => <Posts posts={posts} />} />
+              <Route exact path="/" component={Posts} />
               <Route path="/post/:id" component={Post} />
               <Route path="/:categoryPath/posts" component={PostsByCategory} />
               <Route component={NotFound} />
@@ -45,14 +43,4 @@ class Principal extends React.Component {
   }
 }
 
-Principal.propTypes = {
-  posts: PropTypes.array.isRequired,
-  dispatch: PropTypes.func.isRequired
-}
-
-const mapStateToProps = state => ({
-  posts: state.posts.items || [],
-  popPosts: state.posts.items || []
-})
-
-export default withRouter(connect(mapStateToProps)(Principal))
+export default connect()(Principal)

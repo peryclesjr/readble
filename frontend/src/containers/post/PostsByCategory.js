@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import Posts from '../../components/Posts'
+import Posts from './Posts'
 import { fetchPostsByCategory } from '../../actions/posts'
 
 class PostsByCategory extends React.Component {

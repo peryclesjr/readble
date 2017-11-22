@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import Authorship from './Authorship'
+import PropTypes from 'prop-types'
+import Authorship from '../../components/Authorship'
 import { FaTag, FaThumbsUp, FaThumbsDown, FaComment } from 'react-icons/lib/fa'
 
 const Posts = ({ posts }) => (
@@ -60,4 +62,12 @@ const Posts = ({ posts }) => (
   </div>
 )
 
-export default Posts
+Posts.propTypes = {
+  posts: PropTypes.array.isRequired
+}
+
+const mapStateToProps = state => ({
+  posts: state.posts.items || []
+})
+
+export default connect(mapStateToProps)(Posts)
