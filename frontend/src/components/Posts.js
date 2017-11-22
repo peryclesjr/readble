@@ -6,7 +6,7 @@ import { FaTag, FaThumbsUp, FaThumbsDown, FaComment } from 'react-icons/lib/fa'
 
 const Posts = ({ posts }) => (
   <div>
-    {posts.sort(sortBy('-timestamp')).map(post => (
+    {posts.map(post => (
       <div key={post.id} className="card-4 margin-bottom margin-left margin-right white">
         <div className="container">
           <div className="row">

@@ -17,7 +17,9 @@ const headers = {
 }
 
 export const getAllPosts = () =>
-  fetch(`${URL_API}/posts`, { headers }).then(res => res.json())
+  fetch(`${URL_API}/posts`, { headers })
+    .then(res => res.json())
+    .then(data => data.sort(sortBy('-timestamp')))
 
 export const getPopularPosts = qty =>
   fetch(`${URL_API}/posts`, { headers })
