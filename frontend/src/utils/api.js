@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import sortBy from 'sort-by'
+import uuidv1 from 'uuid/v1'
 
 const URL_API = 'http://localhost:3001'
 
@@ -44,7 +45,7 @@ export const getAllCategories = () =>
 
 export const addCommentPost = (body, author, parentId) => {
   let payload = {
-    id: Math.random(),
+    id: uuidv1(),
     timestamp: Date.now(),
     body,
     author,
@@ -59,7 +60,7 @@ export const addCommentPost = (body, author, parentId) => {
 
 export const addPost = (title, body, author, category) => {
   let payload = {
-    id: Math.random(),
+    id: uuidv1(),
     timestamp: Date.now(),
     title,
     body,
