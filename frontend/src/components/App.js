@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Principal from '../containers/Principal'
 import AddPost from '../containers/post/AddPost'
 import Header from './Header'
@@ -11,8 +11,10 @@ const App = () => (
       <div className="content" style={{ maxWidth: 1400 }}>
         <Header />
         <div className="container">
-          <Route exact path="/" component={Principal} />
-          <Route exact path="/posts" component={AddPost} />
+          <Switch>
+            <Route path="/add-post" component={AddPost} />
+            <Route component={Principal} />
+          </Switch>
         </div>
       </div>
       <Footer />
