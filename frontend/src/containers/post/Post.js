@@ -24,7 +24,7 @@ class Post extends React.Component {
   render() {
     const { post } = this.props
     return (
-      <div>
+      <div className="container">
         {post.title ? (
           <div>
             <div className='card-4 white'>
@@ -57,7 +57,7 @@ class Post extends React.Component {
               </div>
             </div>
             <div className="row">
-              <div className="margin-top">
+              <div className="margin-top margin-bottom">
                 <Comment />
               </div>
             </div>
