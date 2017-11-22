@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import sortBy from 'sort-by'
 import Authorship from './Authorship'
 import { FaTag, FaThumbsUp, FaThumbsDown, FaComment } from 'react-icons/lib/fa'
 
