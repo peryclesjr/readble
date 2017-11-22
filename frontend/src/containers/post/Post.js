@@ -15,8 +15,8 @@ class Post extends React.Component {
     dispatch(fetchCommentsByPost(match.params.id))
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.match.params.id !== nextProps.post.id) {
-      const { dispatch, match } = this.props
+    if (nextProps.match.params.id !== this.props.match.params.id) {
+      const { dispatch, match } = nextProps
       dispatch(fetchPost(match.params.id))
       dispatch(fetchCommentsByPost(match.params.id))
     }
@@ -27,7 +27,7 @@ class Post extends React.Component {
       <div>
         {post.title ? (
           <div>
-            <div className='card-4 margin white'>
+            <div className='card-4 white'>
               <div className="container">
                 <div className="row">
                   <div className="col l10 m10 s10">
@@ -57,7 +57,7 @@ class Post extends React.Component {
               </div>
             </div>
             <div className="row">
-              <div className="container">
+              <div className="margin-top">
                 <Comment />
               </div>
             </div>
