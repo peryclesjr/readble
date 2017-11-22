@@ -224,6 +224,14 @@ a {
   white-space: nowrap;
 }
 
+.select {
+  height: 35px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+}
+
 .addPost {
   background-color: #4CAF50;
   border: none;
