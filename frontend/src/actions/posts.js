@@ -2,6 +2,7 @@ import * as api from '../utils/api'
 
 export const GET_ALL_POSTS = 'GET_ALL_POSTS'
 export const GET_POST = 'GET_POST'
+export const GET_POST_VOTES = 'GET_POST_VOTES'
 export const GET_POSTS_BY_CATEGORY = 'GET_POSTS_BY_CATEGORY'
 export const GET_POPULAR_POSTS = 'GET_POPULAR_POSTS'
 export const ADD_POST = 'ADD_POST'
@@ -31,6 +32,14 @@ const getPost = post => {
   return {
     type: GET_POST,
     post: post
+  }
+}
+
+const getPostVotes = (vote, postId) => {
+  return {
+    type: GET_POST_VOTES,
+    vote,
+    postId
   }
 }
 
@@ -79,5 +88,13 @@ export const fetchAddPost = (title, body, author, category) => {
     return api
       .addPost(title, body, author, category)
       .then(data => dispatch(addPost(data)))
+  }
+}
+
+export const fetchVotePost = (vote, postId) => {
+  return dispatch => {
+    return api
+      .vote(vote, postId)
+      .then(data => dispatch(getPostVotes(vote, postId)))
   }
 }

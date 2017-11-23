@@ -242,6 +242,20 @@ a {
   display: block;
 }
 
+.vote {
+  border: none;
+  display: inline-block;
+  outline: 0;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
 .button:hover {
   color: #000 !important;
   background-color: #ccc !important;

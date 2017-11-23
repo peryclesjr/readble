@@ -1,15 +1,32 @@
-import { GET_ALL_POSTS, GET_POST, GET_POSTS_BY_CATEGORY, GET_POPULAR_POSTS, ADD_POST } from '../actions/posts'
+import {
+  GET_ALL_POSTS,
+  GET_POST,
+  GET_POST_VOTES,
+  GET_POSTS_BY_CATEGORY,
+  GET_POPULAR_POSTS,
+  ADD_POST
+} from '../actions/posts'
 
-export const posts = (state = { items: [], item: '' }, action) => {
+export const posts = (state = { items: [] }, action) => {
   switch (action.type) {
     case GET_ALL_POSTS:
       return Object.assign({}, state, {
         items: action.posts
       })
-    case GET_POST:
-      return Object.assign({}, state, {
-        item: action.post
-      })
+    case GET_POST_VOTES:
+      return {
+        ...state,
+        items: state.items.map(p => {
+          if (p.id === action.postId) {
+            return {
+              ...p,
+              voteScore:
+                action.vote === 'upVote' ? p.voteScore + 1 : p.voteScore - 1
+            }
+          }
+          return p
+        })
+      }
     case GET_POSTS_BY_CATEGORY:
       return Object.assign({}, state, {
         items: action.posts
@@ -22,11 +39,31 @@ export const posts = (state = { items: [], item: '' }, action) => {
         title: action.title,
         body: action.body,
         author: action.author,
-        category: action.category,
+        category: action.category
       })
       return {
         ...state,
         items: newItems
+      }
+    default:
+      return state
+  }
+}
+
+export const postDetailed = (state = { item: {} }, action) => {
+  switch (action.type) {
+    case GET_POST:
+      return Object.assign({}, state, {
+        item: action.post
+      })
+    case GET_POST_VOTES:
+      return {
+        ...state,
+        item: {
+          ...state.item,
+          voteScore:
+            action.vote === 'upVote' ? state.item.voteScore + 1 : state.item.voteScore - 1
+        }
       }
     default:
       return state

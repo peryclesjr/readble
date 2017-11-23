@@ -12,9 +12,9 @@ if (!token) {
 }
 
 const headers = {
-  'Accept': 'application/json',
+  Accept: 'application/json',
   Authorization: token,
-  'Content-Type': 'application/json',
+  'Content-Type': 'application/json'
 }
 
 export const getAllPosts = () =>
@@ -49,7 +49,7 @@ export const addCommentPost = (body, author, parentId) => {
     timestamp: Date.now(),
     body,
     author,
-    parentId,
+    parentId
   }
   return fetch(`${URL_API}/comments`, {
     headers,
@@ -65,9 +65,20 @@ export const addPost = (title, body, author, category) => {
     title,
     body,
     author,
-    category,
+    category
   }
   return fetch(`${URL_API}/posts`, {
+    headers,
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }).then(res => res.json())
+}
+
+export const vote = (vote, postId) => {
+  let payload = {
+    option: vote
+  }
+  return fetch(`${URL_API}/posts/${postId}`, {
     headers,
     method: 'POST',
     body: JSON.stringify(payload)
