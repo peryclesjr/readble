@@ -1,14 +1,33 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { Redirect } from 'react-router-dom'
 import Comment from '../../components/Comment'
 import NotFound from '../../components/NotFound'
 import Authorship from '../../components/Authorship'
-import { fetchPost, fetchVotePost } from '../../actions/posts'
 import { fetchCommentsByPost } from '../../actions/comments'
-import { FaTag, FaThumbsUp, FaThumbsDown, FaComment } from 'react-icons/lib/fa'
+import {
+  fetchPost,
+  fetchVotePost,
+  fetchDeletePost,
+  fetchPopularPosts
+} from '../../actions/posts'
+import {
+  FaTag,
+  FaThumbsUp,
+  FaThumbsDown,
+  FaComment,
+  FaEdit,
+  FaTrash
+} from 'react-icons/lib/fa'
 
 class Post extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      fireRedirect: false
+    }
+  }
   componentDidMount() {
     const { dispatch, match } = this.props
     dispatch(fetchPost(match.params.id))
@@ -24,10 +43,17 @@ class Post extends React.Component {
   upVote() {
     const { dispatch, post } = this.props
     dispatch(fetchVotePost('upVote', post.id))
+    dispatch(fetchPopularPosts())
   }
   downVote() {
     const { dispatch, post } = this.props
     dispatch(fetchVotePost('downVote', post.id))
+    dispatch(fetchPopularPosts())
+  }
+  delete() {
+    const { dispatch, post } = this.props
+    dispatch(fetchDeletePost(post.id))
+    this.setState({ fireRedirect: true })
   }
   render() {
     const { post } = this.props
@@ -53,31 +79,50 @@ class Post extends React.Component {
                 <div className="container">
                   <p>{post.body}</p>
                 </div>
-                <div className="row">
-                  <div className="col l12">
-                    <span className="padding right">
+                <div className="row margin">
+                  <div className="">
+                    <div className="col l3 m3 s6 center">
                       <FaComment size={25} />{' '}
                       <span className="badge">{post.commentCount}</span>
-                    </span>
-                    <span className="left">
+                    </div>
+                    <div className="col l3 m3 s6 center">
                       <span className="badge">{post.voteScore}</span>
                       <button
+                        className="icon"
                         onClick={e => {
                           e.preventDefault()
                           this.upVote()
-                        }}
-                        className="vote">
+                        }}>
                         <FaThumbsUp size={25} />
                       </button>
                       <button
+                        className="icon"
                         onClick={e => {
                           e.preventDefault()
                           this.downVote()
-                        }}
-                        className="vote">
+                        }}>
                         <FaThumbsDown size={25} />
                       </button>
-                    </span>
+                    </div>
+                    <div className="col l3 m3 s6 center">
+                      <button
+                        className="icon"
+                        onClick={e => {
+                          e.preventDefault()
+                        }}>
+                        <FaEdit size={25} />
+                      </button>
+                    </div>
+                    <div className="col l3 m3 s6 center">
+                      <button
+                        className="icon"
+                        onClick={e => {
+                          e.preventDefault()
+                          this.delete()
+                        }}>
+                        <FaTrash size={25} />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -91,6 +136,7 @@ class Post extends React.Component {
         ) : (
           <NotFound />
         )}
+        {this.state.fireRedirect && <Redirect to="/" />}
       </div>
     )
   }

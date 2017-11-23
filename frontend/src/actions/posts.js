@@ -104,3 +104,9 @@ export const fetchVotePost = (vote, postId) => {
     return api.vote(vote, postId).then(data => dispatch(getVotes(vote, postId)))
   }
 }
+
+export const fetchDeletePost = (postId) => {
+  return dispatch => {
+    return api.deletePost(postId)
+  }
+}
