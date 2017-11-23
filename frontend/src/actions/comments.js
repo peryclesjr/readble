@@ -1,4 +1,5 @@
 import * as api from '../utils/api'
+import { getQtyComments } from './posts'
 
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const GET_COMMENTS = 'GET_COMMENTS'
@@ -34,5 +35,6 @@ export const fetchAddComment = (body, author, parentId) => {
     return api
       .addCommentPost(body, author, parentId)
       .then(data => dispatch(addComment(data)))
+      .then(qty => dispatch(getQtyComments(parentId)))
   }
 }

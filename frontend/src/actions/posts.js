@@ -6,6 +6,7 @@ export const GET_POST_VOTES = 'GET_POST_VOTES'
 export const GET_POSTS_BY_CATEGORY = 'GET_POSTS_BY_CATEGORY'
 export const GET_POPULAR_POSTS = 'GET_POPULAR_POSTS'
 export const ADD_POST = 'ADD_POST'
+export const GET_QTY_COMMENTS = 'GET_QTY_COMMENTS'
 
 const getAllPosts = posts => {
   return {
@@ -35,7 +36,7 @@ const getPost = post => {
   }
 }
 
-const getPostVotes = (vote, postId) => {
+const getVotes = (vote, postId) => {
   return {
     type: GET_POST_VOTES,
     vote,
@@ -43,7 +44,7 @@ const getPostVotes = (vote, postId) => {
   }
 }
 
-const addPost = (post) => {
+const addPost = post => {
   return {
     type: ADD_POST,
     id: post.id,
@@ -52,6 +53,13 @@ const addPost = (post) => {
     body: post.body,
     author: post.author,
     category: post.category
+  }
+}
+
+export const getQtyComments = parentId => {
+  return {
+    type: GET_QTY_COMMENTS,
+    parentId
   }
 }
 
@@ -93,8 +101,6 @@ export const fetchAddPost = (title, body, author, category) => {
 
 export const fetchVotePost = (vote, postId) => {
   return dispatch => {
-    return api
-      .vote(vote, postId)
-      .then(data => dispatch(getPostVotes(vote, postId)))
+    return api.vote(vote, postId).then(data => dispatch(getVotes(vote, postId)))
   }
 }

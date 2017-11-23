@@ -55,7 +55,7 @@ AddComment.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  post: state.posts.item || '' /* review this default value */
+  post: state.postDetailed.item || '' /* review this default value */
 })
 
 export default connect(mapStateToProps)(AddComment)

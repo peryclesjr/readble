@@ -4,7 +4,8 @@ import {
   GET_POST_VOTES,
   GET_POSTS_BY_CATEGORY,
   GET_POPULAR_POSTS,
-  ADD_POST
+  ADD_POST,
+  GET_QTY_COMMENTS
 } from '../actions/posts'
 
 export const posts = (state = { items: [] }, action) => {
@@ -22,6 +23,19 @@ export const posts = (state = { items: [] }, action) => {
               ...p,
               voteScore:
                 action.vote === 'upVote' ? p.voteScore + 1 : p.voteScore - 1
+            }
+          }
+          return p
+        })
+      }
+    case GET_QTY_COMMENTS:
+      return {
+        ...state,
+        items: state.items.map(p => {
+          if (p.id === action.parentId) {
+            return {
+              ...p,
+              commentCount: p.commentCount + 1
             }
           }
           return p
@@ -62,7 +76,17 @@ export const postDetailed = (state = { item: {} }, action) => {
         item: {
           ...state.item,
           voteScore:
-            action.vote === 'upVote' ? state.item.voteScore + 1 : state.item.voteScore - 1
+            action.vote === 'upVote'
+              ? state.item.voteScore + 1
+              : state.item.voteScore - 1
+        }
+      }
+    case GET_QTY_COMMENTS:
+      return {
+        ...state,
+        item: {
+          ...state.item,
+          commentCount: state.item.commentCount + 1
         }
       }
     default:
