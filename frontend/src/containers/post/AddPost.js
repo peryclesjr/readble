@@ -6,9 +6,8 @@ import { fetchAddPost } from '../../actions/posts'
 import { fetchCategories } from '../../actions/categories'
 
 class AddPost extends React.Component {
-
-  constructor () {
-    super();
+  constructor() {
+    super()
     this.state = {
       fireRedirect: false
     }
@@ -19,7 +18,6 @@ class AddPost extends React.Component {
   }
 
   render() {
-
     const { categories, dispatch } = this.props
     const { fireRedirect } = this.state
 
@@ -29,22 +27,19 @@ class AddPost extends React.Component {
       <div>
         <form
           onSubmit={e => {
-
             e.preventDefault()
 
-            const catValue = document.getElementById("category")
-            category = catValue.options[catValue.selectedIndex].value;
+            const catValue = document.getElementById('category')
+            category = catValue.options[catValue.selectedIndex].value
 
             if (!body.value.trim() || !title.value.trim() || !category.trim()) {
               return
             }
 
-            dispatch(
-              fetchAddPost(title.value, body.value, author.value, category)
-            )
+            const postOwner = author.value ? author.value : 'Anonymous'
+            dispatch(fetchAddPost(title.value, body.value, postOwner, category))
             this.setState({ fireRedirect: true })
           }}>
-
           <div className="row">
             <div className="col l12 m12 s12">
               <input
@@ -58,8 +53,8 @@ class AddPost extends React.Component {
 
             <div className="col l12 m12 s12">
               <select id="category" className="select margin-bottom right">
-                <option value=''>Choose a category</option>
-                {categories.map((cat) => (
+                <option value="">Choose a category</option>
+                {categories.map(cat => (
                   <option key={cat.path}>{cat.name}</option>
                 ))}
               </select>
@@ -90,18 +85,20 @@ class AddPost extends React.Component {
           <button className="button border right" type="submit">
             Add Post
           </button>
-
         </form>
 
-        { fireRedirect && <Redirect to='/'/> }
-
+        {fireRedirect && <Redirect to="/" />}
       </div>
     )
   }
 }
 
-AddPost.propTypes = {
+AddPost.PropTypes = {
   dispatch: PropTypes.func.isRequired,
+  categories: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    path: PropTypes.string
+  })).isRequired
 }
 
 const mapStateToProps = state => ({
