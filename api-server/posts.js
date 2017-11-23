@@ -8,7 +8,7 @@ Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum 
 Detraxit consequat et quo num tendi nada. Si num tem leite então bota uma pinga aí cumpadi! Aenean aliquam molestie leo, vitae iaculis nisl. Per aumento de cachacis, eu reclamis. `
 
 const defaultData = {
-  "8xf0y6ziyjabvozdd253nd": {
+  '8xf0y6ziyjabvozdd253nd': {
     id: '8xf0y6ziyjabvozdd253nd',
     timestamp: 1467166872634,
     title: 'Atacama Desert',
@@ -19,7 +19,7 @@ const defaultData = {
     deleted: false,
     commentCount: 1
   },
-  "6ni6ok3ym7mf1p33lnez": {
+  '6ni6ok3ym7mf1p33lnez': {
     id: '6ni6ok3ym7mf1p33lnez',
     timestamp: 1468479767190,
     title: 'Machu Picchu',
@@ -30,7 +30,7 @@ const defaultData = {
     deleted: false,
     commentCount: 4
   },
-  "7fr4ok5ym8mk1p45lbah": {
+  '7fr4ok5ym8mk1p45lbah': {
     id: '7fr4ok5ym8mk1p45lbah',
     timestamp: 1478571769199,
     title: 'Aurora Boreal',
@@ -43,7 +43,7 @@ const defaultData = {
   }
 }
 
-function getData (token) {
+function getData(token) {
   let data = db[token]
   if (data == null) {
     data = db[token] = clone(defaultData)
@@ -51,28 +51,26 @@ function getData (token) {
   return data
 }
 
-function getByCategory (token, category) {
-  return new Promise((res) => {
+function getByCategory(token, category) {
+  return new Promise(res => {
     let posts = getData(token)
     let keys = Object.keys(posts)
-    let filtered_keys = keys.filter(key => posts[key].category === category && !posts[key].deleted)
+    let filtered_keys = keys.filter(
+      key => posts[key].category === category && !posts[key].deleted
+    )
     res(filtered_keys.map(key => posts[key]))
   })
 }
 
-function get (token, id) {
-  return new Promise((res) => {
+function get(token, id) {
+  return new Promise(res => {
     const posts = getData(token)
-    res(
-      posts[id].deleted
-        ? {}
-        : posts[id]
-    )
+    res(posts[id].deleted ? {} : posts[id])
   })
 }
 
-function getAll (token) {
-  return new Promise((res) => {
+function getAll(token) {
+  return new Promise(res => {
     const posts = getData(token)
     let keys = Object.keys(posts)
     let filtered_keys = keys.filter(key => !posts[key].deleted)
@@ -80,8 +78,8 @@ function getAll (token) {
   })
 }
 
-function add (token, post) {
-  return new Promise((res) => {
+function add(token, post) {
+  return new Promise(res => {
     let posts = getData(token)
 
     posts[post.id] = {
@@ -100,40 +98,40 @@ function add (token, post) {
   })
 }
 
-function vote (token, id, option) {
-  return new Promise((res) => {
+function vote(token, id, option) {
+  return new Promise(res => {
     let posts = getData(token)
     post = posts[id]
-    switch(option) {
-        case "upVote":
-            post.voteScore = post.voteScore + 1
-            break
-        case "downVote":
-            post.voteScore = post.voteScore - 1
-            break
-        default:
-            console.log(`posts.vote received incorrect parameter: ${option}`)
+    switch (option) {
+      case 'upVote':
+        post.voteScore = post.voteScore + 1
+        break
+      case 'downVote':
+        post.voteScore = post.voteScore - 1
+        break
+      default:
+        console.log(`posts.vote received incorrect parameter: ${option}`)
     }
     res(post)
   })
 }
 
-function disable (token, id) {
-    return new Promise((res) => {
-      let posts = getData(token)
-      posts[id].deleted = true
-      res(posts[id])
-    })
+function disable(token, id) {
+  return new Promise(res => {
+    let posts = getData(token)
+    posts[id].deleted = true
+    res(posts[id])
+  })
 }
 
-function edit (token, id, post) {
-    return new Promise((res) => {
-        let posts = getData(token)
-        for (prop in post) {
-            posts[id][prop] = post[prop]
-        }
-        res(posts[id])
-    })
+function edit(token, id, post) {
+  return new Promise(res => {
+    let posts = getData(token)
+    for (prop in post) {
+      posts[id][prop] = post[prop]
+    }
+    res(posts[id])
+  })
 }
 
 function incrementCommentCounter(token, id, count) {
