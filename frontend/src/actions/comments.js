@@ -4,14 +4,14 @@ import { getQtyComments } from './posts'
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const GET_COMMENTS = 'GET_COMMENTS'
 
-const addComment = (comment) => {
+const addComment = comment => {
   return {
     type: ADD_COMMENT,
     id: comment.id,
     timestamp: comment.timestamp,
     body: comment.body,
     author: comment.author,
-    parentId: comment.parentId,
+    parentId: comment.parentId
   }
 }
 
