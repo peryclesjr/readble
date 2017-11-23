@@ -22,10 +22,12 @@ class Post extends React.Component {
     }
   }
   upVote() {
-    this.props.dispatch(fetchVotePost('upVote', this.props.post.id))
+    const { dispatch, post } = this.props
+    dispatch(fetchVotePost('upVote', post.id))
   }
   downVote() {
-    this.props.dispatch(fetchVotePost('downVote', this.props.post.id))
+    const { dispatch, post } = this.props
+    dispatch(fetchVotePost('downVote', post.id))
   }
   render() {
     const { post } = this.props
@@ -96,12 +98,11 @@ class Post extends React.Component {
 
 Post.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  post: PropTypes.any.isRequired /* review this type any */
+  post: PropTypes.any.isRequired /* use SHAPE */
 }
 
 const mapStateToProps = state => ({
-  post: state.postDetailed.item || {} /* review this default value */,
-  comments: state.comments.items || []
+  post: state.postDetailed.item || {}
 })
 
 export default connect(mapStateToProps)(Post)
