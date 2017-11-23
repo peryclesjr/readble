@@ -17,7 +17,7 @@ const defaultData = {
     category: 'travel',
     voteScore: 3,
     deleted: false,
-    commentCount: 1
+    commentCount: 2
   },
   '6ni6ok3ym7mf1p33lnez': {
     id: '6ni6ok3ym7mf1p33lnez',
@@ -28,7 +28,7 @@ const defaultData = {
     category: 'roadtrip',
     voteScore: 2,
     deleted: false,
-    commentCount: 4
+    commentCount: 0
   },
   '7fr4ok5ym8mk1p45lbah': {
     id: '7fr4ok5ym8mk1p45lbah',
@@ -39,7 +39,7 @@ const defaultData = {
     category: 'eurotrip',
     voteScore: 5,
     deleted: false,
-    commentCount: 4
+    commentCount: 0
   }
 }
 
