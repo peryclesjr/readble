@@ -144,7 +144,15 @@ class Post extends React.Component {
 
 Post.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  post: PropTypes.any.isRequired /* use SHAPE */
+  post: PropTypes.shape({
+    title: PropTypes.string,
+    category: PropTypes.string,
+    author: PropTypes.string,
+    timestamp: PropTypes.number,
+    body: PropTypes.string,
+    commentCount: PropTypes.number,
+    voteScore: PropTypes.number
+  }).isRequired
 }
 
 const mapStateToProps = state => ({

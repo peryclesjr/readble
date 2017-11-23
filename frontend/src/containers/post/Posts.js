@@ -63,7 +63,17 @@ const Posts = ({ posts }) => (
 )
 
 Posts.propTypes = {
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.arrayOf(PropTypes.shape({
+    items: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      timestamp: PropTypes.number.isRequired,
+      body: PropTypes.string.isRequired,
+      commentCount: PropTypes.number.isRequired,
+      voteScore: PropTypes.number.isRequired
+    })
+  }))
 }
 
 const mapStateToProps = state => ({
