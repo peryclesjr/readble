@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
 import { comments } from './comments'
-import { posts, postDetailed, popularPosts } from './posts'
+import { posts, postDetailed, popularPosts, updatePost } from './posts'
 import { categories } from './categories'
 
 const nrBlog = combineReducers({
@@ -9,6 +9,7 @@ const nrBlog = combineReducers({
   posts,
   postDetailed,
   popularPosts,
+  updatePost,
   categories
 })
 

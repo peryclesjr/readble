@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
+import AddPost from './AddPost'
 import Comment from '../../components/Comment'
 import NotFound from '../../components/NotFound'
 import Authorship from '../../components/Authorship'
@@ -22,17 +23,22 @@ import {
 } from 'react-icons/lib/fa'
 
 class Post extends React.Component {
+
   constructor() {
     super()
     this.state = {
+      addMode: true,
       fireRedirect: false
     }
   }
+
   componentDidMount() {
     const { dispatch, match } = this.props
+    console.log('MATCH DO POST', match)
     dispatch(fetchPost(match.params.id))
     dispatch(fetchCommentsByPost(match.params.id))
   }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.id !== this.props.match.params.id) {
       const { dispatch, match } = nextProps
@@ -40,21 +46,25 @@ class Post extends React.Component {
       dispatch(fetchCommentsByPost(match.params.id))
     }
   }
+
   upVote() {
     const { dispatch, post } = this.props
     dispatch(fetchVotePost('upVote', post.id))
     dispatch(fetchPopularPosts())
   }
+
   downVote() {
     const { dispatch, post } = this.props
     dispatch(fetchVotePost('downVote', post.id))
     dispatch(fetchPopularPosts())
   }
+
   delete() {
     const { dispatch, post } = this.props
     dispatch(fetchDeletePost(post.id))
     this.setState({ fireRedirect: true })
   }
+
   render() {
     const { post } = this.props
     return (
@@ -105,13 +115,9 @@ class Post extends React.Component {
                       </button>
                     </div>
                     <div className="col l3 m3 s6 center">
-                      <button
-                        className="icon"
-                        onClick={e => {
-                          e.preventDefault()
-                        }}>
+                      <Link to={`/posts/${post.id}`}>
                         <FaEdit size={25} />
-                      </button>
+                      </Link>
                     </div>
                     <div className="col l3 m3 s6 center">
                       <button

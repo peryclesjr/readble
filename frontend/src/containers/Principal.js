@@ -12,11 +12,13 @@ import NotFound from '../components/NotFound'
 import { fetchPosts, fetchPopularPosts } from '../actions/posts'
 
 class Principal extends React.Component {
+
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(fetchPosts())
     dispatch(fetchPopularPosts())
   }
+
   componentWillReceiveProps(nextProps) {
     const { location, dispatch } = this.props
     if (location.pathname !== nextProps.location.pathname) {
@@ -24,6 +26,7 @@ class Principal extends React.Component {
       dispatch(fetchPopularPosts())
     }
   }
+
   render() {
     return (
       <div>

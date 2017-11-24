@@ -5,6 +5,7 @@ import {
   GET_POSTS_BY_CATEGORY,
   GET_POPULAR_POSTS,
   ADD_POST,
+  UPDATE_POST,
   GET_QTY_COMMENTS
 } from '../actions/posts'
 
@@ -59,6 +60,17 @@ export const posts = (state = { items: [] }, action) => {
         ...state,
         items: newItems
       }
+    case UPDATE_POST:
+      return {
+        ...state,
+        items: {
+          timestamp: action.timestamp,
+          title: action.title,
+          body: action.body,
+          author: action.author,
+          category: action.category
+        }
+      }
     default:
       return state
   }
@@ -104,3 +116,5 @@ export const popularPosts = (state = { items: [] }, action) => {
       return state
   }
 }
+
+export const updatePost = (state = { items: [] }, action) => {}

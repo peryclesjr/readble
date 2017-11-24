@@ -12,7 +12,8 @@ const App = () => (
         <Header />
         <div className="container">
           <Switch>
-            <Route path="/add-post" component={AddPost} />
+            <Route path="/posts" component={AddPost} />
+            <Route path="/posts/:id" component={AddPost} />
             <Route component={Principal} />
           </Switch>
         </div>

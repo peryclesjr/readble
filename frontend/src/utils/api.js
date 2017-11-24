@@ -74,6 +74,18 @@ export const addPost = (title, body, author, category) => {
   }).then(res => res.json())
 }
 
+export const updatePost = (title, body, id) => {
+  let payload = {
+    title,
+    body
+  }
+  return fetch(`${URL_API}/posts/${id}`, {
+    headers,
+    method: 'PUT',
+    body: JSON.stringify(payload)
+  }).then(res => res.json())
+}
+
 export const vote = (vote, postId) => {
   let payload = {
     option: vote
