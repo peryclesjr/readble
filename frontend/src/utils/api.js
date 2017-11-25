@@ -1,5 +1,4 @@
 import fetch from 'isomorphic-fetch'
-import sortBy from 'sort-by'
 import uuidv1 from 'uuid/v1'
 
 const URL_API = 'http://localhost:3001'
@@ -20,12 +19,10 @@ const headers = {
 export const getAllPosts = () =>
   fetch(`${URL_API}/posts`, { headers })
     .then(res => res.json())
-    .then(data => data.sort(sortBy('-timestamp')))
 
 export const getPopularPosts = qty =>
   fetch(`${URL_API}/posts`, { headers })
     .then(res => res.json())
-    .then(data => data.sort(sortBy('-voteScore')).slice(0, qty ? qty : 5))
 
 export const getPostById = postId =>
   fetch(`${URL_API}/posts/${postId}`, { headers }).then(res => res.json())
@@ -33,7 +30,6 @@ export const getPostById = postId =>
 export const getCommentsByPost = postId =>
   fetch(`${URL_API}/posts/${postId}/comments`, { headers })
     .then(res => res.json())
-    .then(data => data.sort(sortBy('-timestamp')))
 
 export const getPostsByCategory = category =>
   fetch(`${URL_API}/${category}/posts`, { headers }).then(res => res.json())
@@ -99,6 +95,13 @@ export const vote = (vote, postId) => {
 
 export const deletePost = (postId) => {
   return fetch(`${URL_API}/posts/${postId}`, {
+    headers,
+    method: 'DELETE',
+  }).then(res => res.json())
+}
+
+export const deleteComment = (commentId) => {
+  return fetch(`${URL_API}/comments/${commentId}`, {
     headers,
     method: 'DELETE',
   }).then(res => res.json())

@@ -1,3 +1,4 @@
+import sortBy from 'sort-by'
 import {
   GET_ALL_POSTS,
   GET_POST,
@@ -13,7 +14,7 @@ export const posts = (state = { items: [] }, action) => {
   switch (action.type) {
     case GET_ALL_POSTS:
       return Object.assign({}, state, {
-        items: action.posts
+        items: action.posts.sort(sortBy('-timestamp'))
       })
     case GET_POST_VOTES:
       return {
@@ -58,7 +59,7 @@ export const posts = (state = { items: [] }, action) => {
       })
       return {
         ...state,
-        items: newItems
+        items: newItems.sort(sortBy('-timestamp'))
       }
     default:
       return state
@@ -99,7 +100,7 @@ export const popularPosts = (state = { items: [] }, action) => {
   switch (action.type) {
     case GET_POPULAR_POSTS:
       return Object.assign({}, state, {
-        items: action.posts
+        items: action.posts.sort(sortBy('-voteScore')).slice(0, 5)
       })
     default:
       return state

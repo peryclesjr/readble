@@ -16,7 +16,7 @@ const getAllPosts = posts => {
   }
 }
 
-const getPopularPosts = posts => {
+export const getPopularPosts = posts => {
   return {
     type: GET_POPULAR_POSTS,
     posts: posts

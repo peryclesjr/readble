@@ -3,6 +3,7 @@ import { getQtyComments } from './posts'
 
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const GET_COMMENTS = 'GET_COMMENTS'
+export const REMOVE_COMMENT = 'REMOVE_COMMENT'
 
 const addComment = comment => {
   return {
@@ -18,7 +19,14 @@ const addComment = comment => {
 const getComments = comments => {
   return {
     type: GET_COMMENTS,
-    comments: comments
+    comments
+  }
+}
+
+export const removeComment = id => {
+  return {
+    type: REMOVE_COMMENT,
+    id
   }
 }
 
@@ -36,5 +44,11 @@ export const fetchAddComment = (body, author, parentId) => {
       .addCommentPost(body, author, parentId)
       .then(data => dispatch(addComment(data)))
       .then(qty => dispatch(getQtyComments(parentId)))
+  }
+}
+
+export const fetchDeleteComment = (commentId) => {
+  return dispatch => {
+    return api.deleteComment(commentId)
   }
 }
