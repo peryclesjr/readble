@@ -57,7 +57,7 @@ const addPost = post => {
   }
 }
 
-const updatePost = post => {
+export const updatePost = post => {
   return {
     type: UPDATE_POST,
     post: post

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { fetchAddPost } from '../../actions/posts'
+import { fetchAddPost, fetchUpdatePost } from '../../actions/posts'
 import { fetchCategories } from '../../actions/categories'
 
 class AddPost extends React.Component {
@@ -18,10 +18,18 @@ class AddPost extends React.Component {
   }
 
   render() {
-    const { categories, dispatch } = this.props
+    const { postData, categories, dispatch } = this.props
     const { fireRedirect } = this.state
 
-    let title, body, author, category
+    let title, body, author, category, createUpdateButtonLabel = 'Create Post'
+
+    if (postData.id) {
+      title = postData.title
+      body = postData.body
+      author = postData.author
+      category = postData.category
+      createUpdateButtonLabel = 'Update Post'
+    }
 
     return (
       <div>
@@ -32,12 +40,12 @@ class AddPost extends React.Component {
             const catValue = document.getElementById('category')
             category = catValue.options[catValue.selectedIndex].value
 
-            if (!body.value.trim() || !title.value.trim() || !category.trim()) {
-              return
-            }
-
             const postOwner = author.value ? author.value : 'Anonymous'
-            dispatch(fetchAddPost(title.value, body.value, postOwner, category))
+
+            postData.id
+              ? dispatch(fetchUpdatePost(title.value, body.value, postData.id))
+              : dispatch(fetchAddPost(title.value, body.value, postOwner, category))
+
             this.setState({ fireRedirect: true })
           }}>
           <div className="row">
@@ -45,6 +53,7 @@ class AddPost extends React.Component {
               <input
                 className="input margin-bottom left"
                 placeholder="Author"
+                defaultValue={author}
                 ref={node => {
                   author = node
                 }}
@@ -64,6 +73,7 @@ class AddPost extends React.Component {
               <input
                 className="input margin-bottom"
                 placeholder="Title"
+                defaultValue={title}
                 ref={node => {
                   title = node
                 }}
@@ -72,9 +82,10 @@ class AddPost extends React.Component {
 
             <div className="col l12 m12 s12">
               <textarea
-                className=" margin-bottom"
+                className="margin-bottom"
                 placeholder="Write your post here"
                 rows="9"
+                defaultValue={body}
                 ref={node => {
                   body = node
                 }}
@@ -83,7 +94,7 @@ class AddPost extends React.Component {
           </div>
 
           <button className="button border right" type="submit">
-            Add Post
+            {createUpdateButtonLabel}
           </button>
         </form>
 
@@ -102,6 +113,7 @@ AddPost.PropTypes = {
 }
 
 const mapStateToProps = state => ({
+  postData: state.updatePost.item || {},
   categories: state.categories.data || []
 })
 

@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { Redirect, Link } from 'react-router-dom'
-import AddPost from './AddPost'
+import { Redirect } from 'react-router-dom'
 import Comment from '../../components/Comment'
 import NotFound from '../../components/NotFound'
 import Authorship from '../../components/Authorship'
@@ -11,7 +10,8 @@ import {
   fetchPost,
   fetchVotePost,
   fetchDeletePost,
-  fetchPopularPosts
+  fetchPopularPosts,
+  updatePost
 } from '../../actions/posts'
 import {
   FaTag,
@@ -27,14 +27,13 @@ class Post extends React.Component {
   constructor() {
     super()
     this.state = {
-      addMode: true,
-      fireRedirect: false
+      fireRedirect: false,
+      fireRedirectToUpdate: false
     }
   }
 
   componentDidMount() {
     const { dispatch, match } = this.props
-    console.log('MATCH DO POST', match)
     dispatch(fetchPost(match.params.id))
     dispatch(fetchCommentsByPost(match.params.id))
   }
@@ -59,6 +58,12 @@ class Post extends React.Component {
     dispatch(fetchPopularPosts())
   }
 
+  update() {
+    const { dispatch, post } = this.props
+    dispatch(updatePost(post))
+    this.setState({ fireRedirectToUpdate: true })
+  }
+
   delete() {
     const { dispatch, post } = this.props
     dispatch(fetchDeletePost(post.id))
@@ -66,6 +71,7 @@ class Post extends React.Component {
   }
 
   render() {
+    const { fireRedirect, fireRedirectToUpdate } = this.state
     const { post } = this.props
     return (
       <div className="container">
@@ -115,9 +121,14 @@ class Post extends React.Component {
                       </button>
                     </div>
                     <div className="col l3 m3 s6 center">
-                      <Link to={`/posts/${post.id}`}>
-                        <FaEdit size={25} />
-                      </Link>
+                      <button
+                        className="icon"
+                        onClick={e => {
+                          e.preventDefault()
+                          this.update()
+                        }}>
+                          <FaEdit size={25} />
+                      </button>
                     </div>
                     <div className="col l3 m3 s6 center">
                       <button
@@ -142,7 +153,8 @@ class Post extends React.Component {
         ) : (
           <NotFound />
         )}
-        {this.state.fireRedirect && <Redirect to="/" />}
+        { fireRedirect && <Redirect to="/" /> }
+        { fireRedirectToUpdate && <Redirect to={`/posts/${post.id}`} /> }
       </div>
     )
   }

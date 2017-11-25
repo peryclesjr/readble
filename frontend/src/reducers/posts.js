@@ -18,28 +18,28 @@ export const posts = (state = { items: [] }, action) => {
     case GET_POST_VOTES:
       return {
         ...state,
-        items: state.items.map(p => {
-          if (p.id === action.postId) {
+        items: state.items.map(post => {
+          if (post.id === action.postId) {
             return {
-              ...p,
+              ...post,
               voteScore:
-                action.vote === 'upVote' ? p.voteScore + 1 : p.voteScore - 1
+                action.vote === 'upVote' ? post.voteScore + 1 : post.voteScore - 1
             }
           }
-          return p
+          return post
         })
       }
     case GET_QTY_COMMENTS:
       return {
         ...state,
-        items: state.items.map(p => {
-          if (p.id === action.parentId) {
+        items: state.items.map(post => {
+          if (post.id === action.parentId) {
             return {
-              ...p,
-              commentCount: p.commentCount + 1
+              ...post,
+              commentCount: post.commentCount + 1
             }
           }
-          return p
+          return post
         })
       }
     case GET_POSTS_BY_CATEGORY:
@@ -59,17 +59,6 @@ export const posts = (state = { items: [] }, action) => {
       return {
         ...state,
         items: newItems
-      }
-    case UPDATE_POST:
-      return {
-        ...state,
-        items: {
-          timestamp: action.timestamp,
-          title: action.title,
-          body: action.body,
-          author: action.author,
-          category: action.category
-        }
       }
     default:
       return state
@@ -117,4 +106,13 @@ export const popularPosts = (state = { items: [] }, action) => {
   }
 }
 
-export const updatePost = (state = { items: [] }, action) => {}
+export const updatePost = (state = { item: {} }, action) => {
+  switch (action.type) {
+    case UPDATE_POST:
+      return Object.assign({}, state, {
+        item: action.post
+      })
+      default:
+        return state
+  }
+}
