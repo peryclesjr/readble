@@ -27,12 +27,11 @@ class CRUDPost extends React.Component {
   }
 
   handleAuthorChange(e) {
-    this.setState({
-      author: e.target.value });
+    this.setState({ author: e.target.value })
   }
 
   handleTitleChange(e) {
-    this.setState({ title: e.target.value });
+    this.setState({ title: e.target.value })
   }
 
   handleBodyChange(e) {
