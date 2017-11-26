@@ -8,7 +8,7 @@ import {
   ADD_POST,
   UPDATE_POST,
   GET_QTY_COMMENTS
-} from '../actions/posts'
+} from '../actions/actionType'
 
 export const posts = (state = { items: [] }, action) => {
   switch (action.type) {

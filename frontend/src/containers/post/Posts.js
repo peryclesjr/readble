@@ -32,7 +32,7 @@ const Posts = ({ posts }) => (
               <div className="col m6 s12">
                 <p>
                   <Link
-                    to={`/post/${post.id}`}
+                    to={`/${post.category}/${post.id}`}
                     className="button padding-large white border">
                     <b>READ MORE »</b>
                   </Link>

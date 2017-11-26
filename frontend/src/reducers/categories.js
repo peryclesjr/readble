@@ -1,4 +1,4 @@
-import { GET_CATEGORIES } from '../actions/categories'
+import { GET_CATEGORIES } from '../actions/actionType'
 
 export const categories = (state = { data: [] }, action) => {
   switch (action.type) {

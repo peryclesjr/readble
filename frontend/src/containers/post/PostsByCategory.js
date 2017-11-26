@@ -7,12 +7,12 @@ import { fetchPostsByCategory } from '../../actions/posts'
 class PostsByCategory extends React.Component {
   componentDidMount() {
     const { dispatch, match } = this.props
-    dispatch(fetchPostsByCategory(match.params.categoryPath))
+    dispatch(fetchPostsByCategory(match.params.category))
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.match.params.categoryPath !== nextProps.posts[0].category) {
+    if (nextProps.match.params.category !== nextProps.posts[0].category) {
       const { dispatch, match } = this.props
-      dispatch(fetchPostsByCategory(match.params.categoryPath))
+      dispatch(fetchPostsByCategory(match.params.category))
     }
   }
   render() {

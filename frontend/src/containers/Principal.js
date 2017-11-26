@@ -34,8 +34,8 @@ class Principal extends React.Component {
           <div className="col l8">
             <Switch>
               <Route exact path="/" component={Posts} />
-              <Route path="/post/:id" component={Post} />
-              <Route path="/:categoryPath/posts" component={PostsByCategory} />
+              <Route path="/:category/:id" component={Post} />
+              <Route path="/:category" component={PostsByCategory} />
               <Route component={NotFound} />
             </Switch>
           </div>

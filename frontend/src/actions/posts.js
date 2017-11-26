@@ -1,13 +1,15 @@
 import * as api from '../utils/api'
 
-export const GET_ALL_POSTS = 'GET_ALL_POSTS'
-export const GET_POST = 'GET_POST'
-export const GET_POST_VOTES = 'GET_POST_VOTES'
-export const GET_POSTS_BY_CATEGORY = 'GET_POSTS_BY_CATEGORY'
-export const GET_POPULAR_POSTS = 'GET_POPULAR_POSTS'
-export const ADD_POST = 'ADD_POST'
-export const UPDATE_POST = 'UPDATE_POST'
-export const GET_QTY_COMMENTS = 'GET_QTY_COMMENTS'
+import {
+  GET_ALL_POSTS,
+  GET_POPULAR_POSTS,
+  GET_POSTS_BY_CATEGORY,
+  GET_POST,
+  GET_POST_VOTES,
+  ADD_POST,
+  UPDATE_POST,
+  GET_QTY_COMMENTS
+} from './actionType'
 
 const getAllPosts = posts => {
   return {

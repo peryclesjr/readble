@@ -1,4 +1,8 @@
-import { ADD_COMMENT, GET_COMMENTS, REMOVE_COMMENT } from '../actions/comments'
+import {
+  ADD_COMMENT,
+  GET_COMMENTS,
+  REMOVE_COMMENT
+} from '../actions/actionType'
 import sortBy from 'sort-by'
 
 export const comments = (state = { items: [] }, action) => {

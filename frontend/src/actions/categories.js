@@ -1,6 +1,8 @@
 import * as api from '../utils/api'
 
-export const GET_CATEGORIES = 'GET_CATEGORIES'
+import {
+  GET_CATEGORIES
+} from './actionType'
 
 export const getAllCategories = categories => {
   return {

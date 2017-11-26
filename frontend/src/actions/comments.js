@@ -1,9 +1,11 @@
 import * as api from '../utils/api'
 import { getQtyComments } from './posts'
 
-export const ADD_COMMENT = 'ADD_COMMENT'
-export const GET_COMMENTS = 'GET_COMMENTS'
-export const REMOVE_COMMENT = 'REMOVE_COMMENT'
+import {
+  ADD_COMMENT,
+  GET_COMMENTS,
+  REMOVE_COMMENT
+} from './actionType'
 
 const addComment = comment => {
   return {

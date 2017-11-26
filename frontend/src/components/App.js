@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Principal from '../containers/Principal'
-import AddPost from '../containers/post/AddPost'
+import CRUDPost from '../containers/post/CRUDPost'
 import Header from './Header'
 import Footer from './Footer'
 
@@ -12,8 +12,8 @@ const App = () => (
         <Header />
         <div className="container">
           <Switch>
-            <Route path="/posts" component={AddPost} />
-            <Route path="/posts/:id" component={AddPost} />
+            <Route path="/posts" component={CRUDPost} />
+            <Route path="/posts/:id" component={CRUDPost} />
             <Route component={Principal} />
           </Switch>
         </div>
