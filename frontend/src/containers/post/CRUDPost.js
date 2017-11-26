@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { fetchAddPost, fetchUpdatePost } from '../../actions/posts'
-import { fetchCategories } from '../../actions/categories'
 
 class CRUDPost extends React.Component {
   constructor(props) {
@@ -57,10 +56,6 @@ class CRUDPost extends React.Component {
       : dispatch(fetchAddPost(title, body, postOwner, category))
 
     this.setState({ fireRedirect: true })
-  }
-
-  componentDidMount() {
-    this.props.dispatch(fetchCategories())
   }
 
   render() {
