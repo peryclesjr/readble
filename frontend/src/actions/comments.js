@@ -5,6 +5,7 @@ import {
   ADD_COMMENT,
   GET_COMMENTS,
   REMOVE_COMMENT,
+  UPDATE_COMMENT,
   GET_COMMENT_VOTES
 } from './actionType'
 
@@ -30,6 +31,13 @@ export const removeComment = id => {
   return {
     type: REMOVE_COMMENT,
     id
+  }
+}
+
+export const updateComment = comment => {
+  return {
+    type: UPDATE_COMMENT,
+    comment
   }
 }
 
@@ -61,6 +69,14 @@ export const fetchAddComment = (body, author, parentId) => {
 export const fetchDeleteComment = (commentId) => {
   return dispatch => {
     return api.deleteComment(commentId)
+  }
+}
+
+export const fetchUpdateComment = (body, id) => {
+  return dispatch => {
+    return api
+      .updateComment(body, id)
+      .then(data => dispatch(updateComment(data)))
   }
 }
 

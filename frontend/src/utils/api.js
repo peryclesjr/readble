@@ -117,3 +117,15 @@ export const deleteComment = (commentId) => {
     method: 'DELETE',
   }).then(res => res.json())
 }
+
+export const updateComment = (body, id) => {
+  let payload = {
+    timestamp: Date.now(),
+    body
+  }
+  return fetch(`${URL_API}/comments/${id}`, {
+    headers,
+    method: 'PUT',
+    body: JSON.stringify(payload)
+  }).then(res => res.json())
+}
