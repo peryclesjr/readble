@@ -12,7 +12,7 @@ import {
 } from '../../actions/comments'
 import { FaThumbsUp, FaEdit, FaTrash, FaClose } from 'react-icons/lib/fa'
 
-class Comment extends React.Component {
+class GetComments extends React.Component {
   constructor(props) {
     super(props)
 
@@ -159,4 +159,4 @@ const mapStateToProps = state => ({
   comments: state.comments.items || []
 })
 
-export default connect(mapStateToProps)(Comment)
+export default connect(mapStateToProps)(GetComments)
