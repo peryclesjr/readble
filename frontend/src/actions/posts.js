@@ -117,9 +117,9 @@ export const fetchUpdatePost = (title, body, id) => {
   }
 }
 
-export const fetchVotePost = (vote, postId) => {
+export const fetchVote = (vote, postId) => {
   return dispatch => {
-    return api.vote(vote, postId).then(data => dispatch(getVotes(vote, postId)))
+    return api.votePost(vote, postId).then(data => dispatch(getVotes(vote, postId)))
   }
 }
 

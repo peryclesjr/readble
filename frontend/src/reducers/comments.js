@@ -1,9 +1,10 @@
+import sortBy from 'sort-by'
 import {
   ADD_COMMENT,
   GET_COMMENTS,
-  REMOVE_COMMENT
+  REMOVE_COMMENT,
+  GET_COMMENT_VOTES
 } from '../actions/actionType'
-import sortBy from 'sort-by'
 
 export const comments = (state = { items: [] }, action) => {
   switch (action.type) {
@@ -29,6 +30,20 @@ export const comments = (state = { items: [] }, action) => {
       return {
         ...state,
         items: state.items.filter(c => c.id !== action.id)
+      }
+    case GET_COMMENT_VOTES:
+      return {
+        ...state,
+        items: state.items.map(c => {
+          if (c.id === action.id) {
+            return {
+              ...c,
+              voteScore:
+                action.vote === 'upVote' ? c.voteScore + 1 : c.voteScore - 1
+            }
+          }
+          return c
+        })
       }
     default:
       return state

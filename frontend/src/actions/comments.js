@@ -4,7 +4,8 @@ import { getQtyComments } from './posts'
 import {
   ADD_COMMENT,
   GET_COMMENTS,
-  REMOVE_COMMENT
+  REMOVE_COMMENT,
+  GET_COMMENT_VOTES
 } from './actionType'
 
 const addComment = comment => {
@@ -18,7 +19,7 @@ const addComment = comment => {
   }
 }
 
-const getComments = comments => {
+export const getComments = comments => {
   return {
     type: GET_COMMENTS,
     comments
@@ -28,6 +29,14 @@ const getComments = comments => {
 export const removeComment = id => {
   return {
     type: REMOVE_COMMENT,
+    id
+  }
+}
+
+const getVotes = (vote, id) => {
+  return {
+    type: GET_COMMENT_VOTES,
+    vote,
     id
   }
 }
@@ -52,5 +61,11 @@ export const fetchAddComment = (body, author, parentId) => {
 export const fetchDeleteComment = (commentId) => {
   return dispatch => {
     return api.deleteComment(commentId)
+  }
+}
+
+export const fetchVote = (vote, id) => {
+  return dispatch => {
+    return api.voteComment(vote, id).then(data => dispatch(getVotes(vote, id)))
   }
 }

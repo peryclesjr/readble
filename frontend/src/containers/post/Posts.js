@@ -8,7 +8,9 @@ import { FaTag, FaThumbsUp, FaThumbsDown, FaComment } from 'react-icons/lib/fa'
 const Posts = ({ posts }) => (
   <div>
     {posts.map(post => (
-      <div key={post.id} className="card-4 margin-bottom margin-left margin-right white">
+      <div
+        key={post.id}
+        className="card-4 margin-bottom margin-left margin-right white">
         <div className="container">
           <div className="row">
             <div className="col l10 m10 s10">
@@ -63,17 +65,19 @@ const Posts = ({ posts }) => (
 )
 
 Posts.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.shape({
-    items: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      timestamp: PropTypes.number.isRequired,
-      body: PropTypes.string.isRequired,
-      commentCount: PropTypes.number.isRequired,
-      voteScore: PropTypes.number.isRequired
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      items: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        timestamp: PropTypes.number.isRequired,
+        body: PropTypes.string.isRequired,
+        commentCount: PropTypes.number.isRequired,
+        voteScore: PropTypes.number.isRequired
+      })
     })
-  }))
+  )
 }
 
 const mapStateToProps = state => ({

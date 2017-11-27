@@ -82,7 +82,7 @@ export const updatePost = (title, body, id) => {
   }).then(res => res.json())
 }
 
-export const vote = (vote, postId) => {
+export const votePost = (vote, postId) => {
   let payload = {
     option: vote
   }
@@ -97,6 +97,17 @@ export const deletePost = (postId) => {
   return fetch(`${URL_API}/posts/${postId}`, {
     headers,
     method: 'DELETE',
+  }).then(res => res.json())
+}
+
+export const voteComment = (vote, id) => {
+  let payload = {
+    option: vote
+  }
+  return fetch(`${URL_API}/comments/${id}`, {
+    headers,
+    method: 'POST',
+    body: JSON.stringify(payload)
   }).then(res => res.json())
 }
 

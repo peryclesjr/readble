@@ -23,7 +23,6 @@ class CRUDPost extends React.Component {
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleBodyChange = this.handleBodyChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-
   }
 
   handleAuthorChange(e) {
@@ -59,7 +58,14 @@ class CRUDPost extends React.Component {
 
   render() {
     const { postData, categories } = this.props
-    const { fireRedirect, author, category, title, body, createUpdateButtonLabel } = this.state
+    const {
+      fireRedirect,
+      author,
+      category,
+      title,
+      body,
+      createUpdateButtonLabel
+    } = this.state
 
     return (
       <div>
@@ -67,7 +73,9 @@ class CRUDPost extends React.Component {
           <div className="row">
             <div className="col l12 m12 s12">
               <input
-                type="text" value={author} onChange={this.handleAuthorChange}
+                type="text"
+                value={author}
+                onChange={this.handleAuthorChange}
                 className="input margin-bottom left"
                 placeholder="Author"
                 disabled={postData.id !== undefined}
@@ -76,11 +84,12 @@ class CRUDPost extends React.Component {
             </div>
 
             <div className="col l12 m12 s12">
-              <select value={category} onChange={this.handleCategoryChange}
-                  className="select margin-bottom right"
-                  disabled={postData.id !== undefined}
-                  required
-              >
+              <select
+                value={category}
+                onChange={this.handleCategoryChange}
+                className="select margin-bottom right"
+                disabled={postData.id !== undefined}
+                required>
                 <option value="">Choose a category</option>
                 {categories.map(cat => (
                   <option key={cat.name}>{cat.name}</option>
@@ -90,7 +99,9 @@ class CRUDPost extends React.Component {
 
             <div className="col l12 m12 s12">
               <input
-                type="text" value={title} onChange={this.handleTitleChange}
+                type="text"
+                value={title}
+                onChange={this.handleTitleChange}
                 className="input margin-bottom"
                 placeholder="Title"
                 required
@@ -99,7 +110,8 @@ class CRUDPost extends React.Component {
 
             <div className="col l12 m12 s12">
               <textarea
-                value={body} onChange={this.handleBodyChange}
+                value={body}
+                onChange={this.handleBodyChange}
                 className="margin-bottom"
                 placeholder="Write your post here"
                 rows="9"
@@ -111,7 +123,6 @@ class CRUDPost extends React.Component {
           <button className="button border right" type="submit">
             {createUpdateButtonLabel}
           </button>
-
         </form>
 
         {fireRedirect && <Redirect to="/" />}
@@ -122,10 +133,12 @@ class CRUDPost extends React.Component {
 
 CRUDPost.PropTypes = {
   dispatch: PropTypes.func.isRequired,
-  categories: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    path: PropTypes.string
-  })).isRequired
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      path: PropTypes.string
+    })
+  ).isRequired
 }
 
 const mapStateToProps = state => ({

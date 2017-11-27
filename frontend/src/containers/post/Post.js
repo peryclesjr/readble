@@ -8,7 +8,7 @@ import Authorship from '../../components/Authorship'
 import { fetchCommentsByPost } from '../../actions/comments'
 import {
   fetchPost,
-  fetchVotePost,
+  fetchVote,
   fetchDeletePost,
   fetchPopularPosts,
   updatePost
@@ -23,7 +23,6 @@ import {
 } from 'react-icons/lib/fa'
 
 class Post extends React.Component {
-
   constructor() {
     super()
     this.state = {
@@ -48,13 +47,13 @@ class Post extends React.Component {
 
   upVote() {
     const { dispatch, post } = this.props
-    dispatch(fetchVotePost('upVote', post.id))
+    dispatch(fetchVote('upVote', post.id))
     dispatch(fetchPopularPosts())
   }
 
   downVote() {
     const { dispatch, post } = this.props
-    dispatch(fetchVotePost('downVote', post.id))
+    dispatch(fetchVote('downVote', post.id))
     dispatch(fetchPopularPosts())
   }
 
@@ -127,7 +126,7 @@ class Post extends React.Component {
                           e.preventDefault()
                           this.update()
                         }}>
-                          <FaEdit size={25} />
+                        <FaEdit size={25} />
                       </button>
                     </div>
                     <div className="col l3 m3 s6 center">
@@ -153,8 +152,8 @@ class Post extends React.Component {
         ) : (
           <NotFound />
         )}
-        { fireRedirect && <Redirect to="/" /> }
-        { fireRedirectToUpdate && <Redirect to={`/posts/${post.id}`} /> }
+        {fireRedirect && <Redirect to="/" />}
+        {fireRedirectToUpdate && <Redirect to={`/posts/${post.id}`} />}
       </div>
     )
   }

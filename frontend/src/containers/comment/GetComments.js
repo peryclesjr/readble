@@ -2,14 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Authorship from '../../components/Authorship'
-import { fetchDeleteComment, removeComment } from '../../actions/comments'
-import {
-  FaThumbsUp,
-  FaEdit,
-  FaTrash
-} from 'react-icons/lib/fa'
+import { fetchCommentsByPost, fetchDeleteComment, removeComment, fetchVote } from '../../actions/comments'
+import { FaThumbsUp, FaEdit, FaTrash } from 'react-icons/lib/fa'
 
 class Comment extends React.Component {
+  vote(vote, id, postId) {
+    const { dispatch } = this.props
+    dispatch(fetchVote(vote, id))
+    dispatch(fetchCommentsByPost(postId))
+  }
+
+  update() {
+
+  }
 
   delete(id, parentId) {
     const { dispatch } = this.props
@@ -18,12 +23,16 @@ class Comment extends React.Component {
   }
 
   render() {
+    const { comments } = this.props
     return (
       <div className="col l12">
-        {this.props.comments.map(comment => (
+        {comments.map(comment => (
           <div key={comment.id}>
             <div className="col l8 m8 s6">
-              <Authorship author={comment.author} timestamp={comment.timestamp} />
+              <Authorship
+                author={comment.author}
+                timestamp={comment.timestamp}
+              />
             </div>
             <div className="col l4 m4 s6">
               <div className="small right">
@@ -32,7 +41,7 @@ class Comment extends React.Component {
                   className="icon"
                   onClick={e => {
                     e.preventDefault()
-                    this.upVote()
+                    this.vote('upVote', comment.id, comment.parentId)
                   }}>
                   <FaThumbsUp size={18} />
                 </button>
@@ -43,7 +52,7 @@ class Comment extends React.Component {
                     e.preventDefault()
                     this.update()
                   }}>
-                    <FaEdit size={18} />
+                  <FaEdit size={18} />
                 </button>
 
                 <button
