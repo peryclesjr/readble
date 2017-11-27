@@ -14,7 +14,7 @@ export const posts = (state = { items: [] }, action) => {
   switch (action.type) {
     case GET_ALL_POSTS:
       return Object.assign({}, state, {
-        items: action.posts.sort(sortBy('-timestamp'))
+        items: action.posts
       })
     case GET_POST_VOTES:
       return {
