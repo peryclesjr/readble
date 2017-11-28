@@ -6,6 +6,7 @@ import sortBy from 'sort-by'
 import ActionsPost from './ActionsPost'
 import Authorship from '../../components/Authorship'
 import { FaTag } from 'react-icons/lib/fa'
+import Pagination from '../../components/Pagination'
 
 class Posts extends React.Component {
   constructor(props) {
@@ -20,10 +21,17 @@ class Posts extends React.Component {
     this.commentsLow = 'commentCount'
 
     this.state = {
-      orderBy: this.dateNew
+      orderBy: this.dateNew,
+      pageOfItems: []
     }
 
+    this.onChangePage = this.onChangePage.bind(this)
     this.handleOrderByChange = this.handleOrderByChange.bind(this)
+  }
+
+  onChangePage(pageOfItems) {
+    // update state with new page of items
+    this.setState({ pageOfItems: pageOfItems })
   }
 
   handleOrderByChange(e) {
@@ -32,7 +40,7 @@ class Posts extends React.Component {
 
   render() {
     const { posts } = this.props
-    const { orderBy } = this.state
+    const { orderBy, pageOfItems } = this.state
 
     return (
       <div>
@@ -60,7 +68,7 @@ class Posts extends React.Component {
           </div>
         </div>
 
-        {posts.sort(sortBy(orderBy)).map(post => (
+        {pageOfItems.sort(sortBy(orderBy)).map(post => (
           <div
             key={post.id}
             className="card-4 margin-bottom margin-left margin-right white"
@@ -103,6 +111,7 @@ class Posts extends React.Component {
             </div>
           </div>
         ))}
+        <Pagination items={posts} onChangePage={this.onChangePage} />
       </div>
     )
   }
