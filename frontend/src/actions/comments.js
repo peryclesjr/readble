@@ -66,7 +66,7 @@ export const fetchAddComment = (body, author, parentId) => {
   }
 }
 
-export const fetchDeleteComment = (commentId) => {
+export const fetchDeleteComment = commentId => {
   return dispatch => {
     return api.deleteComment(commentId)
   }

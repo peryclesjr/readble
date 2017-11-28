@@ -7,7 +7,7 @@ import {
   fetchVote,
   fetchDeletePost,
   fetchPopularPosts,
-  updatePost,
+  updatePost
 } from '../../actions/posts'
 import {
   FaComment,
@@ -18,7 +18,6 @@ import {
 } from 'react-icons/lib/fa'
 
 class ActionsPost extends React.Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -52,21 +51,17 @@ class ActionsPost extends React.Component {
   }
 
   render() {
-
     const { fireRedirect, fireRedirectToUpdate } = this.state
     const { post, classname } = this.props
 
     return (
-
       <div>
-
         <div className={classname}>
           <FaComment size={25} />{' '}
           <span className="badge">{post.commentCount}</span>
         </div>
 
         <div className={classname}>
-
           <span className="badge">{post.voteScore}</span>
           <button
             className="icon"
@@ -85,11 +80,9 @@ class ActionsPost extends React.Component {
             }}>
             <FaThumbsDown size={25} />
           </button>
-
         </div>
 
         <div className={classname}>
-
           <button
             className="icon"
             onClick={e => {
@@ -98,11 +91,9 @@ class ActionsPost extends React.Component {
             }}>
             <FaEdit size={25} />
           </button>
-
         </div>
 
         <div className={classname}>
-
           <button
             className="icon"
             onClick={e => {
@@ -111,14 +102,11 @@ class ActionsPost extends React.Component {
             }}>
             <FaTrash size={25} />
           </button>
-
         </div>
 
         {fireRedirect && <Redirect to="/" />}
         {fireRedirectToUpdate && <Redirect to={`/posts/${post.id}`} />}
-
       </div>
-
     )
   }
 }

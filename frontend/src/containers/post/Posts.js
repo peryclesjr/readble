@@ -8,7 +8,6 @@ import Authorship from '../../components/Authorship'
 import { FaTag } from 'react-icons/lib/fa'
 
 class Posts extends React.Component {
-
   constructor(props) {
     super(props)
 
@@ -37,7 +36,6 @@ class Posts extends React.Component {
 
     return (
       <div>
-
         <div className="container">
           <div className="row">
             <div className="col l12 m12 s12">
@@ -45,13 +43,17 @@ class Posts extends React.Component {
                 value={orderBy}
                 onChange={this.handleOrderByChange}
                 className="select margin-bottom">
-                  <option value={this.voteHigh}>Vote Score (high to low)</option>
-                  <option value={this.voteLow}>Vote Score (low to high)</option>
-                  <option value={this.dateNew}>Date (newest to oldest)</option>
-                  <option value={this.dateOld}>Date (oldest to newest)</option>
-                  <option value={this.commentsHigh}>The most commented posts</option>
-                  <option value={this.commentsLow}>The least commented posts</option>
-                  <option value={this.category}>Category</option>
+                <option value={this.voteHigh}>Vote Score (high to low)</option>
+                <option value={this.voteLow}>Vote Score (low to high)</option>
+                <option value={this.dateNew}>Date (newest to oldest)</option>
+                <option value={this.dateOld}>Date (oldest to newest)</option>
+                <option value={this.commentsHigh}>
+                  The most commented posts
+                </option>
+                <option value={this.commentsLow}>
+                  The least commented posts
+                </option>
+                <option value={this.category}>Category</option>
               </select>
             </div>
           </div>

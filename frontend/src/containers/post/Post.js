@@ -10,7 +10,6 @@ import { fetchPost } from '../../actions/posts'
 import { FaTag } from 'react-icons/lib/fa'
 
 class Post extends React.Component {
-
   componentDidMount() {
     const { dispatch, match } = this.props
     dispatch(fetchPost(match.params.id))
@@ -26,7 +25,6 @@ class Post extends React.Component {
   }
 
   render() {
-
     const { post } = this.props
     return (
       <div className="container">
@@ -64,7 +62,6 @@ class Post extends React.Component {
         ) : (
           <NotFound />
         )}
-
       </div>
     )
   }

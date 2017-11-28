@@ -1,8 +1,6 @@
 import * as api from '../utils/api'
 
-import {
-  GET_CATEGORIES
-} from './actionType'
+import { GET_CATEGORIES } from './actionType'
 
 export const getAllCategories = categories => {
   return {
@@ -13,6 +11,8 @@ export const getAllCategories = categories => {
 
 export const fetchCategories = () => {
   return dispatch => {
-    return api.getAllCategories().then(categories => dispatch(getAllCategories(categories)))
+    return api
+      .getAllCategories()
+      .then(categories => dispatch(getAllCategories(categories)))
   }
 }

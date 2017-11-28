@@ -17,19 +17,18 @@ const headers = {
 }
 
 export const getAllPosts = () =>
-  fetch(`${URL_API}/posts`, { headers })
-    .then(res => res.json())
+  fetch(`${URL_API}/posts`, { headers }).then(res => res.json())
 
 export const getPopularPosts = qty =>
-  fetch(`${URL_API}/posts`, { headers })
-    .then(res => res.json())
+  fetch(`${URL_API}/posts`, { headers }).then(res => res.json())
 
 export const getPostById = postId =>
   fetch(`${URL_API}/posts/${postId}`, { headers }).then(res => res.json())
 
 export const getCommentsByPost = postId =>
-  fetch(`${URL_API}/posts/${postId}/comments`, { headers })
-    .then(res => res.json())
+  fetch(`${URL_API}/posts/${postId}/comments`, { headers }).then(res =>
+    res.json()
+  )
 
 export const getPostsByCategory = category =>
   fetch(`${URL_API}/${category}/posts`, { headers }).then(res => res.json())
@@ -93,10 +92,10 @@ export const votePost = (vote, postId) => {
   }).then(res => res.json())
 }
 
-export const deletePost = (postId) => {
+export const deletePost = postId => {
   return fetch(`${URL_API}/posts/${postId}`, {
     headers,
-    method: 'DELETE',
+    method: 'DELETE'
   }).then(res => res.json())
 }
 
@@ -111,10 +110,10 @@ export const voteComment = (vote, id) => {
   }).then(res => res.json())
 }
 
-export const deleteComment = (commentId) => {
+export const deleteComment = commentId => {
   return fetch(`${URL_API}/comments/${commentId}`, {
     headers,
-    method: 'DELETE',
+    method: 'DELETE'
   }).then(res => res.json())
 }
 

@@ -119,11 +119,13 @@ export const fetchUpdatePost = (title, body, id) => {
 
 export const fetchVote = (vote, postId) => {
   return dispatch => {
-    return api.votePost(vote, postId).then(data => dispatch(getVotes(vote, postId)))
+    return api
+      .votePost(vote, postId)
+      .then(data => dispatch(getVotes(vote, postId)))
   }
 }
 
-export const fetchDeletePost = (postId) => {
+export const fetchDeletePost = postId => {
   return dispatch => {
     return api.deletePost(postId)
   }
