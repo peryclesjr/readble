@@ -92,7 +92,9 @@ class Posts extends React.Component {
                       </Link>
                     </p>
                   </div>
-                  <ActionsPost post={post} classname="col m2 hide-small" />
+                  <div style={{paddingTop: 20}}>
+                    <ActionsPost post={post} classname="col m2 hide-small" />
+                  </div>
                 </div>
               </div>
             </div>
