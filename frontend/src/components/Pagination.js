@@ -114,12 +114,12 @@ class Pagination extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <a className="button" onClick={() => this.setPage(1)}>
+          <a className="page" onClick={() => this.setPage(1)}>
             First
           </a>
 
           <a
-            className="button"
+            className="page"
             onClick={() => this.setPage(pager.currentPage - 1)}
           >
             Previous
@@ -128,19 +128,19 @@ class Pagination extends React.Component {
           {pager.pages.map((page, index) => (
             <a
               key={index}
-              className="button"
+              className={pager.currentPage === page ? 'activePage' : 'page'}
               onClick={() => this.setPage(page)}
             >
               {page}
             </a>
           ))}
           <a
-            className="button"
+            className="page"
             onClick={() => this.setPage(pager.currentPage + 1)}
           >
             Next
           </a>
-          <a className="button" onClick={() => this.setPage(pager.totalPages)}>
+          <a className="page" onClick={() => this.setPage(pager.totalPages)}>
             Last
           </a>
         </div>
