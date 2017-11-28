@@ -15,28 +15,28 @@ import {
 export const getAllPosts = posts => {
   return {
     type: GET_ALL_POSTS,
-    posts: posts
+    posts
   }
 }
 
 export const getPopularPosts = posts => {
   return {
     type: GET_POPULAR_POSTS,
-    posts: posts
+    posts
   }
 }
 
 export const getPostsByCategory = posts => {
   return {
     type: GET_POSTS_BY_CATEGORY,
-    posts: posts
+    posts
   }
 }
 
 export const getPost = post => {
   return {
     type: GET_POST,
-    post: post
+    post
   }
 }
 
@@ -70,7 +70,7 @@ export const addPost = post => {
 export const updatePost = post => {
   return {
     type: UPDATE_POST,
-    post: post
+    post
   }
 }
 

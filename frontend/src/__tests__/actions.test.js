@@ -2,7 +2,6 @@ import * as actions from '../actions/posts'
 import * as types from '../actions/ActionTypes'
 
 describe('post actions', () => {
-
   it('create an action to get all posts', () => {
     const posts = []
     const expectedAction = {
@@ -39,9 +38,7 @@ describe('post actions', () => {
     }
     expect(actions.getQtyComments(parentId)).toEqual(expectedAction)
   })
-
 })
-
 
 export const addPost = post => {
   return {

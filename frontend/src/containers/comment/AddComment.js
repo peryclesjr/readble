@@ -17,7 +17,8 @@ const AddComment = ({ dispatch, post }) => {
           dispatch(fetchAddComment(body.value, commentOwner, post.id))
           body.value = ''
           author.value = ''
-        }}>
+        }}
+      >
         <div className="row">
           <div className="col l12 m12 s12">
             <input

@@ -85,7 +85,8 @@ class GetComments extends React.Component {
                   onClick={e => {
                     e.preventDefault()
                     this.vote('upVote', comment.id, comment.parentId)
-                  }}>
+                  }}
+                >
                   <FaThumbsUp size={18} />
                 </button>
 
@@ -93,7 +94,8 @@ class GetComments extends React.Component {
                   className="icon"
                   onClick={() => {
                     this.openUpdateCommentModal({ comment })
-                  }}>
+                  }}
+                >
                   <FaEdit size={18} />
                 </button>
 
@@ -102,7 +104,8 @@ class GetComments extends React.Component {
                   onClick={e => {
                     e.preventDefault()
                     this.delete(comment.id, comment.parentId)
-                  }}>
+                  }}
+                >
                   <FaTrash size={18} />
                 </button>
               </div>
@@ -118,11 +121,13 @@ class GetComments extends React.Component {
           overlayClassName="overlay"
           isOpen={this.state.updateCommentModalOpen}
           contentLabel="Modal"
-          onRequestClose={this.closeUpdateCommentModal}>
+          onRequestClose={this.closeUpdateCommentModal}
+        >
           <div>
             <button
               className="icon right"
-              onClick={this.closeUpdateCommentModal}>
+              onClick={this.closeUpdateCommentModal}
+            >
               Close
               <FaClose size={30} />
             </button>
@@ -140,7 +145,8 @@ class GetComments extends React.Component {
                 e.preventDefault()
                 this.update(bodyComment, comment.id, comment.parentId)
                 this.closeUpdateCommentModal()
-              }}>
+              }}
+            >
               Update Comment
             </button>
           </div>

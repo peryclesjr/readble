@@ -68,7 +68,8 @@ class ActionsPost extends React.Component {
             onClick={e => {
               e.preventDefault()
               this.upVote()
-            }}>
+            }}
+          >
             <FaThumbsUp size={25} />
           </button>
 
@@ -77,7 +78,8 @@ class ActionsPost extends React.Component {
             onClick={e => {
               e.preventDefault()
               this.downVote()
-            }}>
+            }}
+          >
             <FaThumbsDown size={25} />
           </button>
         </div>
@@ -88,7 +90,8 @@ class ActionsPost extends React.Component {
             onClick={e => {
               e.preventDefault()
               this.update()
-            }}>
+            }}
+          >
             <FaEdit size={25} />
           </button>
         </div>
@@ -99,7 +102,8 @@ class ActionsPost extends React.Component {
             onClick={e => {
               e.preventDefault()
               this.delete()
-            }}>
+            }}
+          >
             <FaTrash size={25} />
           </button>
         </div>

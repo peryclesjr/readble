@@ -13,15 +13,15 @@ class Category extends React.Component {
     return (
       <div className="card margin">
         <div className="container padding">
-          <h4><FaTags /> Categories</h4>
+          <h4>
+            <FaTags /> Categories
+          </h4>
         </div>
         <div className="container white">
           <p>
             {this.props.categories.map(cat => (
               <Link key={cat.path} to={`/${cat.path}`}>
-                <span className="tag light-gray small margin">
-                  {cat.name}
-                </span>
+                <span className="tag light-gray small margin">{cat.name}</span>
               </Link>
             ))}
           </p>

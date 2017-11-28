@@ -5,7 +5,7 @@ import { GET_CATEGORIES } from './ActionTypes'
 export const getAllCategories = categories => {
   return {
     type: GET_CATEGORIES,
-    categories: categories
+    categories
   }
 }
 

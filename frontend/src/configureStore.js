@@ -10,8 +10,6 @@ const loggerMiddleware = createLogger()
 export default function configureStore() {
   return createStore(
     nrBlog,
-    composeEnhancers(
-      applyMiddleware(thunkMiddleware, loggerMiddleware)
-    )
+    composeEnhancers(applyMiddleware(thunkMiddleware, loggerMiddleware))
   )
 }

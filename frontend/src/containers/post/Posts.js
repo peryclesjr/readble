@@ -42,7 +42,8 @@ class Posts extends React.Component {
               <select
                 value={orderBy}
                 onChange={this.handleOrderByChange}
-                className="select margin-bottom">
+                className="select margin-bottom"
+              >
                 <option value={this.voteHigh}>Vote Score (high to low)</option>
                 <option value={this.voteLow}>Vote Score (low to high)</option>
                 <option value={this.dateNew}>Date (newest to oldest)</option>
@@ -62,7 +63,8 @@ class Posts extends React.Component {
         {posts.sort(sortBy(orderBy)).map(post => (
           <div
             key={post.id}
-            className="card-4 margin-bottom margin-left margin-right white">
+            className="card-4 margin-bottom margin-left margin-right white"
+          >
             <div className="container">
               <div className="row">
                 <div className="col l10 m10 s10">
@@ -87,12 +89,13 @@ class Posts extends React.Component {
                     <p>
                       <Link
                         to={`/${post.category}/${post.id}`}
-                        className="button padding-large white border">
+                        className="button padding-large white border"
+                      >
                         <b>READ MORE »</b>
                       </Link>
                     </p>
                   </div>
-                  <div style={{paddingTop: 20}}>
+                  <div style={{ paddingTop: 20 }}>
                     <ActionsPost post={post} classname="col m2 hide-small" />
                   </div>
                 </div>

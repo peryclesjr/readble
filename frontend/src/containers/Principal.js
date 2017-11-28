@@ -12,7 +12,6 @@ import NotFound from '../components/NotFound'
 import { fetchPosts, fetchPopularPosts } from '../actions/posts'
 
 class Principal extends React.Component {
-
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(fetchPosts())

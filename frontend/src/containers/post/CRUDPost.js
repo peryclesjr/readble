@@ -89,7 +89,8 @@ class CRUDPost extends React.Component {
                 onChange={this.handleCategoryChange}
                 className="select margin-bottom right"
                 disabled={postData.id !== undefined}
-                required>
+                required
+              >
                 <option value="">Choose a category</option>
                 {categories.map(cat => (
                   <option key={cat.name}>{cat.name}</option>

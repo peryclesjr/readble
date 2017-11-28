@@ -7,14 +7,16 @@ const Footer = () => (
       <a
         href="https://www.instagram.com/nossasrotas/"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         Ivo & Mari
       </a>
       {' with help of '}
       <a
         href="https://br.udacity.com/"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         Udacity
       </a>
     </p>
