@@ -6,6 +6,7 @@ export const GET_POPULAR_POSTS = 'GET_POPULAR_POSTS'
 export const ADD_POST = 'ADD_POST'
 export const UPDATE_POST = 'UPDATE_POST'
 export const REMOVE_POST = 'REMOVE_POST'
+export const PREPARE_POST_FORM = 'PREPARE_POST_FORM'
 export const GET_QTY_COMMENTS = 'GET_QTY_COMMENTS'
 
 export const ADD_COMMENT = 'ADD_COMMENT'

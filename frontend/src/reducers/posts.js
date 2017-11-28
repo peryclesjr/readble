@@ -8,7 +8,8 @@ import {
   ADD_POST,
   UPDATE_POST,
   REMOVE_POST,
-  GET_QTY_COMMENTS
+  GET_QTY_COMMENTS,
+  PREPARE_POST_FORM
 } from '../actions/ActionTypes'
 
 export const posts = (state = { items: [] }, action) => {
@@ -118,6 +119,19 @@ export const popularPosts = (state = { items: [] }, action) => {
 export const updatePost = (state = { item: {} }, action) => {
   switch (action.type) {
     case UPDATE_POST:
+      return Object.assign({}, state, {
+        item: action.post
+      })
+    default:
+      return state
+  }
+}
+
+export const preparePostForm = (state = { item: {} }, action) => {
+  console.log('state', state)
+  console.log('action', action)
+  switch (action.type) {
+    case PREPARE_POST_FORM:
       return Object.assign({}, state, {
         item: action.post
       })

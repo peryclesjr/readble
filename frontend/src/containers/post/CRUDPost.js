@@ -143,7 +143,7 @@ CRUDPost.PropTypes = {
 }
 
 const mapStateToProps = state => ({
-  postData: state.updatePost.item || {},
+  postData: state.preparePostForm.item || {},
   categories: state.categories.data || []
 })
 

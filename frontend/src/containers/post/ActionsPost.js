@@ -7,7 +7,7 @@ import {
   fetchVote,
   fetchDeletePost,
   fetchPopularPosts,
-  updatePost
+  preparePostForm
 } from '../../actions/posts'
 import {
   FaComment,
@@ -40,7 +40,7 @@ class ActionsPost extends React.Component {
 
   update() {
     const { dispatch, post } = this.props
-    dispatch(updatePost(post))
+    dispatch(preparePostForm(post))
     this.setState({ fireRedirectToUpdate: true })
   }
 

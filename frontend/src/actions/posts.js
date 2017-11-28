@@ -9,6 +9,7 @@ import {
   ADD_POST,
   UPDATE_POST,
   REMOVE_POST,
+  PREPARE_POST_FORM,
   GET_QTY_COMMENTS
 } from './ActionTypes'
 
@@ -70,6 +71,13 @@ export const addPost = post => {
 export const updatePost = post => {
   return {
     type: UPDATE_POST,
+    post
+  }
+}
+
+export const preparePostForm = post => {
+  return {
+    type: PREPARE_POST_FORM,
     post
   }
 }
