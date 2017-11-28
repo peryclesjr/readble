@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import sortBy from 'sort-by'
+import ActionsPost from './ActionsPost'
 import Authorship from '../../components/Authorship'
-import { FaTag, FaThumbsUp, FaThumbsDown, FaComment } from 'react-icons/lib/fa'
+import { FaTag } from 'react-icons/lib/fa'
 
 class Posts extends React.Component {
 
@@ -80,7 +81,7 @@ class Posts extends React.Component {
                   {'...'}
                 </p>
                 <div className="row">
-                  <div className="col m6 s12">
+                  <div className="col m4 s12">
                     <p>
                       <Link
                         to={`/${post.category}/${post.id}`}
@@ -89,22 +90,7 @@ class Posts extends React.Component {
                       </Link>
                     </p>
                   </div>
-                  <div className="col m3 hide-small">
-                    <span className="padding-large right">
-                      <FaComment size={25} />{' '}
-                      <span className="badge">{post.commentCount}</span>
-                    </span>
-                  </div>
-                  <div className="col m3 hide-small">
-                    <span className="padding-large right">
-                      {post.voteScore > 0 ? (
-                        <FaThumbsUp size={25} />
-                      ) : (
-                        <FaThumbsDown size={25} />
-                      )}{' '}
-                      <span className="badge">{post.voteScore}</span>
-                    </span>
-                  </div>
+                  <ActionsPost post={post} classname="col m2 hide-small" />
                 </div>
               </div>
             </div>
