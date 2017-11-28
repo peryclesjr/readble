@@ -8,6 +8,7 @@ import {
   GET_POST_VOTES,
   ADD_POST,
   UPDATE_POST,
+  REMOVE_POST,
   GET_QTY_COMMENTS
 } from './ActionTypes'
 
@@ -25,24 +26,31 @@ export const getPopularPosts = posts => {
   }
 }
 
-const getPostsByCategory = posts => {
+export const getPostsByCategory = posts => {
   return {
     type: GET_POSTS_BY_CATEGORY,
     posts: posts
   }
 }
 
-const getPost = post => {
+export const getPost = post => {
   return {
     type: GET_POST,
     post: post
   }
 }
 
-const getVotes = (vote, postId) => {
+export const getVotes = (vote, postId) => {
   return {
     type: GET_POST_VOTES,
     vote,
+    postId
+  }
+}
+
+export const removePostFromList = postId => {
+  return {
+    type: REMOVE_POST,
     postId
   }
 }
@@ -127,6 +135,8 @@ export const fetchVote = (vote, postId) => {
 
 export const fetchDeletePost = postId => {
   return dispatch => {
-    return api.deletePost(postId)
+    return api
+      .deletePost(postId)
+      .then(data => dispatch(removePostFromList(postId)))
   }
 }

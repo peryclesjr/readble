@@ -7,6 +7,7 @@ import {
   GET_POPULAR_POSTS,
   ADD_POST,
   UPDATE_POST,
+  REMOVE_POST,
   GET_QTY_COMMENTS
 } from '../actions/ActionTypes'
 
@@ -24,7 +25,9 @@ export const posts = (state = { items: [] }, action) => {
             return {
               ...post,
               voteScore:
-                action.vote === 'upVote' ? post.voteScore + 1 : post.voteScore - 1
+                action.vote === 'upVote'
+                  ? post.voteScore + 1
+                  : post.voteScore - 1
             }
           }
           return post
@@ -60,6 +63,11 @@ export const posts = (state = { items: [] }, action) => {
       return {
         ...state,
         items: newItems.sort(sortBy('-timestamp'))
+      }
+    case REMOVE_POST:
+      return {
+        ...state,
+        items: state.items.filter(post => post.id !== action.postId)
       }
     default:
       return state
@@ -113,7 +121,7 @@ export const updatePost = (state = { item: {} }, action) => {
       return Object.assign({}, state, {
         item: action.post
       })
-      default:
-        return state
+    default:
+      return state
   }
 }
