@@ -128,8 +128,6 @@ export const updatePost = (state = { item: {} }, action) => {
 }
 
 export const preparePostForm = (state = { item: {} }, action) => {
-  console.log('state', state)
-  console.log('action', action)
   switch (action.type) {
     case PREPARE_POST_FORM:
       return Object.assign({}, state, {
