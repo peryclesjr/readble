@@ -11,7 +11,7 @@ import {
   GET_QTY_COMMENTS
 } from './ActionTypes'
 
-const getAllPosts = posts => {
+export const getAllPosts = posts => {
   return {
     type: GET_ALL_POSTS,
     posts: posts
@@ -47,7 +47,7 @@ const getVotes = (vote, postId) => {
   }
 }
 
-const addPost = post => {
+export const addPost = post => {
   return {
     type: ADD_POST,
     id: post.id,
