@@ -7,7 +7,7 @@ import {
   REMOVE_COMMENT,
   UPDATE_COMMENT,
   GET_COMMENT_VOTES
-} from './actionType'
+} from './ActionTypes'
 
 const addComment = comment => {
   return {

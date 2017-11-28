@@ -9,7 +9,7 @@ import {
   ADD_POST,
   UPDATE_POST,
   GET_QTY_COMMENTS
-} from './actionType'
+} from './ActionTypes'
 
 const getAllPosts = posts => {
   return {

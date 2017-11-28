@@ -4,7 +4,7 @@ import {
   GET_COMMENTS,
   REMOVE_COMMENT,
   GET_COMMENT_VOTES
-} from '../actions/actionType'
+} from '../actions/ActionTypes'
 
 export const comments = (state = { items: [] }, action) => {
   switch (action.type) {
