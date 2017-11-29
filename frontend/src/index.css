@@ -230,6 +230,44 @@ a {
   white-space: nowrap;
 }
 
+.button:hover {
+  color: #000 !important;
+  background-color: #ccc !important;
+}
+
+.activePage {
+  display: inline-block;
+  outline: 0;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: blue;
+  color: inherit;
+  background-color: #4caf50;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.page {
+  display: inline-block;
+  outline: 0;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.page:hover {
+  color: #000 !important;
+  background-color: #ccc !important;
+}
+
 .select {
   height: 35px;
   display: block;
@@ -260,11 +298,6 @@ a {
   text-align: center;
   cursor: pointer;
   white-space: nowrap;
-}
-
-.button:hover {
-  color: #000 !important;
-  background-color: #ccc !important;
 }
 
 .container:after,
