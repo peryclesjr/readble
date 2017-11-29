@@ -32,7 +32,7 @@ const categories = [
 
 const post = {
   id: '6agU81kU8mkG6q5sU5B',
-  timestamp: 1478511236253,
+  timestamp: 1256209413953,
   title: 'Brasilia',
   body: 'small body for test',
   author: 'Ivo',
@@ -62,7 +62,6 @@ describe('async post actions', () => {
     return store
       .dispatch(actionsPost.fetchPost('6agU81kU8mkG6q5sU5B'))
       .then(() => {
-        // return of async actions
         expect(store.getActions()).toEqual(expectedActions)
       })
   })
@@ -113,7 +112,6 @@ describe('async categories actions', () => {
     const store = mockStore({ categories: [] })
 
     return store.dispatch(actionsCategories.fetchCategories()).then(() => {
-      // return of async actions
       expect(store.getActions()).toEqual(expectedActions)
     })
   })
