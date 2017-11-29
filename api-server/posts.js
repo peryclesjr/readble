@@ -25,7 +25,7 @@ const defaultData = {
     title: 'Machu Picchu',
     body: mussumIpsum,
     author: 'Mari',
-    category: 'roadtrip',
+    category: 'travel',
     voteScore: 2,
     deleted: false,
     commentCount: 0
@@ -38,6 +38,50 @@ const defaultData = {
     author: 'Ivo',
     category: 'eurotrip',
     voteScore: 5,
+    deleted: false,
+    commentCount: 0
+  },
+  '9zfdt3zeyjabvozdd0o9it': {
+    id: '9zfdt3zeyjabvozdd0o9it',
+    timestamp: 1539720961579,
+    title: 'New Zealand',
+    body: mussumIpsum,
+    author: 'Ivo',
+    category: 'roadtrip',
+    voteScore: 4,
+    deleted: false,
+    commentCount: 2
+  },
+  '7d4j0nzqm7mf8nb64zsh': {
+    id: '7d4j0nzqm7mf8nb64zsh',
+    timestamp: 1377388678201,
+    title: 'Germany',
+    body: mussumIpsum,
+    author: 'Mari',
+    category: 'roadtrip',
+    voteScore: 1,
+    deleted: false,
+    commentCount: 0
+  },
+  '6bdji8tm8mkvfr453dx': {
+    id: '6bdji8tm8mkvfr453dx',
+    timestamp: 1367400125142,
+    title: 'Africa Safari',
+    body: mussumIpsum,
+    author: 'Ivo',
+    category: 'eurotrip',
+    voteScore: 6,
+    deleted: false,
+    commentCount: 0
+  },
+  '6agU81kU8mkG6q5sU5B': {
+    id: '6agU81kU8mkG6q5sU5B',
+    timestamp: 1478511236253,
+    title: 'Brasilia',
+    body: 'small body for test',
+    author: 'Ivo',
+    category: 'travel',
+    voteScore: -3,
     deleted: false,
     commentCount: 0
   }
