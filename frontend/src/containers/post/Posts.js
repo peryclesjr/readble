@@ -47,7 +47,6 @@ class Posts extends React.Component {
   }
 
   render() {
-
     const { orderBy, items, pageOfItems } = this.state
 
     return (
@@ -119,7 +118,11 @@ class Posts extends React.Component {
             </div>
           </div>
         ))}
-        <Pagination items={items} orderBy={orderBy} onChangePage={this.handlePageChange} />
+        <Pagination
+          items={items}
+          orderBy={orderBy}
+          onChangePage={this.handlePageChange}
+        />
       </div>
     )
   }
