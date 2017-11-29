@@ -1,16 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { preparePostForm } from '../actions/posts'
 
 const AddPostButton = ({ dispatch }) => (
   <div className="container">
-    <a
+    <Link
       className="addPost"
       onClick={e => dispatch(preparePostForm())}
-      href="/posts"
+      to="/posts"
     >
       <b>Add a Post</b>
-    </a>
+    </Link>
   </div>
 )
 
