@@ -76,7 +76,7 @@ const defaultData = {
   },
   '6agU81kU8mkG6q5sU5B': {
     id: '6agU81kU8mkG6q5sU5B',
-    timestamp: 1478511236253,
+    timestamp: 1256209413953,
     title: 'Brasilia',
     body: 'small body for test',
     author: 'Ivo',
