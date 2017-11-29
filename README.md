@@ -1,6 +1,6 @@
 # Readable API Server
 
-This is the starter project for the final assessment project for Udacity's Redux course where I built a content and comment web app for my personal `travel blog Nossas Rotas`. Users are able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users are also able to edit and delete posts and comments.
+This is the project for the final assessment project for Udacity's Redux course where I built a content and comment web app for my personal `Travel Blog Nossas Rotas`. Users are able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users are also able to edit and delete posts and comments.
 
 This repository includes the code for the backend API Server that I have used to develop and interact with the front-end portion of the project.
 
