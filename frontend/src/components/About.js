@@ -13,8 +13,8 @@ const About = () => (
         <b>Ivo & Mari</b>
       </h4>
       <p>
-        A nerd and an accountant who loves to travel the world and get to know
-        new cultures.
+        A nerd and an accountant who loves to travel the world on their
+        vacation and get to know new cultures.
       </p>
     </div>
   </div>
