@@ -5,6 +5,7 @@ import _ from 'underscore'
 const propTypes = {
   items: PropTypes.array.isRequired,
   onChangePage: PropTypes.func.isRequired,
+  orderBy: PropTypes.string,
   initialPage: PropTypes.number
 }
 
@@ -28,6 +29,12 @@ class Pagination extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     // reset page if items array has changed
     if (this.props.items !== prevProps.items) {
+      this.setPage(this.props.initialPage)
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.orderBy !== nextProps.orderBy) {
       this.setPage(this.props.initialPage)
     }
   }
@@ -113,7 +120,7 @@ class Pagination extends React.Component {
 
     return (
       <div className="container">
-        <div className="row">
+        <div className="center">
           <a className="page" onClick={() => this.setPage(1)}>
             First
           </a>

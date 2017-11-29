@@ -22,25 +22,33 @@ class Posts extends React.Component {
 
     this.state = {
       orderBy: this.dateNew,
-      pageOfItems: []
+      pageOfItems: [],
+      items: []
     }
 
-    this.onChangePage = this.onChangePage.bind(this)
+    this.handlePageChange = this.handlePageChange.bind(this)
     this.handleOrderByChange = this.handleOrderByChange.bind(this)
   }
 
-  onChangePage(pageOfItems) {
-    // update state with new page of items
+  handlePageChange(pageOfItems) {
     this.setState({ pageOfItems: pageOfItems })
   }
 
   handleOrderByChange(e) {
     this.setState({ orderBy: e.target.value })
+    let sortedItems = this.props.posts.sort(sortBy(e.target.value))
+    this.setState({ items: sortedItems })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.posts !== nextProps.posts) {
+      this.setState({ items: nextProps.posts.sort(sortBy(this.state.orderBy)) })
+    }
   }
 
   render() {
-    const { posts } = this.props
-    const { orderBy, pageOfItems } = this.state
+
+    const { orderBy, items, pageOfItems } = this.state
 
     return (
       <div>
@@ -68,7 +76,7 @@ class Posts extends React.Component {
           </div>
         </div>
 
-        {pageOfItems.sort(sortBy(orderBy)).map(post => (
+        {pageOfItems.map(post => (
           <div
             key={post.id}
             className="card-4 margin-bottom margin-left margin-right white"
@@ -111,7 +119,7 @@ class Posts extends React.Component {
             </div>
           </div>
         ))}
-        <Pagination items={posts} onChangePage={this.onChangePage} />
+        <Pagination items={items} orderBy={orderBy} onChangePage={this.handlePageChange} />
       </div>
     )
   }
