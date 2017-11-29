@@ -13,7 +13,6 @@ describe('post actions', () => {
 
   it('create an action to add a post', () => {
     const post = {
-      id: 'id',
       title: 'Test with Jest',
       body: 'This is a post to test using jest',
       author: 'Jest',
@@ -21,7 +20,6 @@ describe('post actions', () => {
     }
     const expectedAction = {
       type: types.ADD_POST,
-      id: 'id',
       title: 'Test with Jest',
       body: 'This is a post to test using jest',
       author: 'Jest',
@@ -39,15 +37,3 @@ describe('post actions', () => {
     expect(actions.getQtyComments(parentId)).toEqual(expectedAction)
   })
 })
-
-export const addPost = post => {
-  return {
-    type: ADD_POST,
-    id: post.id,
-    timestamp: post.timestamp,
-    title: post.title,
-    body: post.body,
-    author: post.author,
-    category: post.category
-  }
-}
