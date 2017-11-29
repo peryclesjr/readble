@@ -41,7 +41,7 @@ export const updateComment = comment => {
   }
 }
 
-const getVotes = (vote, id) => {
+export const getVotes = (vote, id) => {
   return {
     type: GET_COMMENT_VOTES,
     vote,
