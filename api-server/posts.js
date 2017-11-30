@@ -50,7 +50,7 @@ const defaultData = {
     category: 'roadtrip',
     voteScore: 4,
     deleted: false,
-    commentCount: 2
+    commentCount: 0
   },
   '7d4j0nzqm7mf8nb64zsh': {
     id: '7d4j0nzqm7mf8nb64zsh',
