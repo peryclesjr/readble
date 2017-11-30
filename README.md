@@ -24,3 +24,14 @@ Information about the API server and how to use it can be found in its [README f
 ## Frontend
 
 Information about the Frontend and how to use it can be found in its [README file](frontend/README.md).
+
+## Contribute
+
+You can help to improve the project by opening Pull Requests (PR) and Issues.
+
+In addition, you can open Issues when you run into problems. In order to make the fix for the Issue as easy as possible, please provide a couple of details such as error log, screenshot, your node version (command line: `node -v`) and a link to your own repository. Not all of these details are mandatory, but most of them help to fix the Issue and to improve.
+
+---
+
+Thanks for your help,
+Alberto Ivo
