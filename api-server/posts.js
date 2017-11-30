@@ -43,7 +43,7 @@ const defaultData = {
   },
   '9zfdt3zeyjabvozdd0o9it': {
     id: '9zfdt3zeyjabvozdd0o9it',
-    timestamp: 1539720961579,
+    timestamp: 1329720961579,
     title: 'New Zealand',
     body: mussumIpsum,
     author: 'Ivo',
