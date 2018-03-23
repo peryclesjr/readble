@@ -52,7 +52,7 @@ export const posts = (state = { items: [] }, action) => {
         items: action.posts
       })
     case ADD_POST:
-      const newItems = state.items.slice()
+      const newItems = state.items.slice()  // clone the actual state.newItens
       newItems.unshift({
         id: action.id,
         timestamp: action.timestamp,

@@ -10,7 +10,7 @@ This repository includes the code for the backend API Server that I have used to
     - `cd api-server`
     - `npm install`
     - `node server`
-* Install and start the API server
+* Install and start the Frontend
     - `cd frontend`
     - `npm install`
     - `npm start`
