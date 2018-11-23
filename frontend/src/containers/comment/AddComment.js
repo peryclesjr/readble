@@ -24,9 +24,7 @@ const AddComment = ({ dispatch, post }) => {
             <input
               className="input"
               placeholder="Anonymous"
-              ref={node => {
-                author = node
-              }}
+              ref={node => { author = node }}
             />
           </div>
         </div>
@@ -36,9 +34,7 @@ const AddComment = ({ dispatch, post }) => {
               className="margin-top"
               placeholder="Comment"
               rows="2"
-              ref={node => {
-                body = node
-              }}
+              ref={node => { body = node }}
             />
           </div>
         </div>
@@ -52,7 +48,7 @@ const AddComment = ({ dispatch, post }) => {
 
 AddComment.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  post: PropTypes.any.isRequired /* review this type any */
+  post: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
