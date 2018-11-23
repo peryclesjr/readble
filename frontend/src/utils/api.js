@@ -3,7 +3,7 @@ import uuidv1 from 'uuid/v1'
 
 const URL_API = 'http://localhost:3001'
 
-let token = 'whatever'
+const token = 'whatever-you-want'
 /*
   // Can't use localStorage with Jest Test
   let token = localStorage.token
@@ -43,7 +43,7 @@ export const getAllCategories = () =>
     .then(data => data.categories)
 
 export const addCommentPost = (body, author, parentId) => {
-  let payload = {
+  const payload = {
     id: uuidv1(),
     timestamp: Date.now(),
     body,
@@ -58,7 +58,7 @@ export const addCommentPost = (body, author, parentId) => {
 }
 
 export const addPost = (title, body, author, category) => {
-  let payload = {
+  const payload = {
     id: uuidv1(),
     timestamp: Date.now(),
     title,
@@ -74,7 +74,7 @@ export const addPost = (title, body, author, category) => {
 }
 
 export const updatePost = (title, body, id) => {
-  let payload = {
+  const payload = {
     title,
     body
   }
@@ -86,7 +86,7 @@ export const updatePost = (title, body, id) => {
 }
 
 export const votePost = (vote, postId) => {
-  let payload = {
+  const payload = {
     option: vote
   }
   return fetch(`${URL_API}/posts/${postId}`, {
@@ -104,7 +104,7 @@ export const deletePost = postId => {
 }
 
 export const voteComment = (vote, id) => {
-  let payload = {
+  const payload = {
     option: vote
   }
   return fetch(`${URL_API}/comments/${id}`, {
@@ -122,7 +122,7 @@ export const deleteComment = commentId => {
 }
 
 export const updateComment = (body, id) => {
-  let payload = {
+  const payload = {
     timestamp: Date.now(),
     body
   }
