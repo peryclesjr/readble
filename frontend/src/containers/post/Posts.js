@@ -6,7 +6,7 @@ import sortBy from 'sort-by'
 import ActionsPost from './ActionsPost'
 import Authorship from '../../components/Authorship'
 import { FaTag } from 'react-icons/lib/fa'
-import Pagination from '../../components/Pagination'
+import Pagination from '../../utils/Pagination'
 
 class Posts extends React.Component {
   constructor(props) {
