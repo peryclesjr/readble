@@ -130,6 +130,7 @@ class PostForm extends React.Component {
 
 PostForm.PropTypes = {
   dispatch: PropTypes.func.isRequired,
+  postData: PropTypes.object,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
