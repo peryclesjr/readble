@@ -7,23 +7,13 @@ export const formattedTime = timestamp => {
 }
 
 export const formattedDate = timestamp => {
-  const mS = [
-    'JAN',
-    'FEB',
-    'MAR',
-    'APR',
-    'MAY',
-    'JUN',
-    'JUL',
-    'AUG',
-    'SEP',
-    'OCT',
-    'NOV',
-    'DEC'
+  const months = [
+    'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+    'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'
   ]
   const date = new Date(timestamp)
   const day = date.getDate()
-  const month = mS[date.getMonth()]
+  const month = months[date.getMonth()]
   const year = date.getFullYear()
   return day + ' ' + month + ' ' + year
 }

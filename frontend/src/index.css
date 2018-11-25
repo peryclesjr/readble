@@ -24,7 +24,6 @@ template {
 
 a {
   background-color: transparent;
-  -webkit-text-decoration-skip: objects;
 }
 
 a:active,
@@ -169,10 +168,10 @@ h6 {
 
 .overlay {
   position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: rgba(216, 216, 216, 0.75);
 }
 
@@ -187,7 +186,6 @@ h6 {
   border-radius: 4px;
   outline: none;
   padding: 20px;
-  border-radius: 3px;
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.24), 0 3px 12px 0 rgba(0, 0, 0, 0.12);
   width: 70%;
   min-width: 300px;
@@ -456,7 +454,7 @@ a {
 }
 
 .content {
-  max-width: 980px;
+  max-width: 1400px;
   margin: auto;
 }
 
@@ -593,4 +591,8 @@ a {
 
 .left {
   float: left !important;
+}
+
+footer p a {
+  margin: 0 3px 0 3px;
 }

@@ -9,14 +9,14 @@ import {
   GET_COMMENT_VOTES
 } from './ActionTypes'
 
-const addComment = comment => {
+const addComment = ({ id, timestamp, body, author, parentId }) => {
   return {
     type: ADD_COMMENT,
-    id: comment.id,
-    timestamp: comment.timestamp,
-    body: comment.body,
-    author: comment.author,
-    parentId: comment.parentId
+    id,
+    timestamp,
+    body,
+    author,
+    parentId
   }
 }
 

@@ -3,22 +3,21 @@ import React from 'react'
 const Footer = () => (
   <footer className="container dark-gray padding-32 margin-top">
     <p>
-      Powered by{' '}
-      <a
+      Powered by
+      <a className="tag"
         href="https://www.instagram.com/nossasrotas/"
-        target="_blank"
-        rel="noopener noreferrer"
+        target="_blank" rel="noopener noreferrer"
       >
-        Ivo & Mari
+        Ivo
       </a>
-      {' with help of '}
-      <a
-        href="https://br.udacity.com/"
-        target="_blank"
-        rel="noopener noreferrer"
+      for the
+      <a className="tag"
+        href="https://br.udacity.com/course/react-nanodegree--nd019"
+        target="_blank" rel="noopener noreferrer"
       >
-        Udacity
+        React Nanodegree
       </a>
+      of Udacity
     </p>
   </footer>
 )

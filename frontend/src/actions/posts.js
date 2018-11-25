@@ -56,15 +56,15 @@ export const removePostFromList = postId => {
   }
 }
 
-export const addPost = post => {
+export const addPost = ({ id, timestamp, title, body, author, category }) => {
   return {
     type: ADD_POST,
-    id: post.id,
-    timestamp: post.timestamp,
-    title: post.title,
-    body: post.body,
-    author: post.author,
-    category: post.category
+    id,
+    timestamp,
+    title,
+    body,
+    author,
+    category
   }
 }
 

@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { fetchAddPost, fetchUpdatePost } from '../../actions/posts'
 
-class CRUDPost extends React.Component {
+class PostForm extends React.Component {
   constructor(props) {
     super(props)
     const { postData } = props
@@ -59,12 +59,8 @@ class CRUDPost extends React.Component {
   render() {
     const { postData, categories } = this.props
     const {
-      fireRedirect,
-      author,
-      category,
-      title,
-      body,
-      createUpdateButtonLabel
+      fireRedirect, author, category,
+      title, body, createUpdateButtonLabel
     } = this.state
 
     return (
@@ -132,7 +128,7 @@ class CRUDPost extends React.Component {
   }
 }
 
-CRUDPost.PropTypes = {
+PostForm.PropTypes = {
   dispatch: PropTypes.func.isRequired,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
@@ -147,4 +143,4 @@ const mapStateToProps = state => ({
   categories: state.categories.data || []
 })
 
-export default connect(mapStateToProps)(CRUDPost)
+export default connect(mapStateToProps)(PostForm)

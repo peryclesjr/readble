@@ -12,7 +12,7 @@ import {
 } from '../../actions/comments'
 import { FaThumbsUp, FaEdit, FaTrash, FaClose } from 'react-icons/lib/fa'
 
-class GetComments extends React.Component {
+class Comments extends React.Component {
   constructor(props) {
     super(props)
 
@@ -31,7 +31,7 @@ class GetComments extends React.Component {
     dispatch(fetchCommentsByPost(postId))
   }
 
-  delete(id, parentId) {
+  delete(id) {
     const { dispatch } = this.props
     dispatch(fetchDeleteComment(id))
     dispatch(removeComment(id))
@@ -165,4 +165,4 @@ const mapStateToProps = state => ({
   comments: state.comments.items || []
 })
 
-export default connect(mapStateToProps)(GetComments)
+export default connect(mapStateToProps)(Comments)
