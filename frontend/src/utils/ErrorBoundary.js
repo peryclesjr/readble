@@ -1,13 +1,9 @@
 import React from 'react'
-import PropTypes from "prop-types"
-import { fetchCategories } from '../actions/categories'
-import connect from "react-redux/es/connect/connect"
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props)
     this.state = { error: null, errorInfo: null }
-    this.props.dispatch(fetchCategories())
   }
 
   componentDidCatch(error, errorInfo) {
@@ -17,11 +13,6 @@ class ErrorBoundary extends React.Component {
 
   render() {
     const {error, errorInfo} = this.state
-    if (this.props.categories.length === 0) {
-      return (
-        <h1>Server is down!</h1>
-      )
-    }
     if (this.state.errorInfo) {
       return (
         <div>
@@ -39,13 +30,4 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-ErrorBoundary.propTypes = {
-  categories: PropTypes.array.isRequired,
-  dispatch: PropTypes.func.isRequired
-}
-
-const mapStateToProps = state => ({
-  categories: state.categories.data || []
-})
-
-export default connect(mapStateToProps)(ErrorBoundary)
+export default ErrorBoundary
