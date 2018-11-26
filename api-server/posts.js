@@ -11,10 +11,10 @@ const defaultData = {
   '8xf0y6ziyjabvozdd253nd': {
     id: '8xf0y6ziyjabvozdd253nd',
     timestamp: 1467166872634,
-    title: 'Atacama Desert',
+    title: 'How to use GitHub',
     body: mussumIpsum,
-    author: 'Ivo',
-    category: 'travel',
+    author: 'Chun Li',
+    category: 'github',
     voteScore: 3,
     deleted: false,
     commentCount: 2
@@ -22,10 +22,10 @@ const defaultData = {
   '6ni6ok3ym7mf1p33lnez': {
     id: '6ni6ok3ym7mf1p33lnez',
     timestamp: 1468479767190,
-    title: 'Machu Picchu',
+    title: 'What is markdown?',
     body: mussumIpsum,
-    author: 'Mari',
-    category: 'travel',
+    author: 'Thanos',
+    category: 'dev',
     voteScore: 2,
     deleted: false,
     commentCount: 0
@@ -33,10 +33,10 @@ const defaultData = {
   '7fr4ok5ym8mk1p45lbah': {
     id: '7fr4ok5ym8mk1p45lbah',
     timestamp: 1478571769199,
-    title: 'Aurora Boreal',
+    title: 'How to publish an app on firebase',
     body: mussumIpsum,
-    author: 'Ivo',
-    category: 'eurotrip',
+    author: 'Balck Panther',
+    category: 'dev',
     voteScore: 5,
     deleted: false,
     commentCount: 0
@@ -44,10 +44,10 @@ const defaultData = {
   '9zfdt3zeyjabvozdd0o9it': {
     id: '9zfdt3zeyjabvozdd0o9it',
     timestamp: 1329720961579,
-    title: 'New Zealand',
+    title: 'What is branch?',
     body: mussumIpsum,
-    author: 'Ivo',
-    category: 'roadtrip',
+    author: 'Capitan American',
+    category: 'github',
     voteScore: 4,
     deleted: false,
     commentCount: 0
@@ -55,10 +55,10 @@ const defaultData = {
   '7d4j0nzqm7mf8nb64zsh': {
     id: '7d4j0nzqm7mf8nb64zsh',
     timestamp: 1377388678201,
-    title: 'Germany',
+    title: 'How to write a blog with markdown',
     body: mussumIpsum,
-    author: 'Mari',
-    category: 'roadtrip',
+    author: 'IronMan',
+    category: 'dev',
     voteScore: 1,
     deleted: false,
     commentCount: 0
@@ -66,10 +66,10 @@ const defaultData = {
   '6bdji8tm8mkvfr453dx': {
     id: '6bdji8tm8mkvfr453dx',
     timestamp: 1367400125142,
-    title: 'Africa Safari',
+    title: 'Why we have to commit and to push?',
     body: mussumIpsum,
-    author: 'Ivo',
-    category: 'eurotrip',
+    author: 'Wolverine',
+    category: 'github',
     voteScore: 6,
     deleted: false,
     commentCount: 0
@@ -77,10 +77,10 @@ const defaultData = {
   '6agU81kU8mkG6q5sU5B': {
     id: '6agU81kU8mkG6q5sU5B',
     timestamp: 1256209413953,
-    title: 'Brasilia',
+    title: 'Lets play Marvel vs Capcon',
     body: 'small body for test',
-    author: 'Ivo',
-    category: 'travel',
+    author: 'Ken',
+    category: 'hobby',
     voteScore: -3,
     deleted: false,
     commentCount: 0

@@ -4,11 +4,11 @@ const Header = () => (
   <header className="container center padding-32">
     <h1>
       <a href="/">
-        <b>Nossas Rotas Blog</b>
+        <b>Octocat's Blog</b>
       </a>
     </h1>
     <p>
-      Welcome to the blog of <span className="tag">Ivo & Mari</span>
+      Welcome to the blog of <span className="tag">Octocat</span>
     </p>
   </header>
 )

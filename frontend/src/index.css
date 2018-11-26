@@ -240,7 +240,7 @@ a {
   overflow: hidden;
   color: white;
   font-weight: 800;
-  background-color: #4caf50;
+  background-color: black;
   cursor: pointer;
   white-space: nowrap;
   margin-bottom: 10px;
@@ -274,7 +274,7 @@ a {
 }
 
 .addPost {
-  background-color: #4caf50;
+  background-color: black;
   border: none;
   color: white;
   padding: 15px 32px;

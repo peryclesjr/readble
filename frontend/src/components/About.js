@@ -1,21 +1,16 @@
 import React from 'react'
-import about from '../images/nossasrotas.jpg'
+import octocat from '../images/octocat.png'
 
 const About = () => (
   <div className="card margin margin-top">
     <img
-      src={about}
-      alt="Nossas Rotas - Aurora Boreal"
+      src={octocat}
+      alt="Octocat"
       style={{ width: '100%' }}
     />
     <div className="container white">
-      <h4>
-        <b>Ivo & Mari</b>
-      </h4>
-      <p>
-        A nerd and an accountant who loves to travel the world on their
-        vacation and get to know new cultures.
-      </p>
+      <h4><b>Octocat</b></h4>
+      <p>I'm a fluffy Octocat</p>
     </div>
   </div>
 )
