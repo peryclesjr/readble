@@ -1,6 +1,14 @@
 {
-  "name": "nossasrotasblogtemplate",
+  "name": "ocotocatblogtemplate",
   "version": "0.0.1",
+  "description": "",
+  "authors": [
+    {
+      "name": "Alberto Ivo Vieira",
+      "email": "albertoivo@gmail.com",
+      "url": "albertoivo.github.io"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/albertoivo/readable-reactnd.git"
@@ -9,7 +17,6 @@
   "keywords": [
     "udacity",
     "redux",
-    "readable",
     "react",
     "node",
     "create-react-app",
@@ -21,12 +28,5 @@
   "scripts": {
     "install": "concurrently --kill-others-on-fail \"cd frontend && npm install\" \"cd api-server && npm install\"",
     "start": "concurrently --kill-others-on-fail \"cd frontend && npm run start\" \"node api-server/server\""
-  },
-  "contributors": [
-    {
-      "name": "Alberto Ivo Vieira",
-      "email": "albertoivo@gmail.com",
-      "url": "albertoivo.github.io"
-    }
-  ]
+  }
 }
