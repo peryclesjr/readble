@@ -1,15 +1,15 @@
 import sortBy from 'sort-by'
 import {
-  GET_ALL_POSTS,
-  GET_POST,
-  GET_POST_VOTES,
-  GET_POSTS_BY_CATEGORY,
-  GET_POPULAR_POSTS,
-  ADD_POST,
-  UPDATE_POST,
-  REMOVE_POST,
-  GET_QTY_COMMENTS,
-  PREPARE_POST_FORM
+    ADD_POST,
+    GET_ALL_POSTS,
+    GET_POPULAR_POSTS,
+    GET_POST,
+    GET_POST_VOTES,
+    GET_POSTS_BY_CATEGORY,
+    GET_QTY_COMMENTS,
+    PREPARE_POST_FORM,
+    REMOVE_POST,
+    UPDATE_POST
 } from '../actions/ActionTypes'
 
 export const posts = (state = { items: [] }, action) => {
@@ -97,7 +97,7 @@ export const postDetailed = (state = { item: {} }, action) => {
         ...state,
         item: {
           ...state.item,
-          commentCount: state.item.commentCount + 1
+          commentCount: action.isAdd ? ++state.item.commentCount : --state.item.commentCount
         }
       }
     default:

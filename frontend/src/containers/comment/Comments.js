@@ -1,16 +1,16 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import Modal from 'react-modal'
 import Authorship from '../../components/Authorship'
 import {
-  fetchCommentsByPost,
-  fetchDeleteComment,
-  removeComment,
-  fetchVote,
-  fetchUpdateComment
+    fetchCommentsByPost,
+    fetchDeleteComment,
+    fetchUpdateComment,
+    fetchVote,
+    removeComment
 } from '../../actions/comments'
-import { FaThumbsUp, FaEdit, FaTrash, FaClose } from 'react-icons/lib/fa'
+import {FaClose, FaEdit, FaThumbsUp, FaTrash} from 'react-icons/lib/fa'
 
 class Comments extends React.Component {
   constructor(props) {
@@ -31,9 +31,9 @@ class Comments extends React.Component {
     dispatch(fetchCommentsByPost(postId))
   }
 
-  delete(id) {
+  delete(id, parentId) {
     const { dispatch } = this.props
-    dispatch(fetchDeleteComment(id))
+    dispatch(fetchDeleteComment(id, parentId))
     dispatch(removeComment(id))
   }
 

@@ -1,13 +1,7 @@
 import * as api from '../utils/api'
-import { getQtyComments } from './posts'
+import {getQtyComments} from './posts'
 
-import {
-  ADD_COMMENT,
-  GET_COMMENTS,
-  REMOVE_COMMENT,
-  UPDATE_COMMENT,
-  GET_COMMENT_VOTES
-} from './ActionTypes'
+import {ADD_COMMENT, GET_COMMENT_VOTES, GET_COMMENTS, REMOVE_COMMENT, UPDATE_COMMENT} from './ActionTypes'
 
 const addComment = ({ id, timestamp, body, author, parentId }) => {
   return {
@@ -62,13 +56,15 @@ export const fetchAddComment = (body, author, parentId) => {
     return api
       .addCommentPost(body, author, parentId)
       .then(data => dispatch(addComment(data)))
-      .then(qty => dispatch(getQtyComments(parentId)))
+      .then(() => dispatch(getQtyComments(parentId, true)))
   }
 }
 
-export const fetchDeleteComment = commentId => {
+export const fetchDeleteComment = (commentId, parentId) => {
   return dispatch => {
-    return api.deleteComment(commentId)
+    return api
+      .deleteComment(commentId)
+      .then(() => dispatch(getQtyComments(parentId, false)))
   }
 }
 
@@ -82,6 +78,6 @@ export const fetchUpdateComment = (body, id) => {
 
 export const fetchVote = (vote, id) => {
   return dispatch => {
-    return api.voteComment(vote, id).then(data => dispatch(getVotes(vote, id)))
+    return api.voteComment(vote, id).then(() => dispatch(getVotes(vote, id)))
   }
 }

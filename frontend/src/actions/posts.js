@@ -1,16 +1,16 @@
 import * as api from '../utils/api'
 
 import {
-  GET_ALL_POSTS,
-  GET_POPULAR_POSTS,
-  GET_POSTS_BY_CATEGORY,
-  GET_POST,
-  GET_POST_VOTES,
-  ADD_POST,
-  UPDATE_POST,
-  REMOVE_POST,
-  PREPARE_POST_FORM,
-  GET_QTY_COMMENTS
+    ADD_POST,
+    GET_ALL_POSTS,
+    GET_POPULAR_POSTS,
+    GET_POST,
+    GET_POST_VOTES,
+    GET_POSTS_BY_CATEGORY,
+    GET_QTY_COMMENTS,
+    PREPARE_POST_FORM,
+    REMOVE_POST,
+    UPDATE_POST
 } from './ActionTypes'
 
 export const getAllPosts = posts => {
@@ -82,10 +82,11 @@ export const preparePostForm = post => {
   }
 }
 
-export const getQtyComments = parentId => {
+export const getQtyComments = (parentId, isAdd) => {
   return {
     type: GET_QTY_COMMENTS,
-    parentId
+    parentId,
+    isAdd
   }
 }
 
@@ -137,7 +138,7 @@ export const fetchVote = (vote, postId) => {
   return dispatch => {
     return api
       .votePost(vote, postId)
-      .then(data => dispatch(getVotes(vote, postId)))
+      .then(() => dispatch(getVotes(vote, postId)))
   }
 }
 
@@ -145,6 +146,6 @@ export const fetchDeletePost = postId => {
   return dispatch => {
     return api
       .deletePost(postId)
-      .then(data => dispatch(removePostFromList(postId)))
+      .then(() => dispatch(removePostFromList(postId)))
   }
 }
