@@ -38,7 +38,7 @@ const defaultData = {
     title: 'How to publish an app on firebase',
     body: mussumIpsum,
     excerpt: mussumIpsum.substr(0, 100) + '...',
-    author: 'Balck Panther',
+    author: 'Black Panther',
     category: 'dev',
     voteScore: 5,
     deleted: false,
