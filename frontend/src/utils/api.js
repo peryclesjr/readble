@@ -1,18 +1,16 @@
-import fetch from 'isomorphic-fetch'
 import uuidv1 from 'uuid/v1'
 
 const URL_API = 'http://localhost:3001'
 
-const token = 'whatever-you-want'
-/*
-  // Can't use localStorage with Jest Test
-  let token = localStorage.token
-  if (!token) {
-    token = localStorage.token = Math.random()
-      .toString(36)
-      .substr(-8)
-  }
-*/
+// const token = 'whatever-you-want'
+
+// Can't use localStorage with Jest Test
+let token = localStorage.token
+if (!token) {
+  token = localStorage.token = Math.random()
+    .toString(36)
+    .substr(-8)
+}
 
 const headers = {
   Accept: 'application/json',
@@ -23,7 +21,7 @@ const headers = {
 export const getAllPosts = () =>
   fetch(`${URL_API}/posts`, { headers }).then(res => res.json())
 
-export const getPopularPosts = qty =>
+export const getPopularPosts = () =>
   fetch(`${URL_API}/posts`, { headers }).then(res => res.json())
 
 export const getPostById = postId =>
@@ -76,7 +74,8 @@ export const addPost = (title, body, author, category) => {
 export const updatePost = (title, body, id) => {
   const payload = {
     title,
-    body
+    body,
+    excerpt: body.length > 100 ? body.substr(0 ,100).trim() : body
   }
   return fetch(`${URL_API}/posts/${id}`, {
     headers,
