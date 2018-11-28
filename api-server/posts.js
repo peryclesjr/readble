@@ -153,7 +153,7 @@ function add(token, post) {
 function vote(token, id, option) {
   return new Promise(res => {
     let posts = getData(token)
-    post = posts[id]
+    let post = posts[id]
     switch (option) {
       case 'upVote':
         post.voteScore = post.voteScore + 1
@@ -201,6 +201,5 @@ module.exports = {
   vote,
   disable,
   edit,
-  getAll,
   incrementCommentCounter
 }

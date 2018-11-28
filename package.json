@@ -28,5 +28,6 @@
   "scripts": {
     "install": "concurrently --kill-others-on-fail \"cd frontend && npm install\" \"cd api-server && npm install\"",
     "start": "concurrently --kill-others-on-fail \"cd frontend && npm run start\" \"node api-server/server\""
-  }
+  },
+  "dependencies": {}
 }
