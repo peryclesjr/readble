@@ -1,11 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import sortBy from 'sort-by'
 import ActionsPost from './ActionsPost'
 import Authorship from '../../components/Authorship'
-import { FaTag } from 'react-icons/lib/fa'
+import {FaTag} from 'react-icons/lib/fa'
 import Pagination from '../../utils/Pagination'
 
 class Posts extends React.Component {
@@ -26,15 +26,13 @@ class Posts extends React.Component {
       items: []
     }
 
-    this.handlePageChange = this.handlePageChange.bind(this)
-    this.handleOrderByChange = this.handleOrderByChange.bind(this)
   }
 
-  handlePageChange(pageOfItems) {
+  handlePageChange = (pageOfItems) => {
     this.setState({ pageOfItems: pageOfItems })
   }
 
-  handleOrderByChange(e) {
+  handleOrderByChange= (e) => {
     this.setState({ orderBy: e.target.value })
     let sortedItems = this.props.posts.sort(sortBy(e.target.value))
     this.setState({ items: sortedItems })

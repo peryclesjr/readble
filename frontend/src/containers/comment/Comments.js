@@ -22,7 +22,6 @@ class Comments extends React.Component {
       bodyComment: ''
     }
 
-    this.handleBodyChange = this.handleBodyChange.bind(this)
   }
 
   vote(vote, id, postId) {
@@ -59,7 +58,7 @@ class Comments extends React.Component {
     }))
   }
 
-  handleBodyChange(e) {
+  handleBodyChange = (e) => {
     this.setState({ bodyComment: e.target.value })
   }
 

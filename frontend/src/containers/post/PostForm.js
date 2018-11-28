@@ -1,8 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { fetchAddPost, fetchUpdatePost } from '../../actions/posts'
+import {fetchAddPost, fetchUpdatePost} from '../../actions/posts'
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -17,31 +17,25 @@ class PostForm extends React.Component {
       body: postData.body || '',
       createUpdateButtonLabel: postData.id ? 'Update Post' : 'Add Post'
     }
-
-    this.handleAuthorChange = this.handleAuthorChange.bind(this)
-    this.handleCategoryChange = this.handleCategoryChange.bind(this)
-    this.handleTitleChange = this.handleTitleChange.bind(this)
-    this.handleBodyChange = this.handleBodyChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleAuthorChange(e) {
+  handleAuthorChange = (e) => {
     this.setState({ author: e.target.value })
   }
 
-  handleTitleChange(e) {
+  handleTitleChange = (e) => {
     this.setState({ title: e.target.value })
   }
 
-  handleBodyChange(e) {
+  handleBodyChange = (e) => {
     this.setState({ body: e.target.value })
   }
 
-  handleCategoryChange(e) {
+  handleCategoryChange = (e) => {
     this.setState({ category: e.target.value })
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault()
 
     const { postData, dispatch } = this.props
