@@ -233,6 +233,19 @@ a {
   background-color: #ccc !important;
 }
 
+.activePage {
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  color: white;
+  font-weight: 800;
+  background-color: black;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
 .page {
   display: inline-block;
   outline: 0;

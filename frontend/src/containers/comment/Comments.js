@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import Modal from 'react-modal'
 import Authorship from '../../components/Authorship'
 import {
-    fetchCommentsByPost,
-    fetchDeleteComment,
-    fetchUpdateComment,
-    fetchVote,
-    removeComment
+  fetchCommentsByPost,
+  fetchDeleteComment,
+  fetchUpdateComment,
+  fetchVote,
+  removeComment
 } from '../../actions/comments'
 import {FaClose, FaEdit, FaThumbsUp, FaTrash} from 'react-icons/lib/fa'
 
@@ -93,7 +93,7 @@ class Comments extends React.Component {
                 <button
                   className="icon"
                   onClick={() => {
-                    this.openUpdateCommentModal({ comment })
+                    this.openUpdateCommentModal({comment})
                   }}
                 >
                   <FaEdit size={18} />

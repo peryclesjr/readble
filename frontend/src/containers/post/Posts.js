@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { FaTag } from 'react-icons/lib/fa'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import {FaTag} from 'react-icons/lib/fa'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import sortBy from 'sort-by'
 import Authorship from '../../components/Authorship'
 import Pagination from '../../utils/Pagination'
@@ -52,11 +52,7 @@ class Posts extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col l12 m12 s12">
-              <select
-                value={orderBy}
-                onChange={this.handleOrderByChange}
-                className="select margin-bottom"
-              >
+              <select value={orderBy} onChange={this.handleOrderByChange} className="select margin-bottom">
                 <option value={this.voteHigh}>Vote Score (high to low)</option>
                 <option value={this.voteLow}>Vote Score (low to high)</option>
                 <option value={this.dateNew}>Date (newest to oldest)</option>
@@ -70,15 +66,14 @@ class Posts extends React.Component {
         </div>
 
         {pageOfItems.map(post => (
-          <div
-            key={post.id}
-            className="card-4 margin-bottom margin-left margin-right white"
-          >
+          <div key={post.id} className="card-4 margin-bottom margin-left margin-right white">
             <div className="container">
               <div className="row">
                 <div className="col l10 m10 s10">
                   <h3>
-                    <b>{post.title}</b>
+                    <Link to={`/${post.category}/${post.id}`}>
+                      <b>{post.title}</b>
+                    </Link>
                   </h3>
                 </div>
                 <div className="col l2 m2 s2">
@@ -95,10 +90,7 @@ class Posts extends React.Component {
                 <div className="row">
                   <div className="col m4 s12">
                     <p>
-                      <Link
-                        to={`/${post.category}/${post.id}`}
-                        className="button padding-large white border"
-                      >
+                      <Link to={`/${post.category}/${post.id}`} className="button padding-large white border">
                         <b>READ MORE »</b>
                       </Link>
                     </p>
@@ -111,11 +103,7 @@ class Posts extends React.Component {
             </div>
           </div>
         ))}
-        <Pagination
-          items={items}
-          orderBy={orderBy}
-          onChangePage={this.handlePageChange}
-        />
+        <Pagination items={items} orderBy={orderBy} onChangePage={this.handlePageChange}/>
       </div>
     )
   }

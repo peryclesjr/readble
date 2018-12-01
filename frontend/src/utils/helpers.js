@@ -1,5 +1,5 @@
 export const formattedTime = timestamp => {
-  const date = new Date(timestamp * 1000)
+  const date = new Date(timestamp)
   const hours = date.getHours()
   const minutes = '0' + date.getMinutes()
   const seconds = '0' + date.getSeconds()
@@ -8,8 +8,7 @@ export const formattedTime = timestamp => {
 
 export const formattedDate = timestamp => {
   const months = [
-    'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
-    'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'
+    'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'
   ]
   const date = new Date(timestamp)
   const day = date.getDate()

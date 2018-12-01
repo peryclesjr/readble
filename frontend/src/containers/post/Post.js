@@ -1,13 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import ActionsPost from './ActionsPost'
 import Comment from '../../components/Comment'
 import NotFound from '../../components/NotFound'
 import Authorship from '../../components/Authorship'
-import { fetchCommentsByPost } from '../../actions/comments'
-import { fetchPost } from '../../actions/posts'
-import { FaTag } from 'react-icons/lib/fa'
+import {fetchCommentsByPost} from '../../actions/comments'
+import {fetchPost} from '../../actions/posts'
+import {FaTag} from 'react-icons/lib/fa'
 
 class Post extends React.Component {
   componentDidMount() {
@@ -28,7 +28,7 @@ class Post extends React.Component {
     const { post } = this.props
     return (
       <div className="container">
-        {post.title ? (
+        {post.id ? (
           <div>
             <div className="card-4 white">
               <div className="container">
@@ -54,7 +54,7 @@ class Post extends React.Component {
               </div>
             </div>
             <div className="row">
-              <div className="margin-top margin-bottom">
+              <div className="margin">
                 <Comment />
               </div>
             </div>
@@ -81,7 +81,7 @@ Post.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  post: state.postDetailed.item || {}
+  post: state.postDetailed.item
 })
 
 export default connect(mapStateToProps)(Post)
