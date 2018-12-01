@@ -39,7 +39,7 @@ class Pagination extends React.Component {
     }
 
     // get new pager object for specified page
-    pager = this.getPager(items.length, page)
+    pager = Pagination.getPager(items.length, page)
 
     // get new page of items from items array
     let pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1)
@@ -51,7 +51,7 @@ class Pagination extends React.Component {
     this.props.onChangePage(pageOfItems)
   }
 
-  getPager(totalItems, currentPage, pageSize) {
+  static getPager(totalItems, currentPage, pageSize) {
     // default to first page
     currentPage = currentPage || 1
 

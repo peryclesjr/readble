@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { fetchAddComment } from '../../actions/comments'
 
-const CommentForm = ({ dispatch, post }) => {
+const CommentForm = ({ dispatch, post_id }) => {
   let body, author
   return (
     <div>
@@ -14,7 +14,7 @@ const CommentForm = ({ dispatch, post }) => {
             return
           }
           const _author = author.value ? author.value : 'Anonymous'
-          dispatch(fetchAddComment(body.value, _author, post.id))
+          dispatch(fetchAddComment(body.value, _author, post_id))
           body.value = ''
           author.value = ''
         }}
@@ -48,11 +48,11 @@ const CommentForm = ({ dispatch, post }) => {
 
 CommentForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired
+  post_id: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => ({
-  post: state.postDetailed.item || '' /* review this default value */
+  post_id: state.postDetailed.item.id
 })
 
 export default connect(mapStateToProps)(CommentForm)

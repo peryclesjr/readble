@@ -74,6 +74,7 @@ class Comments extends React.Component {
               <Authorship
                 author={comment.author}
                 timestamp={comment.timestamp}
+                showTime={true}
               />
             </div>
             <div className="col l4 m4 s6">
