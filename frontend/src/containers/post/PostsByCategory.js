@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import Posts from './Posts'
 import { fetchPostsByCategory } from '../../actions/posts'
+import Posts from './PostList'
 
 class PostsByCategory extends React.Component {
   componentDidMount() {
@@ -19,13 +19,14 @@ class PostsByCategory extends React.Component {
     const { posts } = this.props
     return (
       <div>
-        {posts.length > 0 ? (
-          <Posts posts={posts} />
-        ) : (
-          <h3 className="padding-large">
-            Sorry! There aren't posts in this category.
-          </h3>
-        )}
+        {posts.length > 0
+          ? <Posts posts={posts} />
+          : (
+              <h3 className="padding-large">
+                Sorry! There aren't posts in this category.
+              </h3>
+            )
+        }
       </div>
     )
   }

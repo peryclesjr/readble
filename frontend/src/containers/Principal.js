@@ -2,14 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 
-import Post from './post/Post'
-import Posts from './post/Posts'
-import PostsByCategory from './post/PostsByCategory'
+import { fetchPopularPosts, fetchPosts } from '../actions/posts'
 
 import Menu from '../components/Menu'
 import NotFound from '../components/NotFound'
+import Posts from './post/PostList'
+import PostsByCategory from './post/PostsByCategory'
 
-import { fetchPosts, fetchPopularPosts } from '../actions/posts'
+import Post from './post/PostWrapper'
 
 class Principal extends React.Component {
   componentDidMount() {

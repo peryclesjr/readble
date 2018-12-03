@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import {FaTag} from 'react-icons/lib/fa'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import { FaTag } from 'react-icons/lib/fa'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import sortBy from 'sort-by'
 import Authorship from '../../components/Authorship'
 import Pagination from '../../utils/Pagination'
 import ActionsPost from './ActionsPost'
 
-class Posts extends React.Component {
+class PostList extends React.Component {
   constructor(props) {
     super(props)
 
@@ -109,7 +109,7 @@ class Posts extends React.Component {
   }
 }
 
-Posts.propTypes = {
+PostList.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
       items: PropTypes.shape({
@@ -129,4 +129,4 @@ const mapStateToProps = state => ({
   posts: state.posts.items || []
 })
 
-export default connect(mapStateToProps)(Posts)
+export default connect(mapStateToProps)(PostList)

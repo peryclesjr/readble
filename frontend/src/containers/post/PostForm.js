@@ -1,8 +1,8 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {fetchAddPost, fetchUpdatePost} from '../../actions/posts'
+import React from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { fetchAddPost, fetchUpdatePost } from '../../actions/posts'
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -125,12 +125,7 @@ class PostForm extends React.Component {
 PostForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
   postData: PropTypes.object,
-  categories: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      path: PropTypes.string
-    })
-  ).isRequired
+  categories: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({
