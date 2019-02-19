@@ -13,7 +13,7 @@ const PopularPosts = React.memo(function PopularPosts({ popPosts }) {
     <ul className="ul hoverable white">
       {popPosts.map(post => (
         <li key={post.id} className="padding-16">
-          <Link to={`/post/${post.id}`}>
+          <Link to={`/${post.category}/${post.id}`}>
             <span className="large">{post.title}</span>
           </Link>
         </li>

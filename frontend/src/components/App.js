@@ -12,7 +12,7 @@ const App = () => (
         <Header />
         <div className="container">
           <Switch>
-            <Route path="/posts" component={CRUDPost} />
+            <Route path="/add-post" component={CRUDPost} />
             <Route path="/posts/:id" component={CRUDPost} />
             <Route component={Principal} />
           </Switch>
