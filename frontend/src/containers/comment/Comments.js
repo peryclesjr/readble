@@ -12,6 +12,8 @@ import {
 } from '../../actions/comments'
 import { FaWindowClose, FaEdit, FaThumbsUp, FaTrash } from 'react-icons/fa'
 
+Modal.setAppElement('#root')
+
 class Comments extends React.Component {
   constructor(props) {
     super(props)
