@@ -23,7 +23,7 @@
     "nanodegree"
   ],
   "devDependencies": {
-    "concurrently": "^3.5.1"
+    "concurrently": "^4.1.0"
   },
   "scripts": {
     "install": "concurrently --kill-others-on-fail \"cd frontend && npm install\" \"cd api-server && npm install\"",
