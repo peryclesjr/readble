@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { FaTag } from 'react-icons/lib/fa'
+import { FaTag } from 'react-icons/fa'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import sortBy from 'sort-by'

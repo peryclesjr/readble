@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import FaTags from 'react-icons/lib/fa/tags'
+import { FaTags } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { fetchCategories } from '../actions/categories'
 

@@ -1,10 +1,9 @@
 import PropTypes from "prop-types"
 import React from 'react'
-import { FaTag } from 'react-icons/lib/fa'
+import { FaTag } from 'react-icons/fa'
 import Authorship from '../../components/Authorship'
 import Comment from '../../components/Comment'
 import ActionsPost from './ActionsPost'
-
 
 const PostDetail = ({ post }) => (
   <div>

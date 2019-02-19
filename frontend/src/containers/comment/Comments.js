@@ -10,7 +10,7 @@ import {
   fetchVote,
   removeComment
 } from '../../actions/comments'
-import {FaClose, FaEdit, FaThumbsUp, FaTrash} from 'react-icons/lib/fa'
+import { FaWindowClose, FaEdit, FaThumbsUp, FaTrash } from 'react-icons/fa'
 
 class Comments extends React.Component {
   constructor(props) {
@@ -128,8 +128,7 @@ class Comments extends React.Component {
               className="icon right"
               onClick={this.closeUpdateCommentModal}
             >
-              Close
-              <FaClose size={30} />
+              <FaWindowClose size={30} />
             </button>
             <Authorship author={comment.author} timestamp={comment.timestamp} />
             <h1>{comment.title}</h1>

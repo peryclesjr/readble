@@ -15,7 +15,7 @@ import {
   FaThumbsDown,
   FaEdit,
   FaTrash
-} from 'react-icons/lib/fa'
+} from 'react-icons/fa'
 
 class ActionsPost extends React.Component {
   constructor(props) {
