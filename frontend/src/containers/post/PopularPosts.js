@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { FaHeart } from 'react-icons/fa'
 
-const PopularPosts = ({ popPosts }) => (
-  <div className="card margin">
+const PopularPosts = React.memo(function PopularPosts({ popPosts }) {
+  return <div className="card margin">
     <div className="container padding">
       <h4>
-        <FaHeart /> Popular Posts
+        <FaHeart/> Popular Posts
       </h4>
     </div>
     <ul className="ul hoverable white">
@@ -20,7 +20,7 @@ const PopularPosts = ({ popPosts }) => (
       ))}
     </ul>
   </div>
-)
+})
 
 const mapStateToProps = state => ({
   popPosts: state.popularPosts.items || []

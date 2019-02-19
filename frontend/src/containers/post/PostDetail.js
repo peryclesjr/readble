@@ -5,8 +5,8 @@ import Authorship from '../../components/Authorship'
 import Comment from '../../components/Comment'
 import ActionsPost from './ActionsPost'
 
-const PostDetail = ({ post }) => (
-  <div>
+const PostDetail = React.memo(function PostDetail({ post }) {
+  return <div>
     <div className="card-4 white">
       <div className="container">
         <div className="row">
@@ -36,7 +36,7 @@ const PostDetail = ({ post }) => (
       </div>
     </div>
   </div>
-)
+})
 
 PostDetail.propTypes = {
   post: PropTypes.object.isRequired
