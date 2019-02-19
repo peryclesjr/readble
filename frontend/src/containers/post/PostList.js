@@ -1,12 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { FaTag } from 'react-icons/fa'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import sortBy from 'sort-by'
-import Authorship from '../../components/Authorship'
 import Pagination from '../../utils/Pagination'
-import ActionsPost from './ActionsPost'
+import PostCard from './PostCard'
 
 class PostList extends React.Component {
   constructor(props) {
@@ -65,44 +62,7 @@ class PostList extends React.Component {
           </div>
         </div>
 
-        {pageOfItems.map(post => (
-          <div key={post.id} className="card-4 margin-bottom margin-left margin-right white">
-            <div className="container">
-              <div className="row">
-                <div className="col l10 m10 s10">
-                  <h3>
-                    <Link to={`/${post.category}/${post.id}`}>
-                      <b>{post.title}</b>
-                    </Link>
-                  </h3>
-                </div>
-                <div className="col l2 m2 s2">
-                  <span className="tag light-gray small right">
-                    <FaTag/> {post.category}
-                  </span>
-                </div>
-              </div>
-              <Authorship author={post.author} timestamp={post.timestamp}/>
-              <div className="container">
-                <p>
-                  {post.excerpt}
-                </p>
-                <div className="row">
-                  <div className="col m4 s12">
-                    <p>
-                      <Link to={`/${post.category}/${post.id}`} className="button padding-large white border">
-                        <b>READ MORE »</b>
-                      </Link>
-                    </p>
-                  </div>
-                  <div style={{ paddingTop: 20 }}>
-                    <ActionsPost post={post} classname="col m2 hide-small"/>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+        {pageOfItems.map(post => (<PostCard post={post}/>))}
         <Pagination items={items} orderBy={orderBy} onChangePage={this.handlePageChange}/>
       </div>
     )
