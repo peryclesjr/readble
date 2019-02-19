@@ -62,7 +62,7 @@ class PostList extends React.Component {
           </div>
         </div>
 
-        {pageOfItems.map(post => (<PostCard post={post}/>))}
+        {pageOfItems.map(post => (<PostCard key={post.id} post={post}/>))}
         <Pagination items={items} orderBy={orderBy} onChangePage={this.handlePageChange}/>
       </div>
     )
