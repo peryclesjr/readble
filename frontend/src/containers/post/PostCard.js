@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaTag } from 'react-icons/fa'
 import Authorship from "../../components/Authorship"
 import ActionsPost from "./ActionsPost"
-import renderHTML from 'react-render-html'
+import ReactMarkdown from 'react-markdown'
 
 const PostCard = React.memo(function PostCard({post}) {
   return <div key={post.id} className="card-4 margin-bottom margin-left margin-right white">
@@ -24,9 +24,7 @@ const PostCard = React.memo(function PostCard({post}) {
       </div>
       <Authorship author={post.author} timestamp={post.timestamp}/>
       <div className="container">
-        <p>
-          {renderHTML(post.excerpt)}
-        </p>
+        <ReactMarkdown source={post.excerpt} escapeHtml={false} />
         <div className="row">
           <div className="col m4 s12">
             <p>

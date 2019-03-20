@@ -21,21 +21,16 @@ const CommentForm = ({ dispatch, post_id }) => {
       >
         <div className="row">
           <div className="col l12 m12 s12">
-            <input
-              className="input"
+            <input className="input"
               placeholder="Anonymous"
-              ref={node => { author = node }}
-            />
+              ref={node => { author = node }} />
           </div>
         </div>
         <div className="row">
           <div className="col l12 m12 s12">
-            <textarea
-              className="margin-top"
-              placeholder="Comment"
-              rows="2"
-              ref={node => { body = node }}
-            />
+            <textarea className="margin-top" rows="2"
+              placeholder="You can use **markdown** on this comment."
+              ref={node => { body = node }} />
           </div>
         </div>
         <button className="button margin-top border" type="submit">

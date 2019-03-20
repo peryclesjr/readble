@@ -22,7 +22,6 @@ class PostForm extends React.PureComponent {
   }
 
   handleAuthorChange = (e) => {
-    console.log(e.target.value)
     this.setState({ author: e.target.value })
   }
 

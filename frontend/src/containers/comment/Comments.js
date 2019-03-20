@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import Modal from 'react-modal'
 import Authorship from '../../components/Authorship'
+import ReactMarkdown from 'react-markdown'
 import {
   fetchCommentsByPost,
   fetchDeleteComment,
@@ -10,20 +11,18 @@ import {
   fetchVote,
   removeComment
 } from '../../actions/comments'
-import { FaWindowClose, FaEdit, FaThumbsUp, FaTrash } from 'react-icons/fa'
+import { FaWindowClose, FaEdit, FaThumbsUp, FaThumbsDown, FaTrash } from 'react-icons/fa'
 
 Modal.setAppElement('#root')
 
 class Comments extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {
       updateCommentModalOpen: false,
       comment: {},
       bodyComment: ''
     }
-
   }
 
   vote(vote, id, postId) {
@@ -82,38 +81,32 @@ class Comments extends React.Component {
             <div className="col l4 m4 s6">
               <div className="small right">
                 <span className="badge">{comment.voteScore}</span>
-                <button
-                  className="icon"
-                  onClick={e => {
-                    e.preventDefault()
-                    this.vote('upVote', comment.id, comment.parentId)
-                  }}
-                >
+
+                <button className="icon"
+                  onClick={() => this.vote('upVote', comment.id, comment.parentId)}>
                   <FaThumbsUp size={18} />
                 </button>
 
-                <button
-                  className="icon"
-                  onClick={() => {
-                    this.openUpdateCommentModal({comment})
-                  }}
-                >
+                <button className="icon"
+                  onClick={() => this.vote('downVote', comment.id, comment.parentId)}>
+                  <FaThumbsDown size={18} />
+                </button>
+
+                <button className="icon"
+                  onClick={() => this.openUpdateCommentModal({comment})}>
                   <FaEdit size={18} />
                 </button>
 
-                <button
-                  className="icon"
-                  onClick={e => {
-                    e.preventDefault()
-                    this.delete(comment.id, comment.parentId)
-                  }}
-                >
+                <button className="icon"
+                  onClick={() => this.delete(comment.id, comment.parentId)}>
                   <FaTrash size={18} />
                 </button>
               </div>
             </div>
             <div className="col l12">
-              <div className="margin">{comment.body}</div>
+              <div className="margin">
+                <ReactMarkdown source={comment.body} />
+              </div>
             </div>
           </div>
         ))}
