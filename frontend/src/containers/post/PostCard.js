@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaTag } from 'react-icons/fa'
-import Authorship from "../../components/Authorship";
-import ActionsPost from "./ActionsPost";
+import Authorship from "../../components/Authorship"
+import ActionsPost from "./ActionsPost"
+import renderHTML from 'react-render-html'
 
 const PostCard = React.memo(function PostCard({post}) {
   return <div key={post.id} className="card-4 margin-bottom margin-left margin-right white">
@@ -24,7 +25,7 @@ const PostCard = React.memo(function PostCard({post}) {
       <Authorship author={post.author} timestamp={post.timestamp}/>
       <div className="container">
         <p>
-          {post.excerpt}
+          {renderHTML(post.excerpt)}
         </p>
         <div className="row">
           <div className="col m4 s12">

@@ -6,7 +6,7 @@ import { fetchAddPost, fetchUpdatePost } from '../../actions/posts'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 
-class PostForm extends React.Component {
+class PostForm extends React.PureComponent {
   constructor(props) {
     super(props)
     const { postData } = props
@@ -109,13 +109,17 @@ class PostForm extends React.Component {
                 onChange={this.handleBodyChange}
                 placeholder="Write your post here"
                 required
+                className="margin-bottom"
               />
+            </div>
+
+            <div className="col l12 m12 s12">
+              <button className="button border right" type="submit">
+                {createUpdateButtonLabel}
+              </button>
             </div>
           </div>
 
-          <button className="button border right" type="submit">
-            {createUpdateButtonLabel}
-          </button>
         </form>
 
         {fireRedirect && <Redirect to="/" />}
