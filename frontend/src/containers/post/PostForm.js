@@ -3,6 +3,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { fetchAddPost, fetchUpdatePost } from '../../actions/posts'
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -20,6 +22,7 @@ class PostForm extends React.Component {
   }
 
   handleAuthorChange = (e) => {
+    console.log(e.target.value)
     this.setState({ author: e.target.value })
   }
 
@@ -27,8 +30,8 @@ class PostForm extends React.Component {
     this.setState({ title: e.target.value })
   }
 
-  handleBodyChange = (e) => {
-    this.setState({ body: e.target.value })
+  handleBodyChange = (body) => {
+    this.setState({ body })
   }
 
   handleCategoryChange = (e) => {
@@ -100,12 +103,11 @@ class PostForm extends React.Component {
             </div>
 
             <div className="col l12 m12 s12">
-              <textarea
+              <ReactQuill
+                theme="snow"
                 value={body}
                 onChange={this.handleBodyChange}
-                className="margin-bottom"
                 placeholder="Write your post here"
-                rows="9"
                 required
               />
             </div>

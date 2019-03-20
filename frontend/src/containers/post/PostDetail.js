@@ -4,6 +4,7 @@ import { FaTag } from 'react-icons/fa'
 import Authorship from '../../components/Authorship'
 import Comment from '../../components/Comment'
 import ActionsPost from './ActionsPost'
+import renderHTML from 'react-render-html'
 
 const PostDetail = React.memo(function PostDetail({ post }) {
   return <div>
@@ -23,7 +24,7 @@ const PostDetail = React.memo(function PostDetail({ post }) {
         </div>
         <Authorship author={post.author} timestamp={post.timestamp}/>
         <div className="container">
-          <p>{post.body}</p>
+          <p>{renderHTML(post.body)}</p>
         </div>
         <div className="row margin">
           <ActionsPost post={post} classname="col l3 m3 s6 center"/>
