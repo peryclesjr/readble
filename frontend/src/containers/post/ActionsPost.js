@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 import {
   fetchVote,
   fetchDeletePost,
-  fetchPopularPosts,
   preparePostForm
 } from '../../actions/posts'
 import {
@@ -26,18 +25,25 @@ class ActionsPost extends React.Component {
     }
   }
 
+
+  
+
+
   upVote() {
+
     const { dispatch, post } = this.props
+
     dispatch(fetchVote('upVote', post.id))
-    dispatch(fetchPopularPosts())
+
   }
 
   downVote() {
-    const { dispatch, post } = this.props
-    dispatch(fetchVote('downVote', post.id))
-    dispatch(fetchPopularPosts())
-  }
 
+    const { dispatch, post } = this.props
+
+    dispatch(fetchVote('downVote', post.id))
+
+  }
   update() {
     const { dispatch, post } = this.props
     dispatch(preparePostForm(post))

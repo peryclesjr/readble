@@ -4,7 +4,6 @@ import { comments } from './comments'
 import {
   posts,
   postDetailed,
-  popularPosts,
   updatePost,
   preparePostForm
 } from './posts'
@@ -14,7 +13,6 @@ const nrBlog = combineReducers({
   comments,
   posts,
   postDetailed,
-  popularPosts,
   preparePostForm,
   updatePost,
   categories

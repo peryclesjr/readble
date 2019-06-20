@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 const AddPostButton = React.memo(function AddPostButton({dispatch}) {
   return <div className="container">
-      <Link to="/add-post" className="addPost" onClick={() => dispatch(preparePostForm())}>
+      <Link to="/add-post" className="addPost orange" onClick={() => dispatch(preparePostForm())}>
         <b>Add a Post</b>
       </Link>
     </div>

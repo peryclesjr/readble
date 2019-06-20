@@ -3,7 +3,6 @@ import * as api from '../utils/api'
 import {
     ADD_POST,
     GET_ALL_POSTS,
-    GET_POPULAR_POSTS,
     GET_POST,
     GET_POST_VOTES,
     GET_POSTS_BY_CATEGORY,
@@ -16,13 +15,6 @@ import {
 export const getAllPosts = posts => {
   return {
     type: GET_ALL_POSTS,
-    posts
-  }
-}
-
-export const getPopularPosts = posts => {
-  return {
-    type: GET_POPULAR_POSTS,
     posts
   }
 }
@@ -99,14 +91,6 @@ export const fetchPost = id => {
 export const fetchPosts = () => {
   return dispatch => {
     return api.getAllPosts().then(posts => dispatch(getAllPosts(posts)))
-  }
-}
-
-export const fetchPopularPosts = qty => {
-  return dispatch => {
-    return api
-      .getPopularPosts(qty)
-      .then(posts => dispatch(getPopularPosts(posts)))
   }
 }
 

@@ -9,7 +9,14 @@ class Category extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchCategories())
   }
-  render() {
+
+  boxClick = (e) => {
+    this.setState({
+      color: "red"
+    })
+  }
+
+  render() { 
     return (
       <div className="card margin">
         <div className="container padding">
@@ -20,8 +27,8 @@ class Category extends React.Component {
         <div className="container white">
           <p>
             {this.props.categories.map(cat => (
-              <Link key={cat.path} to={`/${cat.path}`}>
-                <span className="tag light-gray small margin">{cat.name}</span>
+              <Link key={cat.path} to={`/${cat.path}`} >
+                <span className="tag red small margin">{cat.name}</span>
               </Link>
             ))}
           </p>

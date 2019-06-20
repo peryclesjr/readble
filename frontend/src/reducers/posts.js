@@ -2,7 +2,6 @@ import sortBy from 'sort-by'
 import {
     ADD_POST,
     GET_ALL_POSTS,
-    GET_POPULAR_POSTS,
     GET_POST,
     GET_POST_VOTES,
     GET_POSTS_BY_CATEGORY,
@@ -105,16 +104,6 @@ export const postDetailed = (state = { item: {} }, action) => {
   }
 }
 
-export const popularPosts = (state = { items: [] }, action) => {
-  switch (action.type) {
-    case GET_POPULAR_POSTS:
-      return Object.assign({}, state, {
-        items: action.posts.sort(sortBy('-voteScore')).slice(0, 5)
-      })
-    default:
-      return state
-  }
-}
 
 export const updatePost = (state = { item: {} }, action) => {
   switch (action.type) {

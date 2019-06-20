@@ -483,6 +483,15 @@ a {
   background-color: #616161 !important;
 }
 
+.orange{
+  color: #fff !important;
+  background-color: #ff6900 !important;
+}
+.green{
+  color: #fff !important;
+  background-color: #08592a !important;
+}
+
 .small {
   font-size: 12px !important;
 }
