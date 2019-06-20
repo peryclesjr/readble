@@ -1,48 +1,17 @@
-# Readable API Server
+# Front-end
 
-This is the project for the final assessment project for Udacity's Redux course where I built a content and comment web app. Users are able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users are also able to edit and delete posts and comments.
+This is the Frontend project for the final assesment of Udacity React Course. 
 
-This repository includes the code for the backend API Server that I have used to develop and interact with the front-end portion of the project.
+To install and start the frontend, run the following commands in this directory:
 
-## Start Running
+* `npm install`
+* `npm start`
 
-### With concurrently (recommended)
+PS: Please note that you also have to run the `api-server`.
 
-* On root directory project:
-    - `npm install`
-    - `npm start`
+To run the frontend tests, run the following commands inside the `api-server` directory:
 
-### Without concurrently
+* `npm install`
+* `node server`
 
-* Install and start the API server
-    - `cd api-server`
-    - `npm install`
-    - `node server`
-* Install and start the Frontend
-    - `cd frontend`
-    - `npm install`
-    - `npm start`
-* Running tests
-    - From the `frontend` directory and with the `api-server` running, run `npm test`
-
-## API Server
-
-Information about the API server and how to use it can be found in its [README file](api-server/README.md).
-
-## Frontend
-
-Information about the Frontend and how to use it can be found in its [README file](frontend/README.md).
-
-## Contribute
-
-You can help to improve the project by opening Pull Requests (PR) and Issues.
-
-In addition, you can open Issues when you run into problems. In order to make the fix for the Issue as easy as possible, please provide a couple of details such as error log, screenshot, your node version (command line: `node -v`) and a link to your own repository. Not all of these details are mandatory, but most of them help to fix the Issue and to improve.
-
-## Author
-
-* **Alberto Ivo Vieira** - [Github](https://github.com/albertoivo) | [LinkedIn](https://www.linkedin.com/in/alberto-ivo-vieira/)
-
-## License
-
-There is no license. Use it at will. You can even call it your own.
+Perycles Junior

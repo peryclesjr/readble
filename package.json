@@ -1,19 +1,5 @@
 {
-  "name": "ocotocatblogtemplate",
-  "version": "0.2.0",
-  "description": "",
-  "authors": [
-    {
-      "name": "Alberto Ivo Vieira",
-      "email": "albertoivo@gmail.com",
-      "url": "albertoivo.github.io"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/albertoivo/readable-reactnd.git"
-  },
-  "license": "SEE LICENSE IN LICENSE FILE",
+   "license": "SEE LICENSE IN LICENSE FILE",
   "keywords": [
     "udacity",
     "redux",
